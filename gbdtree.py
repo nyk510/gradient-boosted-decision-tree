@@ -2,15 +2,20 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import colors, ticker, cm
 
+def sigmoid(x):
+    return 1./(1. + np.exp(-x))
+
+def logistic_loss(y,t):
+    loss = - (t * np.log(y) + (1-t)*np.log(1-y))
+    return loss
+
 class ObjFunction(object):
     def __init__(self):
         pass
 
-    def loss(self,x,t):
+    def __call__(self,y,t):
         pass
 
-    def taylor(self,x):
-        pass
 
 class Entropy(ObjFunction):
     """
@@ -20,29 +25,13 @@ class Entropy(ObjFunction):
     def __init__(self):
         return
 
-    def sigmoid(self,x):
-        return 1./(1. + np.exp(-x))
-
     def __call__(self,y,t):
-        pred = self.sigmoid(y)
+        pred = sigmoid(y)
         grad = pred - t
         hess = pred * (1. - pred)
         return grad,hess
 
-    def loss(self,y,t):
-        pred = self.sigmoid(y)
-
-        # error rate
-        # loss = np.where((pred > .5) == t,1,0).sum() / len(t)
-
-        loss = - (t * np.log(pred) + (1-t) * np.log(1.-pred)).sum()
-        return loss
-
-def entropy(y,t):
-    return - (t * np.exp(y) + (1.-t) * np.exp(1-y)).sum(axis=0)
-
 class Node(object):
-
     def __init__(self,x,t,grad,hess,lam=1e-4,obj_function=Entropy()):
         self.x = x
         self.t = t
@@ -198,12 +187,14 @@ class Node(object):
 
 class GradientBoostedDT(object):
 
-    def __init__(self,regobj=Entropy()):
+    def __init__(self,regobj=Entropy(),activate=sigmoid):
         self.x = x
         self.t = t
         self.regobj = regobj
+        self.activate = sigmoid
+        self.loss = logistic_loss
 
-    def fit(self,x,t,max_depth=5,gamma=1.,num_iter=20,eta=.1,lam=.01):
+    def fit(self,x,t,max_depth=3,gamma=1.,num_iter=20,eta=.1,lam=.01):
         """
         max_depth: 分割の最大値
         gamma: 木を一つ成長させることに対するペナルティ
@@ -211,7 +202,7 @@ class GradientBoostedDT(object):
         eta: boostingのステップサイズ
         lam: 目的関数の正則化パラメータ
         """
-        
+
         self.max_depth = max_depth
         self.gamma = gamma
         self.eta = eta
@@ -248,19 +239,24 @@ class GradientBoostedDT(object):
         return
 
     def train_loss(self):
-        loss = self.regobj.loss(self.f,self.t)
-        return loss
+        a = self.activate(self.f)
+        loss = self.loss(a,self.t)
+        return loss.sum()
 
     def predict(self,x):
-        retval = np.zeros_like(x[:,0])
+        a = np.zeros_like(x[:,0])
         for i,tree in enumerate(self.trees):
-            retval += self.eta * tree.predict(x)
-        return retval
+            a += self.eta * tree.predict(x)
+        pred = self.activate(a)
+        return pred
 
 
 if __name__ == '__main__':
     np.random.seed = 71
-    x = np.random.normal(loc=.5,size=200).reshape(100,2),np.random.normal(loc=-.5,size=200).reshape(100,2)
+    x = (
+    np.random.normal(loc=.5,scale=1.,size=200).reshape(100,2),
+    np.random.normal(loc=-.5,scale=1.,size=200).reshape(100,2),
+    )
     t = np.zeros_like(x[0]),np.ones_like(x[1])
     x = np.append(x[0],x[1],axis=0)
     t = np.append(t[0],t[1],axis=0)[:,0]
@@ -279,7 +275,7 @@ if __name__ == '__main__':
     yy = np.linspace(start=-4,stop=4,num=50)
     X,Y = np.meshgrid(xx,yy)
     Z = [crf.predict(np.array([a,b]).reshape(1,2))[0] for a in xx for b in yy]
-    Z = 1 / (1. + np.exp(-np.array(Z).reshape(50,50)))
+    Z = np.array(Z).reshape(len(xx),len(yy))
     plt.contourf(X,Y,Z,6,cmap=cm.PuBu_r)
     cbar = plt.colorbar()
 
