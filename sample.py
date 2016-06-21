@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 
-def sample1():
+def regression_sample():
     # regression problem for continuity value t
     # make training data
     sample_size = 100
@@ -13,10 +13,7 @@ def sample1():
 
     x = np.random.normal(scale=1.0,loc=0.0,size=sample_size)
     t = true_func(x) + np.random.normal(scale=.2,size=sample_size)
-    # print(x)
     x = x.reshape(sample_size,1)
-    # t = t.reshape(sample_size,1)
-    print(x.shape)
 
     # GradientBoostedDTの定義
     # 連続変数に対しての回帰問題なｄので
@@ -27,7 +24,6 @@ def sample1():
     clf.fit(x=x,t=t,num_iter=20,gamma=.5)
 
     # plot result of predict accuracy
-
     xx = np.linspace(-2,2,100).reshape(100,1)
     y = clf.predict(xx)
 
@@ -36,10 +32,10 @@ def sample1():
     plt.plot(xx,true_func(xx),"-",label='true function')
     plt.plot(x,t,'o',label='training data')
     plt.legend(loc=4)
-    plt.savefig('regression.png')
+    plt.savefig('experiment_figures/regression.png')
     plt.show()
 
 if __name__ == '__main__':
     sns.set_context('notebook')
     sns.set_style('ticks')
-    sample1()
+    regression_sample()

@@ -2,34 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import colors, ticker, cm
 
-def sigmoid(x):
-    return 1./(1. + np.exp(-x))
-
-def logistic_loss(y,t):
-    loss = - (t * np.log(y) + (1-t)*np.log(1-y))
-    return loss
-
-class ObjFunction(object):
-    def __init__(self):
-        pass
-
-    def __call__(self,y,t):
-        pass
-
-
-class Entropy(ObjFunction):
-    """
-    活性化関数:シグモイド関数
-    ロス関数:交差エントロピー
-    """
-    def __init__(self):
-        return
-
-    def __call__(self,y,t):
-        pred = sigmoid(y)
-        grad = pred - t
-        hess = pred * (1. - pred)
-        return grad,hess
+from functions import *
 
 class Node(object):
     def __init__(self,x,t,grad,hess,lam=1e-4,obj_function=Entropy()):
@@ -187,14 +160,12 @@ class Node(object):
 
 class GradientBoostedDT(object):
 
-    def __init__(self,regobj=Entropy(),activate=sigmoid):
-        self.x = x
-        self.t = t
+    def __init__(self,regobj=Entropy(),loss=logistic_loss):
         self.regobj = regobj
-        self.activate = sigmoid
-        self.loss = logistic_loss
+        self.activate = regobj.activate
+        self.loss = loss
 
-    def fit(self,x,t,max_depth=3,gamma=1.,num_iter=20,eta=.1,lam=.01):
+    def fit(self,x,t,max_depth=8,gamma=1.,num_iter=20,eta=.1,lam=.01):
         """
         max_depth: 分割の最大値
         gamma: 木を一つ成長させることに対するペナルティ
@@ -202,6 +173,8 @@ class GradientBoostedDT(object):
         eta: boostingのステップサイズ
         lam: 目的関数の正則化パラメータ
         """
+        self.x = x
+        self.t = t
 
         self.max_depth = max_depth
         self.gamma = gamma
@@ -261,7 +234,13 @@ if __name__ == '__main__':
     x = np.append(x[0],x[1],axis=0)
     t = np.append(t[0],t[1],axis=0)[:,0]
 
-    crf = GradientBoostedDT(regobj=Entropy())
+    # 二値分類問題なので目的関数を交差エントロピー、活性化関数をシグモイドに設定
+    regobj = Entropy()
+
+    # ロス関数はロジスティクスロス
+    loss = logistic_loss
+
+    crf = GradientBoostedDT(regobj,loss)
     crf.fit(x=x,t=t)
 
     plt.title('seqence of training loss')
@@ -282,4 +261,4 @@ if __name__ == '__main__':
     plt.plot(x[:100,0],x[:100,1],"o")
     plt.plot(x[100:,0],x[100:,1],"o")
 
-    plt.savefig('contour_predict_and_trainingdata.png',dpi=100)
+    plt.savefig('experiment_figures/binary_classification.png',dpi=100)
