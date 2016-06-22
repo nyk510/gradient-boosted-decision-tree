@@ -46,6 +46,7 @@ if __name__ == '__main__':
     plt.title('seqence of training loss')
     plt.plot(clf.loss_log,'o-',label='training loss')
     plt.plot(clf.pred_log,'o-',label='test loss')
+    plt.yscale('log')
     plt.legend()
     plt.show()
 
