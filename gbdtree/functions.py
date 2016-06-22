@@ -9,7 +9,6 @@ def logistic_loss(y,t):
     return loss
 
 def leastsquare(y,t):
-    print(y.shape,t.shape)
     loss = np.linalg.norm(y - t)
     return loss
 
@@ -19,7 +18,6 @@ class ObjFunction(object):
 
     def __call__(self,y,t):
         pass
-
 
 class Entropy(ObjFunction):
     """
@@ -44,5 +42,4 @@ class LeastSquare(ObjFunction):
         pred = self.activate(y)
         grad = 2. * (y-t)
         hess = 2. * np.ones_like(y)
-        print(grad)
         return grad,hess

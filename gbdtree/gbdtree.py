@@ -1,9 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib import colors, ticker, cm
 
-from functions import *
-from logging import getLogger,StreamHandler,FileHandler,Formatter,DEBUG
+from .functions import *
+from logging import getLogger,StreamHandler,FileHandler,Formatter
 
 class Node(object):
 
@@ -11,8 +10,8 @@ class Node(object):
     sh = StreamHandler()
     fmter = Formatter('{asctime}\t{name}\t{message}',style='{')
     sh.setFormatter(fmter)
-    sh.setLevel(DEBUG)
-    logger.setLevel(DEBUG)
+    sh.setLevel('DEBUG')
+    logger.setLevel('DEBUG')
     logger.addHandler(sh)
 
     def __init__(self,x,t,grad,hess,lam=1e-4,obj_function=Entropy()):
@@ -175,7 +174,7 @@ class GradientBoostedDT(object):
     fmter = Formatter('{asctime}\t{name}\t{message}',style='{')
     sh.setFormatter(fmter)
     sh.setLevel('INFO')
-    logger.setLevel(DEBUG)
+    logger.setLevel('DEBUG')
     logger.addHandler(sh)
 
     def __init__(self,regobj=Entropy(),loss=logistic_loss,test_data=None):
@@ -251,42 +250,8 @@ class GradientBoostedDT(object):
         pred = self.activate(a)
         return pred
 
+class GradientBoostedClassifer(GradientBoostedDT):
 
-if __name__ == '__main__':
-    np.random.seed = 71
-    x = (
-    np.random.normal(loc=.5,scale=1.,size=200).reshape(100,2),
-    np.random.normal(loc=-.5,scale=1.,size=200).reshape(100,2),
-    )
-    t = np.zeros_like(x[0]),np.ones_like(x[1])
-    x = np.append(x[0],x[1],axis=0)
-    t = np.append(t[0],t[1],axis=0)[:,0]
-
-    # 二値分類問題なので目的関数を交差エントロピー、活性化関数をシグモイドに設定
-    regobj = Entropy()
-
-    # ロス関数はロジスティクスロス
-    loss = logistic_loss
-
-    crf = GradientBoostedDT(regobj,loss)
-    crf.fit(x=x,t=t)
-
-    plt.title('seqence of training loss')
-    plt.plot(crf.loss_log,'o-',label='training loss')
-    plt.legend()
-    plt.show()
-
-    plt.figure(figsize=(6,6))
-
-    xx = np.linspace(start=-4,stop=4,num=50)
-    yy = np.linspace(start=-4,stop=4,num=50)
-    X,Y = np.meshgrid(xx,yy)
-    Z = [crf.predict(np.array([a,b]).reshape(1,2))[0] for a in xx for b in yy]
-    Z = np.array(Z).reshape(len(xx),len(yy))
-    plt.contourf(X,Y,Z,6,cmap=cm.PuBu_r)
-    cbar = plt.colorbar()
-
-    plt.plot(x[:100,0],x[:100,1],"o")
-    plt.plot(x[100:,0],x[100:,1],"o")
-
-    plt.savefig('experiment_figures/binary_classification.png',dpi=100)
+    def __init__(self,regobj=Entropy(),loss=logistic_loss,test_data=None):
+        super(GradientBoostedClassifer,self).__init__(
+            regobj=Entropy(),loss=logistic_loss,test_data=None)
