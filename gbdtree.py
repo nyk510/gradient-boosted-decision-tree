@@ -3,8 +3,18 @@ import matplotlib.pyplot as plt
 from matplotlib import colors, ticker, cm
 
 from functions import *
+from logging import getLogger,StreamHandler,FileHandler,Formatter,DEBUG
 
 class Node(object):
+
+    logger = getLogger(__name__)
+    sh = StreamHandler()
+    fmter = Formatter('{asctime}\t{name}\t{message}',style='{')
+    sh.setFormatter(fmter)
+    sh.setLevel(DEBUG)
+    logger.setLevel(DEBUG)
+    logger.addHandler(sh)
+
     def __init__(self,x,t,grad,hess,lam=1e-4,obj_function=Entropy()):
         self.x = x
         self.t = t
@@ -68,7 +78,7 @@ class Node(object):
             left_idx = x[:,f_idx] < threshoud
             right_idx = x[:,f_idx] >= threshoud
 
-            print('left:{0}, right:{1}, feature_index:{2}'.format(
+            Node.logger.debug('left:{0}, right:{1}, feature_index:{2}'.format(
                 sum(left_idx),sum(right_idx),f_idx))
 
             l_x,l_t,l_g,l_h = x[left_idx], t[left_idx], self.grad[left_idx], self.hess[left_idx]
@@ -160,12 +170,21 @@ class Node(object):
 
 class GradientBoostedDT(object):
 
-    def __init__(self,regobj=Entropy(),loss=logistic_loss):
+    logger = getLogger(__name__)
+    sh = FileHandler('train_gbdtree.log','w')
+    fmter = Formatter('{asctime}\t{name}\t{message}',style='{')
+    sh.setFormatter(fmter)
+    sh.setLevel('INFO')
+    logger.setLevel(DEBUG)
+    logger.addHandler(sh)
+
+    def __init__(self,regobj=Entropy(),loss=logistic_loss,test_data=None):
         self.regobj = regobj
         self.activate = regobj.activate
         self.loss = loss
+        self.test_data = test_data
 
-    def fit(self,x,t,max_depth=8,gamma=1.,num_iter=20,eta=.1,lam=.01):
+    def fit(self,x,t,max_depth=8,gamma=1.,num_iter=20,eta=.1,lam=.01,verbose='INFO'):
         """
         max_depth: 分割の最大値
         gamma: 木を一つ成長させることに対するペナルティ
@@ -175,6 +194,7 @@ class GradientBoostedDT(object):
         """
         self.x = x
         self.t = t
+        GradientBoostedDT.logger.setLevel(verbose)
 
         self.max_depth = max_depth
         self.gamma = gamma
@@ -184,6 +204,8 @@ class GradientBoostedDT(object):
 
         self.f = np.zeros_like(t)
         self.loss_log = []
+        if self.test_data is not None:
+            self.pred_log = []
 
         for i in range(num_iter):
             # 直前の予測値と目的の値とで勾配とヘシアンを計算
@@ -192,11 +214,11 @@ class GradientBoostedDT(object):
             root_node = Node(x=x,t=t,grad=grad,hess=hess,lam=lam)
 
             for depth in range(max_depth):
-                print('object_value:{0}\n'.format(root_node.get_objval()))
-                print('iterate: {0},\tdepth: {1}'.format(i,depth))
+                GradientBoostedDT.logger.debug('object_value:{0}'.format(root_node.get_objval()))
+                GradientBoostedDT.logger.debug('iterate:{0},\tdepth:{1}'.format(i,depth))
 
                 best_gain = root_node.calculate_bestgain()
-                print('Gain: {0}'.format(best_gain))
+                GradientBoostedDT.logger.debug('Best Gain: {0}'.format(best_gain))
 
                 if best_gain < gamma:
                     break
@@ -206,9 +228,15 @@ class GradientBoostedDT(object):
             self.trees.append(root_node)
             f_i = root_node.predict(x)
             self.f += eta * f_i
-            loss = self.train_loss()
-            self.loss_log.append(loss)
+            t_loss = self.train_loss()
+            GradientBoostedDT.logger.info('iterate:{0}\tloss:{1}'.format(i,t_loss))
+            self.loss_log.append(t_loss)
 
+            if self.test_data is not None:
+                pred = self.predict(self.test_data[0])
+                pred_loss = self.loss(pred,self.test_data[1]).sum()
+                self.pred_log.append(pred_loss)
+                GradientBoostedDT.logger.info('testloss:{0}'.format(pred_loss))
         return
 
     def train_loss(self):

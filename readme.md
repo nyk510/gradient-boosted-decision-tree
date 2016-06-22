@@ -8,7 +8,30 @@
 * numpy
 * seaborn(sample.pyのグラフ表示)
 
-## 回帰の結果の例
+## 数値実験
+
+### MNIST の手書きデータ分類問題
+
+* training data
+  * `MNIST Original`の手書き文字データ
+  * 出力は`{0,1,2,...,9}`の１０クラス
+  * そのままだと時間がかかりすぎるので、二値分類（３と８の分類）で`datasize=2000`になおして実行
+
+* Gradient Boosted Tree のparameters
+  * 目的関数：交差エントロピー
+  * 活性化関数：ロジスティクスシグモイド関数
+
+### 結果
+
+```
+2016-06-23 01:20:01,501	__main__	This is MNIST Original dataset
+2016-06-23 01:20:01,502	__main__	target: 3,8
+2016-06-23 01:20:01,803	__main__	training datasize: 2000
+2016-06-23 01:20:01,803	__main__	test datasize: 11966
+2016-06-23 01:52:45,349	__main__	accuracy:0.9745946849406653
+```
+
+分類精度97.5%を達成
 
 ### 二値分類問題
 
