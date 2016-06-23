@@ -1,14 +1,64 @@
 # Gradient Boosted Decision Tree
 
-木構造のブースティングモデルによる予測器、Gradient Boosted Decision Tree の実装。
+木構造のブースティングモデルによる予測器、Gradient Boosted Decision Treeの`python`による実装。
 
-## 必要なライブラリ
+## 参考文献
+
+Introduction to Boosted Trees  
+http://xgboost.readthedocs.io/en/latest/model.html
+
+## Table of Contents
+
+* 必要なもの (Requirement)
+* 使い方 (Usage)
+* 実際の例 (Example)
+  * MNISTの分類（binary_classification)
+  * 人工データによる分類（二値分類、回帰問題）
+
+## 必要なもの
+
+現在使用しているpythonのバージョン及び内部で使用しているライブラリについて。
+
+### version
+
+Anaconda3を利用しています。現在.pyをencoding指定していないので、python2系だとutf8のエラーが出ると思います。なのでできればpython3系で使ってください。
+
+```python
+>>> import sys
+>>> sys.version
+'3.5.1 |Anaconda 4.0.0 (64-bit)| (default, Dec  7 2015, 11:16:01) \n[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]'
+
+```
+### Coreライブラリ
 
 * matplotlib
 * numpy
-* seaborn(sample.pyのグラフ表示)
+* scikit-learn
 
-## 数値実験
+### サンプルを動かすのに必要なもの
+
+* pandas(dataframeにしてcsvを作るため)
+* seaborn(各種グラフ表示のため)
+
+## 使い方
+
+`git clone`もしくはdownloadしたフォルダを実行ファイルと同じ階層に置きます
+
+```python
+import gbdtree as gb
+
+clf = gb.GradientBoostedDT()
+x_train,t_train = ~~ # 適当なトレーニングデータ
+clf.fit(x=x_train,t=t_train)
+```
+
+## 実際の例 （Examples)
+
+`mnist.py`と`sample.py`とにサンプルを用意しました。ダウンロードした後に`python mnist.py`とかすると動くと思います。
+
+#### Note
+
+`mnist.py`ではMNISTの手書きデータ・セットをネット上から取得するので、ローカルにデータを持っていない場合にかなり時間がかかる場合があります。また学習時間もパラメータをデフォルトのままで行うと30分ぐらいかかります。計算を投げてご飯でも食べに行きましょう。
 
 ### MNIST の手書きデータ分類問題
 
@@ -31,7 +81,7 @@
 2016-06-23 01:52:45,349	__main__	accuracy:0.9745946849406653
 ```
 
-分類精度97.5%を達成
+分類精度97.5%を達成(でもめっちゃ時間かかる...)
 
 ### 二値分類問題
 
