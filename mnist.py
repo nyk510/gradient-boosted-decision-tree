@@ -23,11 +23,7 @@ if __name__ == '__main__':
     logger.debug('finish fetch datasets')
 
     # target of image number.
-<<<<<<< HEAD:mnist.py
     # note: it is difficult problem to decide 3 or 8.
-=======
-    # note: it is difficult problem to decide 3 or 8
->>>>>>> 9bea2f2... Renama main.py to mnist.py:mnist.py
     target = 3,8,
     logger.info('target: {0},{1}'.format(*target))
 
