@@ -48,14 +48,18 @@ class Node(object):
         else:
             return self.y
 
-    def get_loss_value(self,grad,hess):
-        """勾配、ヘシアン情報から、二次近似されたロス関数の値を計算します
+    def calculate_objval(self,grad,hess):
+        """勾配、ヘシアン情報から、二次近似された objetive function の値を計算します
         """
         obj_val = - grad.sum() ** 2. / (self.lam + hess.sum()) / 2.
         return obj_val
 
-    def get_children_loss(self,idx):
-        return self.get_loss_value(self.grad[idx],self.hess[idx])
+    def calculate_index_obj(self,idx):
+        """自分の持っているデータの中の一部を使ってobjective functionの値を計算
+
+        idx: 求めたいgrad及びhessのindex lo
+        """
+        return self.calculate_objval(self.grad[idx],self.hess[idx])
 
     def build(self,best_gain):
         """best_gainと同じ値を持つノードを成長させます
@@ -110,23 +114,24 @@ class Node(object):
             self.best_gain = max(l,r)
             return self.best_gain
 
-        # 子ノードがいなくてもすでに計算したことがあればそれを使う
+        # 以下はすべて末端ノード
+        # 計算済みであればそれを返す
         if self.already_calulated_gain:
             return self.best_gain
 
-        # 自分が末端ノードのときは分割を行ったときのgainを計算
+        # 以下は計算していない末端ノード
         # いろいろ初期化
-        best_gain = 0.
-        best_threshoud = None
-        best_feature_idx = None
+        self.best_gain = 0.
+        self.best_threshoud = None
+        self.best_feature_idx = None
+
+        # 自分に属するデータが１つしかないときこれ以上分割できないので終了
+        if self.num_data <= 1:
+            return self.best_gain
 
 
         # すべての特徴量で、分割の最適化を行って最も良い分割を探索
         for f_idx in range(self.num_feature):
-
-            # data数が1でこれ以上分割できないときはそのまま終了
-            if self.num_data <= 1:
-                break
 
             # ユニークなデータ点とその中間点を取得
             # 中間点は分類するときの基準値 threshoud を決定するために使う
@@ -138,30 +143,26 @@ class Node(object):
                 # print('feature_index: {0}'.format(f_idx))
                 left_idx = self.x[:,f_idx] < threshoud
                 right_idx = self.x[:,f_idx] >= threshoud
-                loss_left = self.get_children_loss(idx=left_idx)
-                loss_right = self.get_children_loss(idx=right_idx)
+                loss_left = self.calculate_index_obj(idx=left_idx)
+                loss_right = self.calculate_index_obj(idx=right_idx)
                 gain = self.loss - loss_left - loss_right
 
-                if best_gain < gain:
-                    best_gain = gain
-                    best_threshoud = threshoud
-                    best_feature_idx = f_idx
+                if self.best_gain < gain:
+                    self.best_gain = gain
+                    self.best_threshoud = threshoud
+                    self.best_feature_idx = f_idx
 
-        self.best_gain = best_gain
-        self.best_feature_idx = best_feature_idx
-        self.best_threshoud = best_threshoud
-
-        # 一度計算したら再度分割されるまでは同じなのでスキップさせる
+        # 一度計算したら再度分割されるまでは同じなのでスキップさせるflagを立てる
         self.already_calulated_gain = True
 
-        return best_gain
+        return self.best_gain
 
     def get_objval(self):
         if self.has_children:
             return self.left.get_objval() + self.right.get_objval()
 
         # 末端ノードの時真面目に計算
-        loss = self.get_loss_value(grad=self.grad,hess=self.hess)
+        loss = self.calculate_objval(grad=self.grad,hess=self.hess)
         return loss
 
     def show_network(self):
@@ -193,6 +194,8 @@ class GradientBoostedDT(object):
         """
         self.x = x
         self.t = t
+        self.verbose = verbose
+        Node.logger.setLevel(verbose)
         GradientBoostedDT.logger.setLevel(verbose)
 
         self.max_depth = max_depth
@@ -251,7 +254,7 @@ class GradientBoostedDT(object):
         else:
             logger.warning('the number of trees is out of index')
             raise
-        
+
         a = np.zeros_like(x[:,0])
         for i,tree in enumerate(trees):
             a += self.eta * tree.predict(x)
