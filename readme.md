@@ -2,10 +2,13 @@
 
 木構造のブースティングモデルによる予測器、Gradient Boosted Decision Treeの`python`による実装。
 
+
 ## 参考文献
 
 Introduction to Boosted Trees  
 http://xgboost.readthedocs.io/en/latest/model.html
+
+中身でなにをやってるかに関しては [Gradient Boosted Tree (Xgboost) の取り扱い説明書](http://qiita.com/nykergoto/items/7922a8a3c1a7b622b935) でちょっと書きました。
 
 ## Table of Contents
 
