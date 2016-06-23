@@ -1,12 +1,7 @@
 # Gradient Boosted Decision Tree
 
-<<<<<<< HEAD
 木構造のブースティングモデルによる予測器、Gradient Boosted Decision Treeの`python`による実装。
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 1de8035... Modify readme.md
 ## 参考文献
 
 Introduction to Boosted Trees  
