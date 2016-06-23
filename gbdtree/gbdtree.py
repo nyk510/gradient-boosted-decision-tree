@@ -243,9 +243,17 @@ class GradientBoostedDT(object):
         loss = self.loss(a,self.t)
         return loss.sum()
 
-    def predict(self,x):
+    def predict(self,x,num_tree=None):
+        if num_tree is None:
+            trees = self.trees
+        elif num_tree <= len(self.trees) and num_tree >= 1:
+            trees = self.trees[:num_tree]
+        else:
+            logger.warning('the number of trees is out of index')
+            raise
+        
         a = np.zeros_like(x[:,0])
-        for i,tree in enumerate(self.trees):
+        for i,tree in enumerate(trees):
             a += self.eta * tree.predict(x)
         pred = self.activate(a)
         return pred
