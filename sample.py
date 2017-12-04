@@ -2,41 +2,62 @@
 """
 import matplotlib.pyplot as plt
 import numpy as np
-import seaborn as sns
 from matplotlib import cm
+from matplotlib import colors
 from sklearn.cross_validation import train_test_split
 
 import gbdtree as gb
 
+color_map = colors.Colormap("Set1")
 
-def regression_sample():
-    # regression problem for continuity value t
-    # make training data
-    sample_size = 100
+
+def generate_continuous_data(true_function="default", x_scale=2., num_samples=100, noise_scale=.2, seed=71):
+    """
+    連続関数に対する人工データを作成
+    :param () => | str true_function:
+    :param float x_scale:
+    :param int num_samples:
+    :param float noise_scale:
+    :param int seed:
+    :return:
+    :rtype (np.ndarray, np.ndarray)
+    """
+    np.random.seed(seed)
+    if true_function == "default":
+        true_function = np.sin
+    x = np.linspace(-x_scale, x_scale, num_samples)
+    t = true_function(x) + np.random.normal(loc=0., scale=noise_scale, size=num_samples)
+    return x, t
+
+
+def regression_sample(x_scale=3.):
+    """
+    regression problem for continuous targets
+    :return:
+    """
     true_func = np.sin
-    np.random.seed(71)
-
-    x = np.linspace(-2, 2, sample_size)
-    t = true_func(x) + np.random.normal(scale=.2, size=sample_size)
-    x = x.reshape(sample_size, 1)
+    x, t = generate_continuous_data(true_function=true_func, x_scale=x_scale)
 
     # GradientBoostedDTの定義
     # 連続変数に対しての回帰問題なｄので
     # 目的関数：二乗ロス（LeastSquare)
     # 活性化関数：恒等写像（f(x)=x)
     # 今の当てはまりがどの程度なのか評価するロス関数に二乗ロス関数を与える
-    clf = gb.GradientBoostedDT(regobj=gb.LeastSquare(), loss=gb.leastsquare)
-    clf.fit(x=x, t=t, max_depth=8, num_iter=20, gamma=.5)
+    clf = gb.GradientBoostedDT(regobj=gb.LeastSquare(), loss=gb.least_square, max_depth=8, num_iter=30, gamma=.5)
+    clf.fit(x=x, t=t)
 
     # plot result of predict accuracy
-    xx = np.linspace(-2, 2, 100).reshape(100, 1)
+    xx = np.linspace(-x_scale, x_scale, 100).reshape(100, 1)
     y = clf.predict(xx)
-
+    print(color_map)
     plt.figure(figsize=(6, 6))
-    plt.plot(xx, y, "-", label='predict')
-    plt.plot(xx, true_func(xx), "-", label='true function')
-    plt.plot(x, t, 'o', label='training data')
+    plt.plot(xx, y, "-", label='Predict', color="C0")
+    plt.plot(xx, true_func(xx), "--", label='True Function', color="C1")
+    plt.scatter(x, t, s=50, label='Training Data', linewidth=1., edgecolors="C1", color="white")
     plt.legend(loc=4)
+    plt.title("Regression for Continuous Targets")
+    plt.xlabel("Input")
+    plt.ylabel("Target")
     plt.savefig('experiment_figures/regression.png')
     plt.show()
 
@@ -56,17 +77,19 @@ def binary_classification_sample():
     x_train, x_test, t_train, t_test = train_test_split(x, t, test_size=.3, random_state=71)
 
     # 二値分類問題なので目的関数を交差エントロピー、活性化関数をシグモイドに設定
-    regobj = gb.Entropy()
+    regobj = gb.CrossEntropy()
 
     # ロス関数はロジスティクスロス
     loss = gb.logistic_loss
 
-    clf = gb.GradientBoostedDT(regobj, loss, test_data=(x_test, t_test))
-    clf.fit(x=x_train, t=t_train, max_depth=4, gamma=.1, lam=1e-2, eta=.1, num_iter=40)
+    clf = gb.GradientBoostedDT(regobj, loss, max_depth=4, gamma=.1, lam=1e-2, eta=.1, num_iter=40)
+    clf.fit(x=x_train, t=t_train, valid_data=(x_test, t_test))
 
-    plt.title('seqence of training loss')
-    plt.plot(clf.loss_log, 'o-', label='training loss')
-    plt.plot(clf.pred_log, 'o-', label='test loss')
+    plt.title('Training Transitions')
+    plt.plot(clf.loss_log, 'o-', label='Training Loss')
+    plt.plot(clf.pred_log, 'o-', label='Validation Loss')
+    plt.xlabel("Iterations")
+    plt.ylabel("Loss Function")
     plt.legend()
     plt.show()
 
@@ -79,19 +102,18 @@ def binary_classification_sample():
     Z = np.array(Z).reshape(len(xx), len(yy))
     plt.contourf(X, Y, Z, 6, cmap=cm.PuBu_r)
     cbar = plt.colorbar()
-    plt.plot(x[:200, 0], x[:200, 1], "o")
-    plt.plot(x[200:, 0], x[200:, 1], "o")
+    plt.plot(x[:200, 0], x[:200, 1], "o", label="t = 0")
+    plt.plot(x[200:, 0], x[200:, 1], "o", label="t = 1")
+    plt.legend()
     plt.savefig('experiment_figures/binary_classification.png', dpi=100)
 
     pred_prob = clf.predict(x_test)
     pred_t = np.where(pred_prob >= .5, 1, 0)
     acc = np.where(pred_t == t_test, 1, 0).sum() / len(t_test)
-    acc_str = 'test accuracy:{0}'.format(acc)
+    acc_str = 'test accuracy:{0:.2f}'.format(acc)
     print(acc_str)
 
 
 if __name__ == '__main__':
-    sns.set_context('notebook')
-    sns.set_style('ticks')
     regression_sample()
     binary_classification_sample()
