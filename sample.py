@@ -33,6 +33,7 @@ def generate_continuous_data(true_function="default", x_scale=2., num_samples=10
 def regression_sample(x_scale=3.):
     """
     regression problem for continuous targets
+    :param float x_scale: データのスケール. [-x_scale, x_scale] の範囲のデータを生成する.
     :return:
     """
     true_func = np.sin

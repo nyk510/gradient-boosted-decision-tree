@@ -47,7 +47,6 @@ class Node(object):
         # predict values clustered in this node.
         self.y = - grad.sum() / (lam + hess.sum())
 
-        # optimal lossfunction value.
         self.loss = self.calculate_children_objective()
 
         self.best_gain = 0.
@@ -67,7 +66,8 @@ class Node(object):
             return self.y
 
     def calculate_objective_value(self, grad, hess):
-        """勾配、ヘシアン情報から、二次近似された objetive function の値を計算
+        """
+        勾配、ヘシアン情報から、二次近似された objetive function の値を計算
         """
         obj_val = - grad.sum() ** 2. / (self.lam + hess.sum()) / 2.
         return obj_val
@@ -118,10 +118,6 @@ class Node(object):
         """
         自分以下のノードが分割されたときの最も良いgainの値を計算して、それを返す
         末端のノードの際にはそれに加えてどの特徴indexで閾値を幾つで分割すれば良いかも同時に保存
-        updateされるパラメータ
-        best_gain
-        best_feature_idx: 最も良い分割を与えるindex
-        best_threshold: 最も良い分割を与える閾値
         """
 
         # 親ノードのとき子ノードに計算を再起的に呼び出し
@@ -170,6 +166,11 @@ class Node(object):
         return self.best_gain
 
     def calculate_children_objective(self):
+        """
+        自分の持っているノードすべての目的関数を計算する
+        :return: 目的関数値
+        :rtype float
+        """
         if self.has_children:
             return self.left.calculate_children_objective() + self.right.calculate_children_objective()
 
@@ -195,7 +196,9 @@ class GradientBoostedDT(object):
                  ):
         """
         :param str | Objective regobj:
-        :param str | () => loss:
+            回帰する目的関数 or それを表す文字列. (文字列は今は `cross_entropy` のみに対応)
+            要するに call した時に (grad, hess) の tuple を返す必要がある.
+        :param str | () => loss: ロス関数. `logistic` or callable object
         :param int max_depth: 分割の最大値
         :param float gamma: 木を一つ成長させることに対するペナルティ
         :param int num_iter: boostingを繰り返す回数
@@ -230,8 +233,8 @@ class GradientBoostedDT(object):
 
     def fit(self, x, t, valid_data=None, verbose=1):
         """
-        :param np.ndarray x:
-        :param np.ndarray t:
+        :param np.ndarray x: 特徴量の numpy array. shape = (n_samples, n_features)
+        :param np.ndarray t: 目的変数の numpy array. shape = (n_samples, )
         :param [np.ndarray, np.ndarray] | None valid_data:
             (x, t) で構成された validation data. None 以外が与えら得た時各 iteration ごとにこのデータを用いて validation loss を計算する.
         :param int verbose:
