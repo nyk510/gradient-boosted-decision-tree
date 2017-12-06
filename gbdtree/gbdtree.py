@@ -2,7 +2,7 @@ from logging import getLogger, StreamHandler, FileHandler, Formatter
 
 import numpy as np
 
-from .functions import *
+from .functions import Entropy
 
 logger = getLogger(__name__)
 sh = StreamHandler()
@@ -14,7 +14,7 @@ logger.addHandler(sh)
 
 
 class Node(object):
-    def __init__(self, x, t, grad, hess, lam=1e-4, obj_function=Entropy()):
+    def __init__(self, x, t, grad, hess, lam=1e-4, obj_function="entropy"):
         """
 
         :param x:
@@ -62,15 +62,17 @@ class Node(object):
             return self.y
 
     def calculate_objval(self, grad, hess):
-        """勾配、ヘシアン情報から、二次近似された objetive function の値を計算
         """
+        勾配、ヘシアン情報から、二次近似された objective function の値を計算
+        """
+
         obj_val = - grad.sum() ** 2. / (self.lam + hess.sum()) / 2.
         return obj_val
 
     def calculate_index_obj(self, idx):
-        """自分の持っているデータの中の一部を使ってobjective functionの値を計算
-
-        idx: 求めたいgrad及びhessのindex lo
+        """
+        自分の持っているデータの中の一部を使ってobjective functionの値を計算
+        :param np.ndarray idx: 求めたい grad 及び hessian の index
         """
         return self.calculate_objval(self.grad[idx], self.hess[idx])
 
@@ -87,12 +89,12 @@ class Node(object):
 
         elif self.has_children is False:
             self.feature = f_idx = self.best_feature_idx
-            self.threshold = threshoud = self.best_threshold
+            self.threshold = threshold = self.best_threshold
             x = self.x
             t = self.t
 
-            left_idx = x[:, f_idx] < threshoud
-            right_idx = x[:, f_idx] >= threshoud
+            left_idx = x[:, f_idx] < threshold
+            right_idx = x[:, f_idx] >= threshold
 
             logger.debug('left:{0}, right:{1}, feature_index:{2}'.format(
                 sum(left_idx), sum(right_idx), f_idx))
@@ -104,12 +106,7 @@ class Node(object):
             self.right = Node(x=r_x, t=r_g, grad=r_g, hess=r_h)
             self.has_children = True
             self.already_calculated_gain = False
-
             return
-
-        else:
-            print('buildがうまく行っていません')
-            raise
 
     def calculate_best_gain(self):
         """
@@ -134,8 +131,6 @@ class Node(object):
             return self.best_gain
 
         # 以下は計算していない末端ノード
-        # いろいろ初期化
-
         # 自分に属するデータが１つしかないときこれ以上分割できないので終了
         if self.num_data <= 1:
             return self.best_gain
@@ -168,6 +163,11 @@ class Node(object):
         return self.best_gain
 
     def get_objval(self):
+        """
+        自分の持っているノードの目的関数値を計算する. 
+        子供ノードがない場合, 計算を実行する
+        :return: 
+        """
         if self.has_children:
             return self.left.get_objval() + self.right.get_objval()
 
