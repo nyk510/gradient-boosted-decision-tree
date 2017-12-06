@@ -25,7 +25,7 @@ class Node(object):
         self.x = x
         self.t = t
         self.grad = grad
-        self.hess = hess
+        self.hess = hess 
         self.lam = lam
 
         if obj_function == "cross_entropy":
@@ -200,7 +200,9 @@ class GradientBoostedDT(object):
             要するに call した時に (grad, hess) の tuple を返す必要がある.
         :param str | () => loss: ロス関数. `logistic` or callable object
         :param int max_depth: 分割の最大値
-        :param float gamma: 木を一つ成長させることに対するペナルティ
+        :param float gamma: 
+            木を一つ成長させることに対するペナルティ. 
+            gain の値が gamma を超えない場合木の分割を stop する. 
         :param int num_iter: boostingを繰り返す回数
         :param float eta: boostingのステップサイズ
         :param float lam: 目的関数の正則化パラメータ
