@@ -45,15 +45,15 @@ if __name__ == '__main__':
 
     # setup regression object for training and
     # loss function for evaluating the predict quarity
-    regobj = fn.Entropy()
+    regobj = fn.CrossEntropy()
     loss = fn.logistic_loss
 
     clf = gb.GradientBoostedDT(regobj, loss, test_data=(x_test, t_test))
     clf.fit(x_train, t_train, num_iter=30, eta=.4)
 
     plt.title('seqence of training and test loss')
-    plt.plot(clf.loss_log, 'o-', label='training loss')
-    plt.plot(clf.pred_log, 'o-', label='test loss')
+    plt.plot(clf.training_loss, 'o-', label='training loss')
+    plt.plot(clf.validation_loss, 'o-', label='test loss')
     plt.yscale('log')
     plt.legend()
     plt.show()

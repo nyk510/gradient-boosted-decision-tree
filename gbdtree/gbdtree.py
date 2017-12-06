@@ -231,8 +231,8 @@ class GradientBoostedDT(object):
         self.num_iter = num_iter
         self.eta = eta
         self.lam = lam
-        self.loss_log = None
-        self.pred_log = None
+        self.training_loss = None
+        self.validation_loss = None
         self.f = None
 
     def fit(self, x, t, valid_data=None, verbose=1):
@@ -252,9 +252,9 @@ class GradientBoostedDT(object):
         if (len(x.shape) == 1):
             x = x.reshape(-1, 1)
         self.f = np.zeros_like(t)
-        self.loss_log = []
+        self.training_loss = []
         if valid_data is not None:
-            self.pred_log = []
+            self.validation_loss = []
 
         for i in range(self.num_iter):
             # 直前の予測値と目的の値とで勾配とヘシアンを計算
@@ -279,13 +279,13 @@ class GradientBoostedDT(object):
             self.f += self.eta * f_i
             train_loss = self._current_train_loss(t)
             logger.info('iterate:{0}\tloss:{1:.2f}'.format(i, train_loss))
-            self.loss_log.append(train_loss)
+            self.training_loss.append(train_loss)
 
             if valid_data is not None:
                 valid_x, valid_t = valid_data
                 pred = self.predict(valid_x)
                 pred_loss = self.loss(pred, valid_t).sum()
-                self.pred_log.append(pred_loss)
+                self.validation_loss.append(pred_loss)
                 logger.info('testloss:\t{0:.2f}'.format(pred_loss))
         return self
 
