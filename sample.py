@@ -39,28 +39,36 @@ def regression_sample(x_scale=3.):
     true_func = np.sin
     x, t = generate_continuous_data(true_function=true_func, x_scale=x_scale)
 
-    # GradientBoostedDTの定義
-    # 連続変数に対しての回帰問題なｄので
-    # 目的関数：二乗ロス（LeastSquare)
-    # 活性化関数：恒等写像（f(x)=x)
-    # 今の当てはまりがどの程度なのか評価するロス関数に二乗ロス関数を与える
-    clf = gb.GradientBoostedDT(regobj=gb.LeastSquare(), loss=gb.least_square, max_depth=8, num_iter=30, gamma=.5)
-    clf.fit(x=x, t=t)
+    trained_models = []
+    iteration_dist = [5, 10, 20, 40]
+    for n_iter in iteration_dist:
+        # GradientBoostedDTの定義
+        # 連続変数に対しての回帰問題なので
+        # 目的関数：二乗ロス（LeastSquare)
+        # 活性化関数：恒等写像（f(x)=x)
+        # 今の当てはまりがどの程度なのか評価するロス関数に二乗ロス関数を与える
+        rmse_objective = gb.LeastSquare()
+        loss_function = gb.functions.least_square
+        clf = gb.GradientBoostedDT(
+            regobj=rmse_objective, loss=loss_function, 
+            max_depth=8, num_iter=n_iter, gamma=.01, lam=.1, eta=.1)
+        clf.fit(x=x, t=t)
+        trained_models.append(clf)
 
     # plot result of predict accuracy
-    xx = np.linspace(-x_scale, x_scale, 100).reshape(100, 1)
-    y = clf.predict(xx)
-    print(color_map)
-    plt.figure(figsize=(6, 6))
-    plt.plot(xx, y, "-", label='Predict', color="C0")
-    plt.plot(xx, true_func(xx), "--", label='True Function', color="C1")
-    plt.scatter(x, t, s=50, label='Training Data', linewidth=1., edgecolors="C1", color="white")
-    plt.legend(loc=4)
-    plt.title("Regression for Continuous Targets")
-    plt.xlabel("Input")
-    plt.ylabel("Target")
-    plt.savefig('experiment_figures/regression.png')
-    plt.show()
+    x_test = np.linspace(-x_scale, x_scale, 100).reshape(100, 1)
+    fig = plt.figure(figsize=(6, 6))
+    ax_i = fig.add_subplot(1, 1, 1)
+    ax_i.plot(x_test, true_func(x_test), "--", label='True Function', color="C0")
+    ax_i.scatter(x, t, s=50, label='Training Data', linewidth=1., edgecolors="C0", color="white")
+    ax_i.set_xlabel("Input")
+    ax_i.set_ylabel("Target")
+    for i, (n_iter, model) in enumerate(zip(iteration_dist, trained_models)):
+        y = model.predict(x_test)
+        ax_i.plot(x_test, y, "-", label='n_iter: {}'.format(n_iter), color="C{}".format(i + 1))
+    ax_i.legend(loc=4)
+    ax_i.set_title("iteration transition")
+    fig.savefig('experiment_figures/regression.png')
 
 
 def binary_classification_sample():
@@ -86,13 +94,15 @@ def binary_classification_sample():
     clf = gb.GradientBoostedDT(regobj, loss, max_depth=4, gamma=.1, lam=1e-2, eta=.1, num_iter=40)
     clf.fit(x=x_train, t=t_train, valid_data=(x_test, t_test))
 
-    plt.title('Training Transitions')
-    plt.plot(clf.loss_log, 'o-', label='Training Loss')
-    plt.plot(clf.pred_log, 'o-', label='Validation Loss')
-    plt.xlabel("Iterations")
-    plt.ylabel("Loss Function")
-    plt.legend()
-    plt.show()
+    fig = plt.figure(figsize=(6, 6))
+    ax = fig.add_subplot(1, 1, 1)
+    ax.set_title('Training Transitions')
+    ax.plot(clf.loss_log, 'o-', label='Training Loss')
+    ax.plot(clf.pred_log, 'o-', label='Validation Loss')
+    ax.set_xlabel("Iterations")
+    ax.set_ylabel("Loss Function")
+    ax.legend()
+    fig.savefig("experiment_figures/training_transitions.png", dpi=150)
 
     plt.figure(figsize=(6, 6))
 
