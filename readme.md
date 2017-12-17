@@ -4,10 +4,10 @@
 
 ## 参考文献
 
-Introduction to Boosted Trees  
-http://xgboost.readthedocs.io/en/latest/model.html
-
-中身でなにをやってるかに関しては [Gradient Boosted Tree (Xgboost) の取り扱い説明書](http://qiita.com/nykergoto/items/7922a8a3c1a7b622b935) でちょっと書きました。
+* Introduction to Boosted Trees   
+    * http://xgboost.readthedocs.io/en/latest/model.html
+* [Gradient Boosted Tree (Xgboost) の取り扱い説明書](http://qiita.com/nykergoto/items/7922a8a3c1a7b622b935)
+    * Gradient Boosting のアルゴリズムの詳細
 
 ## Table of Contents
 
@@ -29,8 +29,8 @@ Anaconda3を利用しています。現在.pyをencoding指定していないの
 >>> import sys
 >>> sys.version
 '3.5.1 |Anaconda 4.0.0 (64-bit)| (default, Dec  7 2015, 11:16:01) \n[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)]'
-
 ```
+
 ### Coreライブラリ
 
 * matplotlib
@@ -110,9 +110,8 @@ MNIST の手書きデータを用いた分類問題をときます。
   * 目的関数：交差エントロピー
   * 活性化関数：ロジスティクスシグモイド関数
 
-#### Note
-
-`mnist.py` ではMNISTの手書きデータ・セットをネット上から取得するので、ローカルにデータを持っていない場合にかなり時間がかかる場合があります。また学習時間もパラメータをデフォルトのままで行うと30分ぐらいかかります。計算を投げてご飯でも食べに行きましょう。
+> Note:  
+> `mnist.py` ではMNISTの手書きデータ・セットをネット上から取得するので、ローカルにデータを持っていない場合にかなり時間がかかる場合があります。また学習時間もパラメータをデフォルトのままで行うと30分ぐらいかかります。計算を投げてご飯でも食べに行きましょう。
 
 #### 結果
 
