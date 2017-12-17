@@ -55,7 +55,6 @@ def regression_sample(x_scale=3.):
         clf.fit(x=x, t=t)
         trained_models.append(clf)
 
-    # plot result of predict accuracy
     x_test = np.linspace(-x_scale, x_scale, 100).reshape(100, 1)
     fig = plt.figure(figsize=(6, 6))
     ax_i = fig.add_subplot(1, 1, 1)
@@ -67,7 +66,7 @@ def regression_sample(x_scale=3.):
         y = model.predict(x_test)
         ax_i.plot(x_test, y, "-", label='n_iter: {}'.format(n_iter), color="C{}".format(i + 1))
     ax_i.legend(loc=4)
-    ax_i.set_title("iteration transition")
+    ax_i.set_title("Transition by Number of Iterations")
     fig.savefig('experiment_figures/regression.png')
 
 
