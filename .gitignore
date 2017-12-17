@@ -1,0 +1,8 @@
+**/*.pyc
+**/*.xml
+**/*.iml
+
+*.log
+settings.json
+
+predict.csv
