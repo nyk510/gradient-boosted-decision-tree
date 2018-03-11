@@ -187,12 +187,17 @@ class Node(object):
         return loss
 
     def _describe(self):
-        return {
+        retval = {
             "data": {
                 "id": self.id,
                 "num_children": self.num_data
             }
         }
+        if self.has_children:
+            retval["data"]["feature_id"] = self.best_feature_idx
+            retval["data"]["gain"] = self.best_gain
+        
+        return retval
 
     def show_network(self):
         """

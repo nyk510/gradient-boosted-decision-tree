@@ -62,7 +62,7 @@ export default {
         {
           selector: 'node',
           style: {
-            'content': 'data(num_children)',
+            'content': 'data(gain)',
             'text-opacity': 0.5,
             'text-valign': 'center',
             'text-halign': 'right',
