@@ -11,6 +11,8 @@ class Node(object):
     Gradient Boosting で作成する木構造のノード
     """
 
+    totalNodeNum = 0
+
     def __init__(self, x, t, grad, hess, lam=1e-4, obj_function="cross_entropy"):
         """
         :param x:
@@ -22,6 +24,9 @@ class Node(object):
         """
         if (len(x.shape) == 1):
             x = x.reshape(-1, 1)
+            
+        Node.totalNodeNum += 1
+        self.id = Node.totalNodeNum
         self.x = x
         self.t = t
         self.grad = grad
@@ -52,6 +57,7 @@ class Node(object):
         self.best_gain = 0.
         self.best_threshold = None
         self.best_feature_idx = None
+        
 
     def predict(self, x):
         """
@@ -180,12 +186,45 @@ class Node(object):
         loss = self.calculate_objective_value(grad=self.grad, hess=self.hess)
         return loss
 
+    def _describe(self):
+        retval = {
+            "data": {
+                "id": self.id,
+                "num_children": self.num_data
+            }
+        }
+        if self.has_children:
+            retval["data"]["feature_id"] = self.best_feature_idx
+            retval["data"]["gain"] = self.best_gain
+        
+        return retval
+
     def show_network(self):
         """
         ネットワーク構造を木構造で記述したいなあと思っていた. 未実装.
         :return:
         """
-        pass
+        if self.has_children is False:
+            return [self._describe()], None
+
+        nodes = [self._describe()]
+        edges = []
+        for node in [self.right, self.left]:
+            child_nodes, child_edges = node.show_network()
+
+            nodes.extend(child_nodes)
+            if child_edges is not None:
+                edges.extend(child_edges)
+
+            edges.append(
+                {
+                    "data": {
+                        "source": self.id,
+                        "target": node.id
+                    }
+                }
+            )
+        return nodes, edges
 
 
 class GradientBoostedDT(object):
@@ -318,3 +357,11 @@ class GradientBoostedDT(object):
             a += self.eta * tree.predict(x)
         pred = self.activate(a)
         return pred
+
+    def show_network(self):
+        for tree in self.trees:
+            nodes, edges = tree.show_network()
+            yield {
+                "nodes": nodes,
+                "edges": edges
+            }

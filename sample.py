@@ -89,8 +89,13 @@ def binary_classification_sample():
     # ロス関数はロジスティクスロス
     loss = gb.logistic_loss
 
-    clf = gb.GradientBoostedDT(regobj, loss, max_depth=4, gamma=.1, lam=1e-2, eta=.1, num_iter=40)
+    clf = gb.GradientBoostedDT(regobj, loss, max_depth=8, gamma=.1, lam=1e-2, eta=.1, num_iter=40)
     clf.fit(x=x_train, t=t_train, valid_data=(x_test, t_test))
+
+    networks = clf.show_network()
+    import json
+    with open('./view/src/assets/node_edge.json', "w") as f:
+        json.dump(list(networks), f)
 
     fig = plt.figure(figsize=(6, 6))
     ax = fig.add_subplot(1, 1, 1)
@@ -109,10 +114,11 @@ def binary_classification_sample():
     X, Y = np.meshgrid(xx, yy)
     Z = [clf.predict(np.array([a, b]).reshape(1, 2))[0] for a in xx for b in yy]
     Z = np.array(Z).reshape(len(xx), len(yy))
-    plt.contourf(X, Y, Z, 6, cmap=cm.PuBu_r)
+    levels = np.linspace(0, 1, 21)
+    plt.contourf(X, Y, Z, levels, cmap=cm.PuBu_r)
     cbar = plt.colorbar()
-    plt.plot(x[:200, 0], x[:200, 1], "o", label="t = 0")
-    plt.plot(x[200:, 0], x[200:, 1], "o", label="t = 1")
+    plt.scatter(x[:200, 0], x[:200, 1], s=50, label="t = 0", edgecolors="C0", alpha=.5, linewidth=1., color="white")
+    plt.scatter(x[200:, 0], x[200:, 1], s=50, label="t = 1", edgecolors="C1", alpha=.5, linewidth=1., color="white")
     plt.legend()
     plt.savefig('experiment_figures/binary_classification.png', dpi=100)
 
