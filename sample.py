@@ -19,7 +19,7 @@ def generate_continuous_data(true_function="default", x_scale=2., num_samples=10
     :param int num_samples:
     :param float noise_scale:
     :param int seed:
-    :return:
+    :return: 入力変数 x, その正解ラベル t の tuple
     :rtype (np.ndarray, np.ndarray)
     """
     np.random.seed(seed)
@@ -39,7 +39,7 @@ def regression_sample(true_func=np.sin, x_scale=3.):
     x, t = generate_continuous_data(true_function=true_func, x_scale=x_scale)
 
     trained_models = []
-    iteration_dist = [5, 10, 20, 40]
+    iteration_dist = [5, 10, 20, 40, 100]
     for n_iter in iteration_dist:
         # GradientBoostedDTの定義
         # 連続変数に対しての回帰問題なので
@@ -49,8 +49,8 @@ def regression_sample(true_func=np.sin, x_scale=3.):
         rmse_objective = gb.LeastSquare()
         loss_function = gb.functions.least_square
         clf = gb.GradientBoostedDT(
-            regobj=rmse_objective, loss=loss_function, 
-            max_depth=8, num_iter=n_iter, gamma=.01, lam=.1, eta=.1)
+            objective=rmse_objective, loss=loss_function,
+            max_depth=4, num_iter=n_iter, gamma=.01, lam=.1, eta=.1)
         clf.fit(x=x, t=t)
         trained_models.append(clf)
 
@@ -74,8 +74,8 @@ def binary_classification_sample():
     """
     np.random.seed = 71
     x = (
-        np.random.normal(loc=1., scale=1., size=400).reshape(200, 2),
-        np.random.normal(loc=-1., scale=1., size=400).reshape(200, 2),
+        np.random.normal(loc=.7, scale=1., size=400).reshape(200, 2),
+        np.random.normal(loc=-.7, scale=1., size=400).reshape(200, 2),
     )
     t = np.zeros_like(x[0]), np.ones_like(x[1])
     x = np.append(x[0], x[1], axis=0)
@@ -89,7 +89,7 @@ def binary_classification_sample():
     # ロス関数はロジスティクスロス
     loss = gb.logistic_loss
 
-    clf = gb.GradientBoostedDT(regobj, loss, max_depth=8, gamma=.1, lam=1e-2, eta=.1, num_iter=40)
+    clf = gb.GradientBoostedDT(regobj, loss, max_depth=5, gamma=.05, lam=3e-2, eta=.1, num_iter=50)
     clf.fit(x=x_train, t=t_train, valid_data=(x_test, t_test))
 
     networks = clf.show_network()
@@ -100,10 +100,10 @@ def binary_classification_sample():
     fig = plt.figure(figsize=(6, 6))
     ax = fig.add_subplot(1, 1, 1)
     ax.set_title('Training Transitions')
-    ax.plot(clf.training_loss, 'o-', label='Training Loss')
-    ax.plot(clf.validation_loss, 'o-', label='Validation Loss')
+    ax.plot(clf.training_loss, 'o-', label='Training')
+    ax.plot(clf.validation_loss, 'o-', label='Validation')
     ax.set_xlabel("Iterations")
-    ax.set_ylabel("Loss Function")
+    ax.set_ylabel("Loss Transition")
     ax.legend()
     fig.savefig("experiment_figures/training_transitions.png", dpi=150)
 
@@ -114,12 +114,16 @@ def binary_classification_sample():
     X, Y = np.meshgrid(xx, yy)
     Z = [clf.predict(np.array([a, b]).reshape(1, 2))[0] for a in xx for b in yy]
     Z = np.array(Z).reshape(len(xx), len(yy))
-    levels = np.linspace(0, 1, 21)
-    plt.contourf(X, Y, Z, levels, cmap=cm.PuBu_r)
+    levels = np.linspace(0, 1, 11)
+    plt.contour(X, Y, Z, levels, colors=["gray"], alpha=.05)
+    plt.contourf(X, Y, Z, levels, cmap=cm.RdBu)
+    # plt.contour(X, Y, Z, levels, cmap=cm.PuBu_r)
     cbar = plt.colorbar()
-    plt.scatter(x[:200, 0], x[:200, 1], s=50, label="t = 0", edgecolors="C0", alpha=.5, linewidth=1., color="white")
-    plt.scatter(x[200:, 0], x[200:, 1], s=50, label="t = 1", edgecolors="C1", alpha=.5, linewidth=1., color="white")
+    plt.scatter(x[:200, 0], x[:200, 1], s=50, label="t = 0", edgecolors="C1", alpha=.7, linewidth=1, facecolor="white")
+    plt.scatter(x[200:, 0], x[200:, 1], s=50, label="t = 1", edgecolors="C0", alpha=.7, linewidth=1, facecolor="white")
     plt.legend()
+    plt.title("binary regression")
+    plt.tight_layout()
     plt.savefig('experiment_figures/binary_classification.png', dpi=100)
 
     pred_prob = clf.predict(x_test)
@@ -130,5 +134,7 @@ def binary_classification_sample():
 
 
 if __name__ == '__main__':
-    regression_sample()
+    def test_function(x):
+        return 1 / (1. + np.exp(-4 * x)) + .5 * np.sin(4 * x)
+    regression_sample(true_func=test_function, x_scale=2.)
     binary_classification_sample()
