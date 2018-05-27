@@ -90,7 +90,7 @@ def binary_classification_sample():
     loss = gb.logistic_loss
 
     clf = gb.GradientBoostedDT(regobj, loss, max_depth=5, gamma=.05, lam=3e-2, eta=.1, num_iter=50)
-    clf.fit(x=x_train, t=t_train, valid_data=(x_test, t_test))
+    clf.fit(x=x_train, t=t_train, validation_data=(x_test, t_test))
 
     networks = clf.show_network()
     import json
