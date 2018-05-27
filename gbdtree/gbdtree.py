@@ -299,11 +299,11 @@ class GradientBoostedDT(object):
         self.validation_loss = None
         self.f = None
 
-    def fit(self, x, t, valid_data=None, verbose=1):
+    def fit(self, x, t, validation_data=None, verbose=1):
         """
         :param np.ndarray x: 特徴量の numpy array. shape = (n_samples, n_features)
         :param np.ndarray t: 目的変数の numpy array. shape = (n_samples, )
-        :param [np.ndarray, np.ndarray] | None valid_data:
+        :param [np.ndarray, np.ndarray] | None validation_data:
             (x, t) で構成された validation data.
             None 以外が与えら得た時各 iteration ごとにこのデータを用いて validation loss を計算する.
         :param int verbose:
@@ -318,7 +318,7 @@ class GradientBoostedDT(object):
             x = x.reshape(-1, 1)
         self.f = np.zeros_like(t)
         self.training_loss = []
-        if valid_data is not None:
+        if validation_data is not None:
             self.validation_loss = []
 
         for i in range(self.num_iter):
@@ -346,12 +346,12 @@ class GradientBoostedDT(object):
             logger.info('iterate:{0}\tloss:{1:.2f}'.format(i, train_loss))
             self.training_loss.append(train_loss)
 
-            if valid_data is not None:
-                valid_x, valid_t = valid_data
+            if validation_data is not None:
+                valid_x, valid_t = validation_data
                 pred = self.predict(valid_x)
                 pred_loss = self.loss(pred, valid_t).sum()
                 self.validation_loss.append(pred_loss)
-                logger.info('testloss:\t{0:.2f}'.format(pred_loss))
+                logger.info('valid loss:\t{0:.2f}'.format(pred_loss))
         return self
 
     def _current_train_loss(self, t):
