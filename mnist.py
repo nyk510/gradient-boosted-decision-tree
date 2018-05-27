@@ -1,6 +1,3 @@
-from logging import getLogger, FileHandler, Formatter
-
-import gbdtree.functions as fn
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -8,22 +5,18 @@ from sklearn.datasets import fetch_mldata
 from sklearn.metrics import accuracy_score
 
 import gbdtree as gb
+import gbdtree.functions as fn
+from gbdtree.utils import get_logger
+
+logger = get_logger(__name__)
 
 if __name__ == '__main__':
-    logger = getLogger(__name__)
-    fh = FileHandler('mnist.log', "w")
-    fmter = Formatter('{asctime}\t{name}\t{message}', style='{')
-    fh.setLevel('INFO')
-    fh.setFormatter(fmter)
-    logger.setLevel('INFO')
-    logger.addHandler(fh)
-
     mnist = fetch_mldata('MNIST original')
     logger.info('This is MNIST Original dataset')
     logger.debug('finish fetch datasets')
 
     # target of image number.
-    # note: it is difficult problem to decide 3 or 8.
+    # note: it is difficult problem to decide 3 and 8.
     target = 3, 8,
     logger.info('target: {0},{1}'.format(*target))
 
@@ -49,7 +42,7 @@ if __name__ == '__main__':
     loss = fn.logistic_loss
 
     clf = gb.GradientBoostedDT(regobj, loss, num_iter=30, eta=.4)
-    clf.fit(x_train, t_train, valid_data=(x_test, t_test))
+    clf.fit(x_train, t_train, validation_data=(x_test, t_test))
 
     plt.title('seqence of training and test loss')
     plt.plot(clf.training_loss, 'o-', label='training loss')
@@ -63,4 +56,4 @@ if __name__ == '__main__':
     df_pred = pd.DataFrame({'probability': pred_prob, 'predict': pred_cls, 'true': t_test})
     df_pred.to_csv('predict.csv')
     acc = accuracy_score(t_test, pred_cls)
-    logger.info('accuracy:{0}'.format(acc))
+    logger.info('validation accuracy:{0}'.format(acc))
