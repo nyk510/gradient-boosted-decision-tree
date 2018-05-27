@@ -48,8 +48,8 @@ if __name__ == '__main__':
     regobj = fn.CrossEntropy()
     loss = fn.logistic_loss
 
-    clf = gb.GradientBoostedDT(regobj, loss, test_data=(x_test, t_test))
-    clf.fit(x_train, t_train, num_iter=30, eta=.4)
+    clf = gb.GradientBoostedDT(regobj, loss, num_iter=30, eta=.4)
+    clf.fit(x_train, t_train, valid_data=(x_test, t_test))
 
     plt.title('seqence of training and test loss')
     plt.plot(clf.training_loss, 'o-', label='training loss')
