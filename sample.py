@@ -61,9 +61,10 @@ def regression_sample(true_func=np.sin, x_scale=3.):
     ax_i.scatter(x, t, s=50, label='Training Data', linewidth=1., edgecolors="C0", color="white")
     ax_i.set_xlabel("Input")
     ax_i.set_ylabel("Target")
+
     for i, (n_iter, model) in enumerate(zip(iteration_dist, trained_models)):
         y = model.predict(x_test)
-        ax_i.plot(x_test, y, "-", label='n_iter: {}'.format(n_iter), color="C{}".format(i + 1))
+        ax_i.plot(x_test, y, "-", label='n_iter: {}'.format(n_iter), color=cm.viridis(i / len(iteration_dist), 1))
     ax_i.legend(loc=4)
     ax_i.set_title("Transition by Number of Iterations")
     fig.savefig('experiment_figures/regression.png')
@@ -136,5 +137,5 @@ def binary_classification_sample():
 if __name__ == '__main__':
     def test_function(x):
         return 1 / (1. + np.exp(-4 * x)) + .5 * np.sin(4 * x)
-    regression_sample(true_func=test_function, x_scale=2.)
+    regression_sample(true_func=test_function, x_scale=1.)
     binary_classification_sample()

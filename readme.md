@@ -1,6 +1,7 @@
 # Gradient Boosted Decision Tree
 
-木構造のブースティングモデルによる予測器、Gradient Boosted Decision Tree の python 実装。
+Gradient Boosted Decision Tree の python 実装です。
+アルゴリズムのコアな部分は `numpy` のみを用いて実装されています。
 
 ## 参考文献
 
