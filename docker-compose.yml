@@ -1,0 +1,13 @@
+version: '2.3'
+services:
+  python:
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    image: gbdt
+    container_name: gbdt-app
+    tty: true
+    command: /bin/sh
+    working_dir: /home
+    volumes:
+      - ./:/home
