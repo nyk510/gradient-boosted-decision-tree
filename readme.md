@@ -89,26 +89,15 @@ MNIST の手書きデータを用いた分類問題をときます。
 * training data
   * `MNIST Original`の手書き文字データ
   * 出力は `{0, 1, 2,..., 9}` の１０クラス分類問題
-  * そのままだと時間がかかりすぎるので、二値分類（３と８の分類）で `datasize=2000` になおして実行
+  * そのままだと時間がかかりすぎるので、二値分類（３と８の分類）で `datasize=5000` になおして実行
 
-* Gradient Boosted Tree のparameters
+* Gradient Boosted Tree の parameters
   * 目的関数：交差エントロピー
   * 活性化関数：ロジスティクスシグモイド関数
+  
 
 > Note:  
 > `mnist.py` ではMNISTの手書きデータ・セットをネット上から取得するので、ローカルにデータを持っていない場合にかなり時間がかかる場合があります。また学習時間もパラメータをデフォルトのままで行うと30分ぐらいかかります。計算を投げてご飯でも食べに行きましょう。
-
-実行結果は以下のようになります
-
-```console
-2016-06-23 01:20:01,501	__main__	This is MNIST Original dataset
-2016-06-23 01:20:01,502	__main__	target: 3,8
-2016-06-23 01:20:01,803	__main__	training datasize: 2000
-2016-06-23 01:20:01,803	__main__	test datasize: 11966
-2016-06-23 01:52:45,349	__main__	accuracy:0.9745946849406653
-```
-
-分類精度97.5%を達成(でもめっちゃ時間かかる...)
 
 * feature_importance
 * 学習時の logging
@@ -138,29 +127,40 @@ build new node depth=4_N=12 gain=5.7942
 end tree iteration
 iterate:0	loss:4.14e-01
 valid loss:	4.308e-01
-start build new Tree
-build new node depth=0_N=2000 gain=235.5829
-build new node depth=1_N=1000 gain=43.7688
-build new node depth=1_N=1000 gain=24.4370
-build new node depth=2_N=235 gain=27.6230
-build new node depth=3_N=117 gain=15.4541
-build new node depth=2_N=166 gain=14.8643
-build new node depth=2_N=765 gain=9.7750
-build new node depth=2_N=834 gain=9.3208
-build new node depth=3_N=132 gain=8.3144
-build new node depth=4_N=39 gain=9.1458
-build new node depth=3_N=33 gain=7.9907
-build new node depth=3_N=118 gain=6.5067
-build new node depth=4_N=93 gain=6.0008
-build new node depth=3_N=732 gain=5.9684
-build new node depth=3_N=40 gain=5.7522
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+build new node depth=0_N=5000 gain=0.0131
+build new node depth=1_N=2593 gain=0.0306
+build new node depth=2_N=2392 gain=0.0351
+build new node depth=3_N=1911 gain=0.0245
+build new node depth=3_N=481 gain=0.0229
+build new node depth=4_N=301 gain=0.0197
+build new node depth=4_N=180 gain=0.0196
+build new node depth=1_N=2407 gain=0.0170
+build new node depth=2_N=772 gain=0.0245
+build new node depth=3_N=366 gain=0.0389
+build new node depth=2_N=1635 gain=0.0245
+build new node depth=3_N=1348 gain=0.0154
+build new node depth=4_N=202 gain=0.0148
+build new node depth=3_N=287 gain=0.0145
+build new node depth=3_N=406 gain=0.0145
+reach to 15 nodes. stop build node.
 ==============================
 end tree iteration
-iterate:1	loss:2.74e-01
-(improve: 1.401e-01)
-valid loss:	2.992e-01
-start build new Tree
+iterate:99	loss:2.96e-04
+(improve: 2.401e-05)
+valid loss:	2.941e-02
+validation accuracy: 0.9898505465090341
 ```
+
+最終的な validation accuracy は 98.98% 
+
+#### feature importance:
+
+feature importance (gain) を対数にとって画像にしたもの. 3 と 8 でずれる画像左の真ん中が多めに選ばれてそう?
+
+![](./example/mnist/feature_importance_img.png)
 
 ### sample.py
 
