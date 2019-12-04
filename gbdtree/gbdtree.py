@@ -142,7 +142,7 @@ class Node(object):
             l, node_l = self.left.calculate_best_split()
             r, node_r = self.right.calculate_best_split()
 
-            if l is None and r is None:
+            if node_l is None and node_r is None:
                 return - np.inf, None
 
             best_gain = max(l, r)
@@ -158,7 +158,6 @@ class Node(object):
             return self.best_gain, self
 
         # 以下は計算していない末端ノードに対する計算になる
-        # 自分に属するデータが１つしかないときこれ以上分割できないので終了
         # [TODO] 最小の split 数は変更できるようにしたい.
         # instance 引数に取るか関数の引数に取るかは要検討
 
@@ -364,11 +363,14 @@ class GradientBoostedDT(object):
             for leave in range(self.max_leaves):
                 best_gain, best_node = root_node.calculate_best_split(self.max_depth)
 
+                # best_node がないときは分割しようがない時なので終了
                 if best_node is None:
+                    logger.info('best node is None. Stop build node.')
                     break
 
+                # gain が設定された値 `gamma` に達しない時終了
                 if best_gain < self.gamma:
-                    logger.info(f'best gain {best_gain:.3e} below gamma {self.gamma:.3e}. stop build nodes.')
+                    logger.info(f'best gain {best_gain:.3e} below gamma {self.gamma:.3e}. stop build node.')
                     break
                 else:
                     logger.info(f'build new node {best_node} gain={best_gain:.4f}')
