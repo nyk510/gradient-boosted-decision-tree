@@ -5,11 +5,17 @@ import numpy as np
 from matplotlib import cm
 from matplotlib import colors
 from sklearn.model_selection import train_test_split
-
+from logging import getLogger, FileHandler
 import gbdtree as gb
 
 color_map = colors.Colormap("Set1")
 
+
+logger = getLogger('gbdtree')
+
+handler = FileHandler(filename='./experiment_figures/log.txt')
+handler.setLevel('DEBUG')
+logger.addHandler(handler)
 
 def generate_continuous_data(true_function="default", x_scale=2., num_samples=100, noise_scale=.2, seed=71):
     """
