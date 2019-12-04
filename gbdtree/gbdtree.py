@@ -1,6 +1,7 @@
-import numpy as np
 from collections import defaultdict
 from typing import Union, List
+
+import numpy as np
 
 from .functions import CrossEntropy, Objective, logistic_loss
 from .utils import get_logger
@@ -127,12 +128,14 @@ class Node(object):
         + どの `index` で分割を行うか - `best_feature_idx`
         + 閾値を幾つで分割するか - `best_threshold`
 
+
+        Args:
+            max_depth: 最大の深さ. このノードがすでに達している場合, - np.inf を返す
+
+
         Returns:
             best_gain, and Node (which has the best gain).
         """
-
-        if self.depth == max_depth:
-            return - np.inf, None
 
         # 親ノードのとき子ノードに計算を再起的に呼び出し
         if self.has_children:
@@ -158,8 +161,16 @@ class Node(object):
         # 自分に属するデータが１つしかないときこれ以上分割できないので終了
         # [TODO] 最小の split 数は変更できるようにしたい.
         # instance 引数に取るか関数の引数に取るかは要検討
+
+        self.already_calculated_gain = True
+
+        # データ数が1のとき分割できないので終了
         if self.num_data <= 1:
-            return - np.inf, self
+            return self.best_gain, None
+
+        # max_depth に達している場合分割できないので終了
+        if self.depth == max_depth:
+            return self.best_gain, None
 
         # すべての特徴量で、分割の最適化を行って最も良い分割を探索
         logger.debug('start search best separate point')
@@ -188,7 +199,6 @@ class Node(object):
         logger.debug('new gain: {:.3e}@{}'.format(self.best_gain, str(self)))
         # 一度計算したら再度分割されるまで best gain の値は同じになるため
         # すでに計算済みであることが分かるように already_calculated_gain = true とする
-        self.already_calculated_gain = True
 
         return self.best_gain, self
 
@@ -346,11 +356,9 @@ class GradientBoostedDT(object):
             grad, hess = self.objective(self.f, t)
             root_node = Node(x=x, t=t, grad=grad, hess=hess, lam=self.reg_lambda)
 
-            for depth in range(self.max_leaves):
-                # logger.debug('object_value:\y{0:.2f}'.format(root_node.calculate_children_objective()))
-                # logger.debug('iterate:\y{0},\tdepth:\y{1}'.format(i, depth))
+            # max_leaves に達するまで以下を繰り返す
+            for leave in range(self.max_leaves):
                 best_gain, best_node = root_node.calculate_best_split(self.max_depth)
-                # logger.debug('Best Gain:\y{0:.2f}'.format(best_gain))
 
                 if best_node is None:
                     break
@@ -359,7 +367,7 @@ class GradientBoostedDT(object):
                     logger.info(f'best gain {best_gain:.3e} below gamma {self.gamma:.3e}. stop build nodes.')
                     break
                 else:
-                    logger.info('build new node {} gain={:.4f}'.format(best_node, best_gain))
+                    logger.info(f'build new node {best_node} gain={best_gain:.4f}')
                     best_node.build()
 
             self.trees.append(root_node)
