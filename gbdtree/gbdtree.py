@@ -1,7 +1,6 @@
+import numpy as np
 from collections import defaultdict
 from typing import Union, List
-
-import numpy as np
 
 from .functions import CrossEntropy, Objective, logistic_loss
 from .utils import get_logger
@@ -19,20 +18,19 @@ class Node(object):
     Gradient Boosting で作成する木構造のノード object
     """
 
-    totalNodeNum = 0
-
     def __init__(self, x, t, grad, hess, lam=1e-4, depth=0):
         """
-
         Args:
-            x:
-            t:
-            grad:
-            hess:
-            lam:
-            objective_function:
-            depth: この木の深さ
+            x: この Node の特徴量.
+            t: この Node の目的変数
+            grad: データの gradient.
+            hess: データの hessian
+            lam: L2 正則化項. (ゼロ以上)
+            depth: この Node の深さ.
         """
+        if lam <= 0:
+            raise ValueError(f'`lam` must be over zero. Actually, {lam}')
+
         if len(x.shape) == 1:
             x = x.reshape(-1, 1)
 
@@ -65,7 +63,7 @@ class Node(object):
     def __str__(self):
         return f'depth={self.depth}_N={self.num_data}'
 
-    def predict(self, x):
+    def predict(self, x: np.ndarray) -> np.ndarray:
         """
         :param np.ndarray x:
         :return: np.ndarray
@@ -88,6 +86,16 @@ class Node(object):
         return calculate_objective(self.grad[idx], self.hess[idx], self.lam)
 
     def build(self):
+        """
+        この node で分割を実行
+
+        NOTE: build を実行する前に `calculate_best_split` を実行して最適な分割特徴量と分割点を計算している必要があります。
+
+        Returns:
+
+        """
+        if not self.already_calculated_gain:
+            raise ValueError('分割前にかならず最適な分割点を探してる必要があります.')
         self.split_feature = f_idx = self.best_feature_idx
         self.threshold = threshold = self.best_threshold
         x = self.x
@@ -106,6 +114,7 @@ class Node(object):
         self.right = Node(x=r_x, t=r_g, grad=r_g, hess=r_h, lam=self.lam, depth=self.depth + 1)
         self.has_children = True
         self.already_calculated_gain = False
+        return self.left, self.right
 
     def calculate_best_split(self, max_depth=5) -> (float, Union[None, 'Node']):
         """
@@ -405,6 +414,11 @@ class GradientBoostedDT(object):
         return pred
 
     def show_network(self) -> dict:
+        """
+        学習済みの木をいい感じに dict で出力する.
+
+        Returns:
+        """
         data = {}
 
         tree_data = []
@@ -418,6 +432,15 @@ class GradientBoostedDT(object):
         return data
 
     def feature_importance(self, type='gain') -> dict:
+        """
+        feature importance の計算
+
+        Args:
+            type: importance type. `"gain"` or `"split"`.
+
+        Returns:
+            importance dict. key is index of feature.
+        """
         data = defaultdict(float)
         for t in self.trees:
             d_i = t.feature_importance(type)
