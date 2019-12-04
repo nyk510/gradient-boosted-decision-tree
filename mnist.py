@@ -9,10 +9,10 @@ from sklearn.metrics import accuracy_score
 
 import gbdtree as gb
 import gbdtree.functions as fn
+from gbdtree.gbdtree import logger
 
 OUTPUT_DIR = './example/mnist/'
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-logger = getLogger('gbdtree')
 
 # handler を追加して log が text として残るように
 handler = FileHandler(filename=os.path.join(OUTPUT_DIR, 'log.txt'))
@@ -47,8 +47,10 @@ if __name__ == '__main__':
     # I shoud have use sklearn.cross_validation.train_test_split...
     np.random.seed(71)
     perm = np.random.permutation(len(y))
-    x_train, t_train = x[perm[:2000]], y[perm[:2000]]
-    x_test, t_test = x[perm[2000:]], y[perm[2000:]]
+
+    n_train = 5000
+    x_train, t_train = x[perm[:n_train]], y[perm[:n_train]]
+    x_test, t_test = x[perm[n_train:]], y[perm[n_train:]]
 
     logger.info('training datasize: {0}'.format(t_train.shape[0]))
     logger.info('test datasize: {0}'.format(t_test.shape[0]))
@@ -58,7 +60,7 @@ if __name__ == '__main__':
     regobj = fn.CrossEntropy()
     loss = fn.logistic_loss
 
-    clf = gb.GradientBoostedDT(regobj, loss, num_iter=40, eta=.4, max_leaves=15, max_depth=5, gamma=.1)
+    clf = gb.GradientBoostedDT(regobj, loss, num_iter=100, eta=.2, max_leaves=15, max_depth=5, gamma=.01)
     clf.fit(x_train, t_train, validation_data=(x_test, t_test), verbose=1)
     f_importance = clf.feature_importance()
     pd.Series(f_importance).reset_index().to_csv(os.path.join(OUTPUT_DIR, 'feature_importance.csv'), index=False)
