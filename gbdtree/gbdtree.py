@@ -205,7 +205,7 @@ class Node(object):
         if not self.has_children:
             return None
 
-        data = defaultdict(int)
+        data = defaultdict(float)
         if type == 'gain':
             x = self.best_gain
         else:
