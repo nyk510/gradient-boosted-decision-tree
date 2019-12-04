@@ -82,6 +82,86 @@ clf.fit(x=x_train, t=t_train)
 
 `mnist.py` と `sample.py` の2つのファイルが実行サンプルになっています。
 
+### mnist.py
+
+MNIST の手書きデータを用いた分類問題をときます。
+
+* training data
+  * `MNIST Original`の手書き文字データ
+  * 出力は `{0, 1, 2,..., 9}` の１０クラス分類問題
+  * そのままだと時間がかかりすぎるので、二値分類（３と８の分類）で `datasize=2000` になおして実行
+
+* Gradient Boosted Tree のparameters
+  * 目的関数：交差エントロピー
+  * 活性化関数：ロジスティクスシグモイド関数
+
+> Note:  
+> `mnist.py` ではMNISTの手書きデータ・セットをネット上から取得するので、ローカルにデータを持っていない場合にかなり時間がかかる場合があります。また学習時間もパラメータをデフォルトのままで行うと30分ぐらいかかります。計算を投げてご飯でも食べに行きましょう。
+
+実行結果は以下のようになります
+
+```console
+2016-06-23 01:20:01,501	__main__	This is MNIST Original dataset
+2016-06-23 01:20:01,502	__main__	target: 3,8
+2016-06-23 01:20:01,803	__main__	training datasize: 2000
+2016-06-23 01:20:01,803	__main__	test datasize: 11966
+2016-06-23 01:52:45,349	__main__	accuracy:0.9745946849406653
+```
+
+分類精度97.5%を達成(でもめっちゃ時間かかる...)
+
+* feature_importance
+* 学習時の logging
+
+が `/examples/mnist` に出力されます.
+
+#### Output Log Sample
+
+```text
+start build new Tree
+build new node depth=0_N=2000 gain=538.7344
+build new node depth=1_N=1000 gain=96.3745
+build new node depth=1_N=1000 gain=45.4259
+build new node depth=2_N=163 gain=40.5793
+build new node depth=2_N=855 gain=22.9140
+build new node depth=2_N=145 gain=21.3546
+build new node depth=2_N=837 gain=19.1825
+build new node depth=3_N=117 gain=19.0716
+build new node depth=3_N=82 gain=15.8894
+build new node depth=3_N=824 gain=12.5804
+build new node depth=3_N=26 gain=9.2701
+build new node depth=4_N=815 gain=7.2187
+build new node depth=4_N=28 gain=6.4043
+build new node depth=3_N=81 gain=5.9525
+build new node depth=4_N=12 gain=5.7942
+==============================
+end tree iteration
+iterate:0	loss:4.14e-01
+valid loss:	4.308e-01
+start build new Tree
+build new node depth=0_N=2000 gain=235.5829
+build new node depth=1_N=1000 gain=43.7688
+build new node depth=1_N=1000 gain=24.4370
+build new node depth=2_N=235 gain=27.6230
+build new node depth=3_N=117 gain=15.4541
+build new node depth=2_N=166 gain=14.8643
+build new node depth=2_N=765 gain=9.7750
+build new node depth=2_N=834 gain=9.3208
+build new node depth=3_N=132 gain=8.3144
+build new node depth=4_N=39 gain=9.1458
+build new node depth=3_N=33 gain=7.9907
+build new node depth=3_N=118 gain=6.5067
+build new node depth=4_N=93 gain=6.0008
+build new node depth=3_N=732 gain=5.9684
+build new node depth=3_N=40 gain=5.7522
+==============================
+end tree iteration
+iterate:1	loss:2.74e-01
+(improve: 1.401e-01)
+valid loss:	2.992e-01
+start build new Tree
+```
+
 ### sample.py
 
 実行方法は単に python スクリプトとして実行すればOKです。引数等はありません。
@@ -134,36 +214,3 @@ def test_function(x):
 ![連続変数に対する回帰問題の実験結果](experiment_figures/regression.png)
 
 `gamma` や `max_depth` を変えたり, valid_data を作って, train/valid loss を可視化してみるのも面白いかも知れません。
-
-### mnist.py
-
-MNIST の手書きデータを用いた分類問題をときます。
-
-* training data
-  * `MNIST Original`の手書き文字データ
-  * 出力は `{0, 1, 2,..., 9}` の１０クラス分類問題
-  * そのままだと時間がかかりすぎるので、二値分類（３と８の分類）で `datasize=2000` になおして実行
-
-* Gradient Boosted Tree のparameters
-  * 目的関数：交差エントロピー
-  * 活性化関数：ロジスティクスシグモイド関数
-
-> Note:  
-> `mnist.py` ではMNISTの手書きデータ・セットをネット上から取得するので、ローカルにデータを持っていない場合にかなり時間がかかる場合があります。また学習時間もパラメータをデフォルトのままで行うと30分ぐらいかかります。計算を投げてご飯でも食べに行きましょう。
-
-実行結果は以下のようになります
-
-```console
-2016-06-23 01:20:01,501	__main__	This is MNIST Original dataset
-2016-06-23 01:20:01,502	__main__	target: 3,8
-2016-06-23 01:20:01,803	__main__	training datasize: 2000
-2016-06-23 01:20:01,803	__main__	test datasize: 11966
-2016-06-23 01:52:45,349	__main__	accuracy:0.9745946849406653
-```
-
-分類精度97.5%を達成(でもめっちゃ時間かかる...)
-
-* feature_importance
-* 学習時の logging
-
-が `/examples/mnist` に出力されます.
