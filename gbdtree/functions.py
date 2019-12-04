@@ -31,6 +31,17 @@ class Objective(object):
         self.activate = activate
 
     def __call__(self, y, t):
+        """
+        予測値と正解値から目的関数を予測値の周りでテイラー展開し,
+        gradient / hessian を計算する method
+
+        Args:
+            y: 正解値
+            t: 予測値
+
+        Returns:
+            Tuple of gradient, hessian
+        """
         raise NotImplementedError("Objective must implement `__call__` function")
 
 
