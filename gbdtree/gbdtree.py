@@ -324,6 +324,8 @@ class GradientBoostedDT(object):
         self.reg_lambda = reg_lambda
         self.training_loss = None
         self.validation_loss = None
+
+        # f には予測値を保存していく
         self.f = None
 
     def fit(self, x, t, validation_data=None, verbose=1):
@@ -345,7 +347,9 @@ class GradientBoostedDT(object):
             x = x.reshape(-1, 1)
 
         assert len(x) == len(t)
-        self.f = np.zeros_like(t)
+
+        # `f` を zero vector で初期化
+        self.f = np.zeros_like(t, dtype=np.float)
         self.training_loss = []
         if validation_data is not None:
             self.validation_loss = []
