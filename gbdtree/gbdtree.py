@@ -2,6 +2,7 @@ from collections import defaultdict
 from typing import Union, List
 
 import numpy as np
+from numba import jit
 
 from .functions import CrossEntropy, Objective, logistic_loss
 from .utils import get_logger
@@ -12,6 +13,42 @@ logger = get_logger(__name__, "DEBUG")
 def calculate_objective(grad, hess, lam):
     obj_val = - grad.sum() ** 2. / (lam + hess.sum()) / 2.
     return obj_val
+
+
+@jit
+def calculate_best_split_and_gain(X, grad, hess, lam, current_loss):
+    best_gain = - np.inf
+    best_threshold, best_feature_idx = None, None
+
+    # jit の関係上内部に objective を計算する関数を置く
+    def calculate_objective(grad, hess, lam):
+        obj_val = - grad.sum() ** 2. / (lam + hess.sum()) / 2.
+        return obj_val
+
+    num_feature = X.shape[1]
+    for f_idx in range(num_feature):
+        # ユニークなデータ点とその中間点を取得
+        # 中間点は分類するときの基準値 threshold を決定するために使う
+        # 入力変数がカテゴリ値のときは考えていない
+        data_f = np.unique(X[:, f_idx])
+        sep_points = (data_f[1:] + data_f[:-1]) / 2.
+
+        for threshold in sep_points:
+            left_idx = X[:, f_idx] < threshold
+            right_idx = X[:, f_idx] >= threshold
+            loss_left = calculate_objective(grad[left_idx], hess[left_idx], lam)
+            loss_right = calculate_objective(grad[right_idx], hess[right_idx], lam)
+            gain = current_loss - loss_left - loss_right
+
+            # 既に計算されている最も大きなゲインより大きい場合には更新する
+            if gain > best_gain:
+                best_gain = gain
+                best_threshold = threshold
+                best_feature_idx = f_idx
+
+        # logger.debug(f'Split Index: {f_idx}\tSep Points: {len(sep_points)}\tCurrent Gain: {best_gain:.3e}')
+
+    return best_gain, best_threshold, best_feature_idx
 
 
 class Node(object):
@@ -76,15 +113,6 @@ class Node(object):
                             self.right.predict(x))
         else:
             return self.y
-
-    def calculate_index_obj(self, idx) -> float:
-        """
-        自分の持っているデータの中の一部を使って `objective function` の値を計算
-        :param idx: 求めたいデータの index の配列. shape = (n_samples, )
-        :return objective value
-        :rtype float
-        """
-        return calculate_objective(self.grad[idx], self.hess[idx], self.lam)
 
     def build(self):
         """
@@ -161,6 +189,8 @@ class Node(object):
         # [TODO] 最小の split 数は変更できるようにしたい.
         # instance 引数に取るか関数の引数に取るかは要検討
 
+        # 一度計算したら再度分割されるまで best gain の値は同じになるため
+        # すでに計算済みであることが分かるように already_calculated_gain = true とする
         self.already_calculated_gain = True
 
         # データ数が1のとき分割できないので終了
@@ -172,32 +202,10 @@ class Node(object):
             return self.best_gain, None
 
         # すべての特徴量で、分割の最適化を行って最も良い分割を探索
-        logger.debug('start search best separate point')
-        for f_idx in range(self.num_feature):
-            # ユニークなデータ点とその中間点を取得
-            # 中間点は分類するときの基準値 threshold を決定するために使う
-            # 入力変数がカテゴリ値のときは考えていない
-            data_f = np.unique(self.x[:, f_idx])
-            sep_points = (data_f[1:] + data_f[:-1]) / 2.
-
-            for threshold in sep_points:
-                left_idx = self.x[:, f_idx] < threshold
-                right_idx = self.x[:, f_idx] >= threshold
-                loss_left = self.calculate_index_obj(idx=left_idx)
-                loss_right = self.calculate_index_obj(idx=right_idx)
-                gain = self.loss - loss_left - loss_right
-
-                # 既に計算されている最も大きなゲインより大きい場合には更新する
-                if gain > self.best_gain:
-                    self.best_gain = gain
-                    self.best_threshold = threshold
-                    self.best_feature_idx = f_idx
-
-            logger.debug(f'Split Index: {f_idx}\tSep Points: {len(sep_points)}\tCurrent Gain: {self.best_gain:.3e}')
+        self.best_gain, self.best_threshold, self.best_feature_idx = \
+            calculate_best_split_and_gain(self.x, self.grad, self.hess, self.lam, self.loss)
 
         logger.debug('new gain: {:.3e}@{}'.format(self.best_gain, str(self)))
-        # 一度計算したら再度分割されるまで best gain の値は同じになるため
-        # すでに計算済みであることが分かるように already_calculated_gain = true とする
 
         return self.best_gain, self
 
@@ -212,7 +220,7 @@ class Node(object):
             x = 1
         data[self.split_feature] += x
         for node in [self.right, self.left]:
-            d_i = node.feature_importance()
+            d_i = node.feature_importance(type)
             if d_i is None:
                 continue
             for k, v in d_i.items():
@@ -341,6 +349,8 @@ class GradientBoostedDT(object):
             logger.setLevel("DEBUG")
         elif verbose >= 1:
             logger.setLevel("INFO")
+        else:
+            logger.setLevel('WARNING')
 
         if len(x.shape) == 1:
             x = x.reshape(-1, 1)
@@ -375,6 +385,9 @@ class GradientBoostedDT(object):
                 else:
                     logger.info(f'build new node {best_node} gain={best_gain:.4f}')
                     best_node.build()
+
+            else:
+                logger.info(f'reach to {self.max_leaves} nodes. stop build node.')
 
             self.trees.append(root_node)
             f_i = root_node.predict(x)
