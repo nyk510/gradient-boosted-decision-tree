@@ -7,7 +7,9 @@ services:
     image: gbdt
     container_name: gbdt-app
     tty: true
-    command: /bin/sh
+    command: jupyter notebook --allow-root --port 8888 --ip 0.0.0.0
     working_dir: /home
+    ports:
+      - 7999:8888
     volumes:
       - ./:/home

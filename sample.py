@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import cm
 from matplotlib import colors
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 
 import gbdtree as gb
 
@@ -19,7 +19,7 @@ def generate_continuous_data(true_function="default", x_scale=2., num_samples=10
     :param int num_samples:
     :param float noise_scale:
     :param int seed:
-    :return: 入力変数 x, その正解ラベル t の tuple
+    :return: 入力変数 x, その正解ラベル y の tuple
     :rtype (np.ndarray, np.ndarray)
     """
     np.random.seed(seed)
@@ -50,8 +50,8 @@ def regression_sample(true_func=np.sin, x_scale=3.):
         loss_function = gb.functions.least_square
         clf = gb.GradientBoostedDT(
             objective=rmse_objective, loss=loss_function,
-            max_depth=4, num_iter=n_iter, gamma=.01, lam=.1, eta=.1)
-        clf.fit(x=x, t=t)
+            max_leaves=7, num_iter=n_iter, gamma=.0001, reg_lambda=1., eta=.2)
+        clf.fit(x=x, t=t, verbose=1)
         trained_models.append(clf)
 
     x_test = np.linspace(-x_scale, x_scale, 100).reshape(100, 1)
@@ -90,13 +90,13 @@ def binary_classification_sample():
     # ロス関数はロジスティクスロス
     loss = gb.logistic_loss
 
-    clf = gb.GradientBoostedDT(regobj, loss, max_depth=5, gamma=.05, lam=3e-2, eta=.1, num_iter=50)
-    clf.fit(x=x_train, t=t_train, validation_data=(x_test, t_test))
+    clf = gb.GradientBoostedDT(regobj, loss, max_leaves=31, gamma=.05, reg_lambda=3e-2, eta=.1, num_iter=40)
+    clf.fit(x=x_train, t=t_train, validation_data=(x_test, t_test), verbose=1)
 
     networks = clf.show_network()
     import json
     with open('./view/src/assets/node_edge.json', "w") as f:
-        json.dump(list(networks), f)
+        json.dump(networks, f)
 
     fig = plt.figure(figsize=(6, 6))
     ax = fig.add_subplot(1, 1, 1)
@@ -120,8 +120,8 @@ def binary_classification_sample():
     plt.contourf(X, Y, Z, levels, cmap=cm.GnBu)
     # plt.contour(X, Y, Z, levels, cmap=cm.PuBu_r)
     cbar = plt.colorbar()
-    plt.scatter(x[:200, 0], x[:200, 1], s=80, label="t = 0", edgecolors="C2", alpha=.6, linewidth=2, facecolor="white")
-    plt.scatter(x[200:, 0], x[200:, 1], s=80, label="t = 1", edgecolors="C0", alpha=.6, linewidth=2, facecolor="white")
+    plt.scatter(x[:200, 0], x[:200, 1], s=80, label="y = 0", edgecolors="C2", alpha=.6, linewidth=2, facecolor="white")
+    plt.scatter(x[200:, 0], x[200:, 1], s=80, label="y = 1", edgecolors="C0", alpha=.6, linewidth=2, facecolor="white")
     plt.legend(loc=2)
     plt.title("binary regression")
     plt.tight_layout()
@@ -137,5 +137,7 @@ def binary_classification_sample():
 if __name__ == '__main__':
     def test_function(x):
         return 1 / (1. + np.exp(-4 * x)) + .5 * np.sin(4 * x)
+
+
     regression_sample(true_func=test_function, x_scale=1.)
     binary_classification_sample()

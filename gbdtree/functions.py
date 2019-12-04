@@ -22,6 +22,9 @@ def least_square(y, t):
 class Objective(object):
     """
     目的関数の abstract class
+
+    目的関数は callable な object でなくてはいけません
+    また, call 時には正解ラベルと予測値を受け取って, 目的関数の gradient と hessian の配列を返すような関数である必要があります
     """
 
     def __init__(self, activate):
@@ -33,8 +36,10 @@ class Objective(object):
 
 class CrossEntropy(Objective):
     """
-    活性化関数:シグモイド関数
-    ロス関数:交差エントロピー
+    Cross Entropy Loss Function です
+
+    * 活性化関数 シグモイド関数
+    * ロス関数:交差エントロピー
     """
 
     def __init__(self):
@@ -52,7 +57,7 @@ class LeastSquare(Objective):
     """
     二乗ロス関数
     * 活性化関数: f(x) = x
-    * 目的関数: || x - t || ^ 2
+    * 目的関数: || x - y || ^ 2
     """
 
     def __init__(self, ):
