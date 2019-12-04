@@ -1821,3 +1821,3242 @@ end tree iteration
 iterate:39	loss:2.00e-03
 (improve: 6.397e-16)
 valid loss:	6.409e-02
+start build new Tree
+build new node depth=0_N=2000 gain=538.7344
+build new node depth=1_N=1000 gain=96.3745
+build new node depth=1_N=1000 gain=45.4259
+build new node depth=2_N=163 gain=40.5793
+build new node depth=2_N=855 gain=22.9140
+build new node depth=2_N=145 gain=21.3546
+build new node depth=2_N=837 gain=19.1825
+build new node depth=3_N=117 gain=19.0716
+build new node depth=3_N=82 gain=15.8894
+build new node depth=3_N=824 gain=12.5804
+build new node depth=3_N=26 gain=9.2701
+build new node depth=4_N=815 gain=7.2187
+build new node depth=4_N=28 gain=6.4043
+build new node depth=3_N=81 gain=5.9525
+build new node depth=4_N=12 gain=5.7942
+build 15 nodes. finish.
+==============================
+end tree iteration
+iterate:0	loss:4.14e-01
+valid loss:	4.308e-01
+start build new Tree
+build new node depth=0_N=2000 gain=235.5829
+start build new Tree
+build new node depth=0_N=2000 gain=538.7344
+build new node depth=1_N=1000 gain=96.3745
+build new node depth=1_N=1000 gain=45.4259
+build new node depth=2_N=163 gain=40.5793
+build new node depth=2_N=855 gain=22.9140
+build new node depth=2_N=145 gain=21.3546
+build new node depth=2_N=837 gain=19.1825
+build new node depth=3_N=117 gain=19.0716
+build new node depth=3_N=82 gain=15.8894
+build new node depth=3_N=824 gain=12.5804
+build new node depth=3_N=26 gain=9.2701
+build new node depth=4_N=815 gain=7.2187
+build new node depth=4_N=28 gain=6.4043
+build new node depth=3_N=81 gain=5.9525
+build new node depth=4_N=12 gain=5.7942
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:0	loss:4.14e-01
+valid loss:	4.308e-01
+start build new Tree
+build new node depth=0_N=2000 gain=235.5829
+build new node depth=1_N=1000 gain=43.7688
+build new node depth=1_N=1000 gain=24.4370
+build new node depth=2_N=235 gain=27.6230
+build new node depth=3_N=117 gain=15.4541
+build new node depth=2_N=166 gain=14.8643
+build new node depth=2_N=765 gain=9.7750
+build new node depth=2_N=834 gain=9.3208
+build new node depth=3_N=132 gain=8.3144
+build new node depth=4_N=39 gain=9.1458
+build new node depth=3_N=33 gain=7.9907
+build new node depth=3_N=118 gain=6.5067
+build new node depth=4_N=93 gain=6.0008
+build new node depth=3_N=732 gain=5.9684
+build new node depth=3_N=40 gain=5.7522
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:1	loss:2.74e-01
+(improve: 1.401e-01)
+valid loss:	2.992e-01
+start build new Tree
+build new node depth=0_N=2000 gain=125.6826
+build new node depth=1_N=1000 gain=24.5479
+build new node depth=1_N=1000 gain=17.5258
+build new node depth=2_N=356 gain=18.4861
+build new node depth=3_N=120 gain=9.7535
+build new node depth=2_N=166 gain=8.6669
+build new node depth=4_N=98 gain=7.1844
+build new node depth=3_N=236 gain=6.3936
+build new node depth=2_N=834 gain=5.7183
+build new node depth=3_N=832 gain=5.7893
+build new node depth=4_N=30 gain=4.6772
+build new node depth=4_N=184 gain=4.2841
+build new node depth=2_N=644 gain=4.2051
+build new node depth=3_N=61 gain=4.1059
+build new node depth=4_N=802 gain=3.8393
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:2	loss:1.92e-01
+(improve: 8.188e-02)
+valid loss:	2.288e-01
+start build new Tree
+build new node depth=0_N=2000 gain=71.2834
+build new node depth=1_N=1000 gain=16.5507
+build new node depth=1_N=1000 gain=10.5376
+build new node depth=2_N=369 gain=9.7120
+build new node depth=2_N=936 gain=6.7543
+build new node depth=3_N=124 gain=5.8900
+build new node depth=3_N=915 gain=5.4278
+build new node depth=3_N=245 gain=5.3886
+build new node depth=4_N=61 gain=4.8628
+build new node depth=4_N=854 gain=4.3588
+build new node depth=4_N=231 gain=4.2902
+build new node depth=2_N=631 gain=4.2399
+build new node depth=3_N=20 gain=5.2233
+build new node depth=3_N=611 gain=3.7954
+build new node depth=4_N=91 gain=3.5646
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:3	loss:1.40e-01
+(improve: 5.254e-02)
+valid loss:	1.854e-01
+start build new Tree
+build new node depth=0_N=2000 gain=41.2567
+build new node depth=1_N=1000 gain=10.7730
+build new node depth=1_N=1000 gain=7.5668
+build new node depth=2_N=166 gain=5.9487
+build new node depth=2_N=218 gain=5.3616
+build new node depth=2_N=834 gain=5.1021
+build new node depth=3_N=833 gain=5.1888
+build new node depth=4_N=81 gain=4.7071
+build new node depth=2_N=782 gain=4.2857
+build new node depth=3_N=171 gain=5.1468
+build new node depth=3_N=183 gain=4.1552
+build new node depth=4_N=80 gain=3.5999
+build new node depth=3_N=99 gain=2.9073
+build new node depth=4_N=157 gain=2.8003
+build new node depth=3_N=67 gain=2.7230
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:4	loss:1.04e-01
+(improve: 3.606e-02)
+valid loss:	1.588e-01
+start build new Tree
+build new node depth=0_N=2000 gain=25.4265
+build new node depth=1_N=1122 gain=11.1848
+build new node depth=2_N=978 gain=5.9790
+build new node depth=1_N=878 gain=5.1373
+build new node depth=2_N=182 gain=6.6382
+build new node depth=3_N=872 gain=4.3683
+build new node depth=3_N=106 gain=4.0968
+build new node depth=4_N=77 gain=3.2467
+build new node depth=3_N=85 gain=3.2196
+build new node depth=2_N=696 gain=2.7020
+build new node depth=3_N=20 gain=3.0314
+build new node depth=2_N=144 gain=2.5478
+build new node depth=4_N=46 gain=2.0363
+build new node depth=4_N=64 gain=2.0205
+build new node depth=3_N=42 gain=2.0158
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:5	loss:7.62e-02
+(improve: 2.736e-02)
+valid loss:	1.363e-01
+start build new Tree
+build new node depth=0_N=2000 gain=14.9027
+build new node depth=1_N=926 gain=8.1521
+build new node depth=1_N=1074 gain=7.3864
+build new node depth=2_N=864 gain=3.5186
+build new node depth=2_N=805 gain=2.8599
+build new node depth=2_N=210 gain=2.6857
+build new node depth=3_N=183 gain=2.6954
+build new node depth=3_N=52 gain=2.6036
+build new node depth=4_N=24 gain=2.2309
+build new node depth=3_N=25 gain=2.1934
+build new node depth=3_N=780 gain=2.1677
+build new node depth=2_N=121 gain=2.1052
+build new node depth=4_N=775 gain=1.9740
+build new node depth=3_N=30 gain=1.6498
+build new node depth=3_N=812 gain=1.2570
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:6	loss:5.72e-02
+(improve: 1.906e-02)
+valid loss:	1.218e-01
+start build new Tree
+build new node depth=0_N=2000 gain=8.3871
+build new node depth=1_N=1165 gain=4.5333
+build new node depth=1_N=835 gain=3.5032
+build new node depth=2_N=907 gain=3.3258
+build new node depth=2_N=213 gain=3.1740
+build new node depth=2_N=258 gain=2.7645
+build new node depth=3_N=152 gain=2.0001
+build new node depth=3_N=91 gain=1.7159
+build new node depth=2_N=622 gain=1.7014
+build new node depth=3_N=169 gain=1.6610
+build new node depth=4_N=134 gain=2.6590
+build new node depth=3_N=816 gain=1.5904
+build new node depth=4_N=805 gain=1.3080
+build new node depth=3_N=580 gain=1.1571
+build new node depth=4_N=41 gain=1.1040
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:7	loss:4.39e-02
+(improve: 1.326e-02)
+valid loss:	1.116e-01
+start build new Tree
+build new node depth=0_N=2000 gain=6.4302
+build new node depth=1_N=951 gain=4.0845
+build new node depth=1_N=1049 gain=3.6359
+build new node depth=2_N=821 gain=4.4531
+build new node depth=2_N=228 gain=1.8801
+build new node depth=2_N=302 gain=1.7700
+build new node depth=3_N=761 gain=1.6313
+build new node depth=3_N=41 gain=1.1473
+build new node depth=4_N=710 gain=1.1461
+build new node depth=3_N=170 gain=1.0049
+build new node depth=4_N=51 gain=0.8665
+build new node depth=4_N=135 gain=0.8579
+build new node depth=3_N=187 gain=0.7943
+build new node depth=2_N=649 gain=0.6827
+build new node depth=3_N=638 gain=0.6479
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:8	loss:3.37e-02
+(improve: 1.015e-02)
+valid loss:	9.916e-02
+start build new Tree
+build new node depth=0_N=2000 gain=3.9117
+build new node depth=1_N=1051 gain=2.5434
+build new node depth=1_N=949 gain=2.4211
+build new node depth=2_N=432 gain=1.6436
+build new node depth=2_N=696 gain=1.5139
+build new node depth=2_N=253 gain=1.4549
+build new node depth=3_N=350 gain=1.3218
+build new node depth=4_N=272 gain=1.2928
+build new node depth=2_N=619 gain=1.0562
+build new node depth=3_N=602 gain=1.0573
+build new node depth=3_N=650 gain=1.0536
+build new node depth=4_N=78 gain=0.8931
+build new node depth=4_N=636 gain=0.7125
+build new node depth=3_N=17 gain=0.6641
+build new node depth=3_N=82 gain=0.6601
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:9	loss:2.65e-02
+(improve: 7.250e-03)
+valid loss:	9.226e-02
+start build new Tree
+build new node depth=0_N=2000 gain=2.6928
+build new node depth=1_N=1071 gain=2.0725
+build new node depth=1_N=929 gain=1.9304
+build new node depth=2_N=194 gain=1.7330
+build new node depth=2_N=905 gain=1.2248
+build new node depth=2_N=166 gain=1.0954
+build new node depth=2_N=735 gain=1.0136
+build new node depth=3_N=239 gain=1.9409
+build new node depth=3_N=854 gain=0.9658
+build new node depth=4_N=69 gain=0.9780
+build new node depth=3_N=108 gain=0.7147
+build new node depth=3_N=51 gain=0.7104
+build new node depth=4_N=785 gain=0.5741
+build new node depth=3_N=116 gain=0.5490
+build new node depth=4_N=52 gain=0.5461
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:10	loss:2.04e-02
+(improve: 6.124e-03)
+valid loss:	8.724e-02
+start build new Tree
+build new node depth=0_N=2000 gain=1.7946
+build new node depth=1_N=1302 gain=1.5478
+build new node depth=2_N=632 gain=1.6969
+build new node depth=1_N=698 gain=1.3271
+build new node depth=3_N=289 gain=0.9468
+build new node depth=3_N=343 gain=0.8117
+build new node depth=4_N=127 gain=0.9344
+build new node depth=2_N=670 gain=0.7179
+build new node depth=3_N=642 gain=0.7425
+build new node depth=4_N=272 gain=0.7170
+build new node depth=2_N=123 gain=0.5634
+build new node depth=2_N=575 gain=0.4998
+build new node depth=4_N=591 gain=0.4595
+build new node depth=3_N=102 gain=0.4539
+build new node depth=4_N=51 gain=0.4516
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:11	loss:1.59e-02
+(improve: 4.461e-03)
+valid loss:	8.349e-02
+start build new Tree
+build new node depth=0_N=2000 gain=1.3301
+build new node depth=1_N=1403 gain=1.2179
+build new node depth=2_N=948 gain=1.3309
+build new node depth=1_N=597 gain=0.9339
+build new node depth=2_N=455 gain=0.8091
+build new node depth=3_N=307 gain=0.5876
+build new node depth=3_N=162 gain=0.5768
+build new node depth=3_N=148 gain=0.5590
+build new node depth=2_N=69 gain=0.5428
+build new node depth=4_N=91 gain=0.5224
+build new node depth=4_N=71 gain=0.4755
+build new node depth=3_N=786 gain=0.4646
+build new node depth=4_N=46 gain=0.4101
+build new node depth=4_N=778 gain=0.4053
+build new node depth=2_N=528 gain=0.3895
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:12	loss:1.25e-02
+(improve: 3.452e-03)
+valid loss:	8.088e-02
+start build new Tree
+build new node depth=0_N=2000 gain=0.9685
+build new node depth=1_N=1130 gain=0.7806
+build new node depth=2_N=477 gain=0.6242
+build new node depth=1_N=870 gain=0.5374
+build new node depth=2_N=243 gain=0.5713
+build new node depth=3_N=251 gain=0.5345
+build new node depth=2_N=627 gain=0.4820
+build new node depth=4_N=155 gain=0.4567
+build new node depth=2_N=653 gain=0.4425
+build new node depth=3_N=595 gain=0.4127
+build new node depth=3_N=226 gain=0.4112
+build new node depth=3_N=155 gain=0.3989
+build new node depth=3_N=109 gain=0.3294
+build new node depth=4_N=149 gain=0.3247
+build new node depth=3_N=544 gain=0.3016
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:13	loss:9.99e-03
+(improve: 2.475e-03)
+valid loss:	7.889e-02
+start build new Tree
+build new node depth=0_N=2000 gain=0.7720
+build new node depth=1_N=1376 gain=0.4649
+build new node depth=2_N=881 gain=0.5694
+build new node depth=2_N=495 gain=0.4534
+build new node depth=3_N=556 gain=0.4304
+build new node depth=4_N=530 gain=0.4938
+build new node depth=3_N=325 gain=0.3638
+build new node depth=1_N=624 gain=0.3436
+build new node depth=4_N=275 gain=0.3344
+build new node depth=2_N=165 gain=0.2425
+build new node depth=2_N=459 gain=0.2422
+build new node depth=3_N=115 gain=0.2403
+build new node depth=3_N=436 gain=0.2308
+build new node depth=4_N=50 gain=0.2286
+build new node depth=3_N=23 gain=0.2104
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:14	loss:8.15e-03
+(improve: 1.835e-03)
+valid loss:	7.700e-02
+start build new Tree
+build new node depth=0_N=2000 gain=0.5880
+build new node depth=1_N=1395 gain=0.4772
+build new node depth=2_N=875 gain=0.5008
+build new node depth=3_N=621 gain=0.3920
+build new node depth=4_N=564 gain=0.4935
+build new node depth=1_N=605 gain=0.3775
+build new node depth=3_N=254 gain=0.3248
+build new node depth=2_N=520 gain=0.3245
+build new node depth=2_N=504 gain=0.2865
+build new node depth=3_N=71 gain=0.2231
+build new node depth=4_N=42 gain=0.2043
+build new node depth=2_N=101 gain=0.1845
+build new node depth=4_N=31 gain=0.1533
+build new node depth=4_N=212 gain=0.1510
+build new node depth=3_N=476 gain=0.1403
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:15	loss:6.58e-03
+(improve: 1.575e-03)
+valid loss:	7.351e-02
+start build new Tree
+build new node depth=0_N=2000 gain=0.4201
+build new node depth=1_N=1636 gain=0.3805
+build new node depth=2_N=1513 gain=0.3352
+build new node depth=3_N=1038 gain=0.2864
+build new node depth=3_N=475 gain=0.2417
+build new node depth=4_N=977 gain=0.2212
+build new node depth=1_N=364 gain=0.2117
+build new node depth=2_N=66 gain=0.1739
+build new node depth=4_N=354 gain=0.1667
+build new node depth=4_N=121 gain=0.1290
+best gain 9.261e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:16	loss:5.74e-03
+(improve: 8.360e-04)
+valid loss:	7.248e-02
+start build new Tree
+build new node depth=0_N=2000 gain=0.3439
+build new node depth=1_N=1311 gain=0.3672
+build new node depth=2_N=1220 gain=0.4152
+build new node depth=3_N=465 gain=0.3395
+build new node depth=1_N=689 gain=0.3179
+build new node depth=4_N=286 gain=0.2957
+build new node depth=2_N=260 gain=0.2950
+build new node depth=3_N=133 gain=0.1893
+build new node depth=3_N=755 gain=0.1886
+build new node depth=4_N=114 gain=0.2399
+build new node depth=3_N=127 gain=0.1414
+build new node depth=4_N=96 gain=0.1257
+build new node depth=4_N=641 gain=0.1198
+best gain 9.793e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:17	loss:4.64e-03
+(improve: 1.106e-03)
+valid loss:	7.072e-02
+start build new Tree
+build new node depth=0_N=2000 gain=0.2758
+build new node depth=1_N=1468 gain=0.3207
+build new node depth=2_N=879 gain=0.3160
+build new node depth=2_N=589 gain=0.3124
+build new node depth=3_N=442 gain=0.3255
+build new node depth=1_N=532 gain=0.2730
+build new node depth=2_N=471 gain=0.2299
+build new node depth=4_N=407 gain=0.2009
+build new node depth=3_N=292 gain=0.1579
+build new node depth=4_N=199 gain=0.1436
+build new node depth=2_N=61 gain=0.1032
+build new node depth=3_N=441 gain=0.1006
+best gain 9.066e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:18	loss:3.73e-03
+(improve: 9.038e-04)
+valid loss:	6.831e-02
+start build new Tree
+build new node depth=0_N=2000 gain=0.2039
+build new node depth=1_N=1395 gain=0.1863
+build new node depth=2_N=836 gain=0.1971
+build new node depth=2_N=559 gain=0.1567
+build new node depth=1_N=605 gain=0.1402
+build new node depth=3_N=543 gain=0.1314
+build new node depth=4_N=296 gain=0.1252
+build new node depth=4_N=247 gain=0.1172
+build new node depth=3_N=534 gain=0.1036
+best gain 9.258e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:19	loss:3.29e-03
+(improve: 4.435e-04)
+valid loss:	6.783e-02
+start build new Tree
+build new node depth=0_N=2000 gain=0.2150
+build new node depth=1_N=1141 gain=0.2211
+build new node depth=2_N=824 gain=0.2278
+build new node depth=2_N=317 gain=0.1936
+build new node depth=1_N=859 gain=0.1651
+build new node depth=2_N=810 gain=0.1310
+build new node depth=3_N=242 gain=0.1319
+build new node depth=4_N=152 gain=0.1260
+build new node depth=3_N=130 gain=0.1069
+best gain 9.882e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:20	loss:2.79e-03
+(improve: 4.955e-04)
+valid loss:	6.852e-02
+start build new Tree
+build new node depth=0_N=2000 gain=0.1400
+build new node depth=1_N=1749 gain=0.1258
+build new node depth=2_N=1289 gain=0.1737
+build new node depth=3_N=788 gain=0.1682
+build new node depth=2_N=460 gain=0.1463
+build new node depth=4_N=470 gain=0.1429
+build new node depth=4_N=318 gain=0.1142
+best gain 8.028e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:21	loss:2.46e-03
+(improve: 3.292e-04)
+valid loss:	6.732e-02
+start build new Tree
+build new node depth=0_N=2000 gain=0.1200
+best gain 9.132e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:22	loss:2.43e-03
+(improve: 3.857e-05)
+valid loss:	6.715e-02
+start build new Tree
+build new node depth=0_N=2000 gain=0.1072
+build new node depth=1_N=1812 gain=0.1329
+build new node depth=2_N=988 gain=0.2165
+build new node depth=3_N=816 gain=0.1533
+build new node depth=4_N=524 gain=0.2182
+build new node depth=4_N=292 gain=0.1239
+build new node depth=2_N=824 gain=0.1066
+build new node depth=3_N=621 gain=0.1256
+build new node depth=3_N=203 gain=0.1171
+best gain 5.666e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:23	loss:2.00e-03
+(improve: 4.261e-04)
+valid loss:	6.410e-02
+start build new Tree
+best gain 9.589e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:24	loss:2.00e-03
+(improve: 2.732e-09)
+valid loss:	6.410e-02
+start build new Tree
+best gain 9.582e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:25	loss:2.00e-03
+(improve: 9.870e-10)
+valid loss:	6.410e-02
+start build new Tree
+best gain 9.577e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:26	loss:2.00e-03
+(improve: 3.565e-10)
+valid loss:	6.410e-02
+start build new Tree
+best gain 9.574e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:27	loss:2.00e-03
+(improve: 1.288e-10)
+valid loss:	6.410e-02
+start build new Tree
+best gain 9.573e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:28	loss:2.00e-03
+(improve: 4.652e-11)
+valid loss:	6.410e-02
+start build new Tree
+best gain 9.572e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:29	loss:2.00e-03
+(improve: 1.680e-11)
+valid loss:	6.410e-02
+start build new Tree
+best gain 9.571e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:30	loss:2.00e-03
+(improve: 6.070e-12)
+valid loss:	6.409e-02
+start build new Tree
+best gain 9.571e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:31	loss:2.00e-03
+(improve: 2.192e-12)
+valid loss:	6.409e-02
+start build new Tree
+best gain 9.570e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:32	loss:2.00e-03
+(improve: 7.920e-13)
+valid loss:	6.409e-02
+start build new Tree
+best gain 9.570e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:33	loss:2.00e-03
+(improve: 2.861e-13)
+valid loss:	6.409e-02
+start build new Tree
+best gain 9.570e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:34	loss:2.00e-03
+(improve: 1.033e-13)
+valid loss:	6.409e-02
+start build new Tree
+best gain 9.570e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:35	loss:2.00e-03
+(improve: 3.733e-14)
+valid loss:	6.409e-02
+start build new Tree
+best gain 9.570e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:36	loss:2.00e-03
+(improve: 1.348e-14)
+valid loss:	6.409e-02
+start build new Tree
+best gain 9.570e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:37	loss:2.00e-03
+(improve: 4.872e-15)
+valid loss:	6.409e-02
+start build new Tree
+best gain 9.570e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:38	loss:2.00e-03
+(improve: 1.758e-15)
+valid loss:	6.409e-02
+start build new Tree
+best gain 9.570e-02 below gamma 1.000e-01. stop build node.
+==============================
+end tree iteration
+iterate:39	loss:2.00e-03
+(improve: 6.397e-16)
+valid loss:	6.409e-02
+This is MNIST Original dataset
+finish fetch datasets
+target: 3,8
+(70000,)
+13966
+training datasize: 2000
+test datasize: 11966
+start build new Tree
+build new node depth=0_N=2000 gain=538.7344
+build new node depth=1_N=1000 gain=96.3745
+build new node depth=1_N=1000 gain=45.4259
+build new node depth=2_N=163 gain=40.5793
+build new node depth=2_N=855 gain=22.9140
+build new node depth=2_N=145 gain=21.3546
+build new node depth=2_N=837 gain=19.1825
+build new node depth=3_N=117 gain=19.0716
+build new node depth=3_N=82 gain=15.8894
+build new node depth=3_N=824 gain=12.5804
+build new node depth=3_N=26 gain=9.2701
+build new node depth=4_N=815 gain=7.2187
+build new node depth=4_N=28 gain=6.4043
+build new node depth=3_N=81 gain=5.9525
+build new node depth=4_N=12 gain=5.7942
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:0	loss:5.37e-01
+valid loss:	5.453e-01
+start build new Tree
+build new node depth=0_N=2000 gain=358.9818
+build new node depth=1_N=1000 gain=64.5298
+build new node depth=1_N=1000 gain=31.7556
+build new node depth=2_N=235 gain=36.5785
+build new node depth=3_N=117 gain=20.6480
+build new node depth=2_N=855 gain=15.3386
+build new node depth=2_N=145 gain=14.3348
+build new node depth=3_N=109 gain=14.2652
+build new node depth=2_N=765 gain=13.2268
+build new node depth=3_N=33 gain=8.6590
+build new node depth=3_N=732 gain=7.9208
+build new node depth=3_N=36 gain=7.7846
+build new node depth=4_N=91 gain=6.7746
+build new node depth=3_N=26 gain=6.5848
+build new node depth=3_N=118 gain=5.7759
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:1	loss:4.26e-01
+(improve: 1.107e-01)
+valid loss:	4.411e-01
+start build new Tree
+build new node depth=0_N=2000 gain=253.2946
+build new node depth=1_N=1000 gain=46.4217
+build new node depth=1_N=1000 gain=23.4018
+build new node depth=2_N=356 gain=26.1100
+build new node depth=2_N=166 gain=14.5380
+build new node depth=3_N=228 gain=12.3986
+build new node depth=3_N=128 gain=10.7232
+build new node depth=2_N=834 gain=10.0005
+build new node depth=3_N=132 gain=8.2559
+build new node depth=4_N=39 gain=10.1566
+build new node depth=4_N=33 gain=7.2454
+build new node depth=4_N=58 gain=7.0354
+build new node depth=3_N=25 gain=5.8065
+build new node depth=2_N=644 gain=5.6090
+build new node depth=4_N=93 gain=5.4292
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:2	loss:3.46e-01
+(improve: 8.064e-02)
+valid loss:	3.663e-01
+start build new Tree
+build new node depth=0_N=2000 gain=184.2380
+build new node depth=1_N=1000 gain=34.6295
+build new node depth=1_N=1000 gain=18.5062
+build new node depth=2_N=166 gain=11.0161
+This is MNIST Original dataset
+finish fetch datasets
+target: 3,8
+(70000,)
+13966
+training datasize: 5000
+test datasize: 8966
+start build new Tree
+build new node depth=0_N=5000 gain=1328.9785
+build new node depth=1_N=2587 gain=277.2771
+build new node depth=1_N=2413 gain=123.0521
+build new node depth=2_N=387 gain=71.0713
+build new node depth=3_N=249 gain=63.7458
+build new node depth=2_N=2260 gain=59.2455
+build new node depth=2_N=2026 gain=32.7907
+build new node depth=2_N=327 gain=32.0137
+build new node depth=3_N=2201 gain=25.4124
+build new node depth=3_N=285 gain=21.8853
+build new node depth=3_N=1996 gain=18.0754
+build new node depth=4_N=59 gain=21.6054
+build new node depth=4_N=2182 gain=16.3773
+build new node depth=3_N=59 gain=13.3655
+build new node depth=4_N=1937 gain=10.9958
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:0	loss:5.41e-01
+valid loss:	5.444e-01
+start build new Tree
+build new node depth=0_N=5000 gain=884.9834
+build new node depth=1_N=2587 gain=185.6018
+build new node depth=1_N=2413 gain=82.2551
+build new node depth=2_N=387 gain=49.4600
+build new node depth=3_N=218 gain=39.9905
+build new node depth=2_N=2260 gain=39.6591
+build new node depth=2_N=2026 gain=24.9202
+build new node depth=2_N=327 gain=23.3746
+build new node depth=3_N=2201 gain=17.5689
+build new node depth=3_N=269 gain=16.1823
+build new node depth=3_N=75 gain=15.9248
+build new node depth=3_N=58 gain=14.5034
+build new node depth=3_N=1951 gain=12.8097
+build new node depth=4_N=442 gain=16.8043
+build new node depth=4_N=32 gain=12.2432
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:1	loss:4.37e-01
+(improve: 1.038e-01)
+valid loss:	4.417e-01
+start build new Tree
+build new node depth=0_N=5000 gain=621.8099
+build new node depth=1_N=2587 gain=132.9003
+build new node depth=1_N=2413 gain=58.6442
+build new node depth=2_N=387 gain=39.1286
+build new node depth=2_N=2211 gain=27.9395
+build new node depth=2_N=376 gain=23.2637
+build new node depth=3_N=235 gain=19.7143
+build new node depth=2_N=2026 gain=19.2558
+build new node depth=4_N=200 gain=17.6482
+build new node depth=3_N=308 gain=17.0315
+build new node depth=3_N=68 gain=13.6348
+build new node depth=3_N=2000 gain=13.5927
+build new node depth=4_N=49 gain=12.3695
+build new node depth=3_N=2169 gain=12.0659
+build new node depth=4_N=2157 gain=10.3539
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:2	loss:3.62e-01
+(improve: 7.515e-02)
+valid loss:	3.699e-01
+start build new Tree
+build new node depth=0_N=5000 gain=450.3636
+build new node depth=1_N=2587 gain=98.2260
+build new node depth=1_N=2413 gain=44.1158
+build new node depth=2_N=621 gain=68.2898
+build new node depth=3_N=313 gain=35.5692
+build new node depth=2_N=2211 gain=23.2479
+build new node depth=2_N=1792 gain=19.3159
+build new node depth=2_N=376 gain=18.2647
+build new node depth=3_N=74 gain=17.6426
+build new node depth=4_N=80 gain=10.2961
+build new node depth=3_N=1726 gain=9.4787
+build new node depth=4_N=89 gain=9.8939
+build new node depth=3_N=2137 gain=9.0756
+build new node depth=4_N=64 gain=13.7470
+build new node depth=4_N=2073 gain=9.2146
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:3	loss:3.01e-01
+(improve: 6.054e-02)
+valid loss:	3.122e-01
+start build new Tree
+build new node depth=0_N=5000 gain=333.0793
+build new node depth=1_N=2587 gain=75.9395
+build new node depth=1_N=2413 gain=36.4580
+build new node depth=2_N=822 gain=39.1976
+build new node depth=3_N=435 gain=36.6961
+build new node depth=2_N=2226 gain=20.5800
+build new node depth=4_N=334 gain=18.2323
+build new node depth=2_N=361 gain=14.1700
+build new node depth=3_N=147 gain=11.4550
+build new node depth=4_N=109 gain=12.6107
+build new node depth=2_N=1591 gain=11.4102
+build new node depth=3_N=247 gain=10.6411
+build new node depth=3_N=387 gain=9.9184
+build new node depth=3_N=2079 gain=7.7404
+build new node depth=3_N=114 gain=7.7346
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:4	loss:2.54e-01
+(improve: 4.674e-02)
+valid loss:	2.675e-01
+start build new Tree
+build new node depth=0_N=5000 gain=248.1152
+build new node depth=1_N=2587 gain=59.1854
+build new node depth=1_N=2413 gain=28.8269
+build new node depth=2_N=621 gain=42.0690
+build new node depth=3_N=313 gain=21.1486
+build new node depth=2_N=2174 gain=16.7921
+build new node depth=2_N=1792 gain=15.5838
+build new node depth=2_N=413 gain=14.4753
+build new node depth=3_N=336 gain=15.3607
+build new node depth=3_N=68 gain=12.6409
+build new node depth=3_N=95 gain=10.4686
+build new node depth=3_N=1724 gain=9.6802
+build new node depth=4_N=119 gain=9.5770
+build new node depth=4_N=239 gain=7.9594
+build new node depth=3_N=77 gain=6.1793
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:5	loss:2.17e-01
+(improve: 3.750e-02)
+valid loss:	2.307e-01
+start build new Tree
+build new node depth=0_N=5000 gain=186.9010
+build new node depth=1_N=2587 gain=46.2820
+build new node depth=1_N=2413 gain=25.2922
+build new node depth=2_N=822 gain=28.2487
+build new node depth=3_N=270 gain=18.8889
+build new node depth=2_N=2174 gain=14.3958
+build new node depth=2_N=413 gain=12.3830
+build new node depth=3_N=105 gain=10.9846
+build new node depth=2_N=1591 gain=10.1385
+build new node depth=3_N=552 gain=10.1295
+build new node depth=4_N=119 gain=10.7880
+build new node depth=3_N=141 gain=9.4022
+build new node depth=3_N=2033 gain=7.7006
+build new node depth=4_N=207 gain=7.5776
+build new node depth=3_N=308 gain=7.0138
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:6	loss:1.87e-01
+(improve: 2.940e-02)
+valid loss:	2.033e-01
+start build new Tree
+build new node depth=0_N=5000 gain=140.4096
+build new node depth=1_N=2587 gain=36.5528
+build new node depth=1_N=2413 gain=21.5088
+build new node depth=2_N=2150 gain=15.2575
+build new node depth=3_N=535 gain=19.3262
+build new node depth=4_N=255 gain=14.8427
+build new node depth=2_N=2169 gain=13.6859
+build new node depth=2_N=263 gain=11.2978
+build new node depth=2_N=418 gain=9.6761
+build new node depth=3_N=2074 gain=7.4444
+build new node depth=3_N=150 gain=7.1033
+build new node depth=3_N=1615 gain=7.0930
+build new node depth=3_N=95 gain=7.0483
+build new node depth=3_N=166 gain=6.3552
+build new node depth=4_N=51 gain=6.2329
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:7	loss:1.64e-01
+(improve: 2.344e-02)
+valid loss:	1.814e-01
+start build new Tree
+build new node depth=0_N=5000 gain=106.0983
+build new node depth=1_N=2587 gain=29.6713
+build new node depth=1_N=2413 gain=18.1744
+build new node depth=2_N=496 gain=11.4838
+build new node depth=2_N=2169 gain=11.0539
+build new node depth=2_N=1917 gain=10.1194
+build new node depth=3_N=505 gain=9.7453
+build new node depth=4_N=319 gain=20.4113
+build new node depth=3_N=250 gain=8.7725
+build new node depth=2_N=418 gain=8.5121
+build new node depth=3_N=335 gain=10.1181
+build new node depth=4_N=95 gain=8.9308
+build new node depth=3_N=246 gain=7.0065
+build new node depth=4_N=244 gain=6.7844
+build new node depth=3_N=83 gain=6.4772
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:8	loss:1.44e-01
+(improve: 1.977e-02)
+valid loss:	1.631e-01
+start build new Tree
+build new node depth=0_N=5000 gain=81.6673
+build new node depth=1_N=2593 gain=22.8248
+build new node depth=1_N=2407 gain=18.7386
+build new node depth=2_N=1894 gain=15.4940
+build new node depth=2_N=2165 gain=12.9310
+build new node depth=2_N=513 gain=12.7064
+build new node depth=3_N=366 gain=16.6688
+build new node depth=2_N=428 gain=12.0107
+build new node depth=3_N=150 gain=9.0253
+build new node depth=3_N=244 gain=8.7964
+build new node depth=3_N=2015 gain=8.2628
+build new node depth=4_N=176 gain=7.4739
+build new node depth=3_N=1797 gain=7.3302
+build new node depth=4_N=134 gain=5.6509
+build new node depth=4_N=1745 gain=5.6472
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:9	loss:1.27e-01
+(improve: 1.775e-02)
+valid loss:	1.467e-01
+start build new Tree
+build new node depth=0_N=5000 gain=61.7666
+build new node depth=1_N=2593 gain=18.2086
+build new node depth=1_N=2407 gain=16.3407
+build new node depth=2_N=428 gain=10.4593
+build new node depth=2_N=2165 gain=10.4052
+build new node depth=2_N=481 gain=10.2763
+build new node depth=3_N=235 gain=10.4193
+build new node depth=2_N=1926 gain=9.5576
+build new node depth=3_N=191 gain=7.9964
+build new node depth=3_N=311 gain=7.8648
+build new node depth=3_N=1974 gain=7.1745
+build new node depth=3_N=246 gain=6.5369
+build new node depth=3_N=1615 gain=5.8933
+build new node depth=4_N=1598 gain=5.8812
+build new node depth=4_N=140 gain=5.8460
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:10	loss:1.12e-01
+(improve: 1.409e-02)
+valid loss:	1.346e-01
+start build new Tree
+build new node depth=0_N=5000 gain=46.8588
+build new node depth=1_N=2828 gain=20.1709
+build new node depth=2_N=2550 gain=14.9398
+build new node depth=1_N=2172 gain=9.9378
+build new node depth=3_N=2348 gain=8.6414
+build new node depth=4_N=2185 gain=7.1753
+build new node depth=2_N=1836 gain=6.7200
+build new node depth=3_N=385 gain=7.7876
+build new node depth=3_N=1451 gain=7.2114
+build new node depth=4_N=106 gain=6.9600
+build new node depth=2_N=336 gain=5.6747
+build new node depth=3_N=320 gain=5.8093
+build new node depth=4_N=95 gain=5.4835
+build new node depth=3_N=202 gain=5.4409
+build new node depth=4_N=146 gain=5.3618
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:11	loss:1.01e-01
+(improve: 1.188e-02)
+valid loss:	1.245e-01
+start build new Tree
+build new node depth=0_N=5000 gain=34.9024
+This is MNIST Original dataset
+finish fetch datasets
+target: 3,8
+(70000,)
+13966
+training datasize: 5000
+test datasize: 8966
+start build new Tree
+build new node depth=0_N=5000 gain=1328.9785
+build new node depth=1_N=2587 gain=277.2771
+build new node depth=1_N=2413 gain=123.0521
+build new node depth=2_N=387 gain=71.0713
+build new node depth=3_N=249 gain=63.7458
+build new node depth=2_N=2260 gain=59.2455
+build new node depth=2_N=2026 gain=32.7907
+build new node depth=2_N=327 gain=32.0137
+build new node depth=3_N=2201 gain=25.4124
+build new node depth=3_N=285 gain=21.8853
+build new node depth=3_N=1996 gain=18.0754
+build new node depth=4_N=59 gain=21.6054
+build new node depth=4_N=2182 gain=16.3773
+build new node depth=3_N=59 gain=13.3655
+build new node depth=4_N=1937 gain=10.9958
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:0	loss:5.41e-01
+valid loss:	5.444e-01
+start build new Tree
+This is MNIST Original dataset
+finish fetch datasets
+target: 3,8
+(70000,)
+13966
+training datasize: 5000
+test datasize: 8966
+start build new Tree
+This is MNIST Original dataset
+finish fetch datasets
+target: 3,8
+(70000,)
+13966
+training datasize: 5000
+test datasize: 8966
+start build new Tree
+build new node depth=0_N=5000 gain=1328.9785
+build new node depth=1_N=2587 gain=277.2771
+build new node depth=1_N=2413 gain=123.0521
+build new node depth=2_N=387 gain=71.0713
+build new node depth=3_N=249 gain=63.7458
+build new node depth=2_N=2260 gain=59.2455
+build new node depth=2_N=2026 gain=32.7907
+build new node depth=2_N=327 gain=32.0137
+build new node depth=3_N=2201 gain=25.4124
+build new node depth=3_N=285 gain=21.8853
+build new node depth=3_N=1996 gain=18.0754
+build new node depth=4_N=59 gain=21.6054
+build new node depth=4_N=2182 gain=16.3773
+build new node depth=3_N=59 gain=13.3655
+build new node depth=4_N=1937 gain=10.9958
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:0	loss:5.41e-01
+valid loss:	5.444e-01
+start build new Tree
+build new node depth=0_N=5000 gain=884.9834
+build new node depth=1_N=2587 gain=185.6018
+build new node depth=1_N=2413 gain=82.2551
+build new node depth=2_N=387 gain=49.4600
+build new node depth=3_N=218 gain=39.9905
+build new node depth=2_N=2260 gain=39.6591
+build new node depth=2_N=2026 gain=24.9202
+build new node depth=2_N=327 gain=23.3746
+build new node depth=3_N=2201 gain=17.5689
+build new node depth=3_N=269 gain=16.1823
+build new node depth=3_N=75 gain=15.9248
+build new node depth=3_N=58 gain=14.5034
+build new node depth=3_N=1951 gain=12.8097
+build new node depth=4_N=442 gain=16.8043
+build new node depth=4_N=32 gain=12.2432
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:1	loss:4.37e-01
+(improve: 1.038e-01)
+valid loss:	4.417e-01
+start build new Tree
+build new node depth=0_N=5000 gain=621.8099
+build new node depth=1_N=2587 gain=132.9003
+build new node depth=1_N=2413 gain=58.6442
+build new node depth=2_N=387 gain=39.1286
+build new node depth=2_N=2211 gain=27.9395
+build new node depth=2_N=376 gain=23.2637
+build new node depth=3_N=235 gain=19.7143
+build new node depth=2_N=2026 gain=19.2558
+build new node depth=4_N=200 gain=17.6482
+build new node depth=3_N=308 gain=17.0315
+build new node depth=3_N=68 gain=13.6348
+build new node depth=3_N=2000 gain=13.5927
+build new node depth=4_N=49 gain=12.3695
+build new node depth=3_N=2169 gain=12.0659
+build new node depth=4_N=2157 gain=10.3539
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:2	loss:3.62e-01
+(improve: 7.515e-02)
+valid loss:	3.699e-01
+start build new Tree
+build new node depth=0_N=5000 gain=450.3636
+This is MNIST Original dataset
+finish fetch datasets
+target: 3,8
+(70000,)
+13966
+training datasize: 5000
+test datasize: 8966
+start build new Tree
+build new node depth=0_N=5000 gain=1328.9785
+build new node depth=1_N=2587 gain=277.2771
+build new node depth=1_N=2413 gain=123.0521
+build new node depth=2_N=387 gain=71.0713
+build new node depth=3_N=249 gain=63.7458
+build new node depth=2_N=2260 gain=59.2455
+build new node depth=2_N=2026 gain=32.7907
+build new node depth=2_N=327 gain=32.0137
+build new node depth=3_N=2201 gain=25.4124
+build new node depth=3_N=285 gain=21.8853
+build new node depth=3_N=1996 gain=18.0754
+build new node depth=4_N=59 gain=21.6054
+build new node depth=4_N=2182 gain=16.3773
+build new node depth=3_N=59 gain=13.3655
+build new node depth=4_N=1937 gain=10.9958
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:0	loss:5.41e-01
+valid loss:	5.444e-01
+start build new Tree
+build new node depth=0_N=5000 gain=884.9834
+build new node depth=1_N=2587 gain=185.6018
+build new node depth=1_N=2413 gain=82.2551
+build new node depth=2_N=387 gain=49.4600
+build new node depth=3_N=218 gain=39.9905
+build new node depth=2_N=2260 gain=39.6591
+build new node depth=2_N=2026 gain=24.9202
+build new node depth=2_N=327 gain=23.3746
+build new node depth=3_N=2201 gain=17.5689
+build new node depth=3_N=269 gain=16.1823
+build new node depth=3_N=75 gain=15.9248
+build new node depth=3_N=58 gain=14.5034
+build new node depth=3_N=1951 gain=12.8097
+build new node depth=4_N=442 gain=16.8043
+build new node depth=4_N=32 gain=12.2432
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:1	loss:4.37e-01
+(improve: 1.038e-01)
+valid loss:	4.417e-01
+start build new Tree
+build new node depth=0_N=5000 gain=621.8099
+build new node depth=1_N=2587 gain=132.9003
+build new node depth=1_N=2413 gain=58.6442
+build new node depth=2_N=387 gain=39.1286
+build new node depth=2_N=2211 gain=27.9395
+build new node depth=2_N=376 gain=23.2637
+build new node depth=3_N=235 gain=19.7143
+build new node depth=2_N=2026 gain=19.2558
+build new node depth=4_N=200 gain=17.6482
+build new node depth=3_N=308 gain=17.0315
+build new node depth=3_N=68 gain=13.6348
+build new node depth=3_N=2000 gain=13.5927
+build new node depth=4_N=49 gain=12.3695
+build new node depth=3_N=2169 gain=12.0659
+build new node depth=4_N=2157 gain=10.3539
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:2	loss:3.62e-01
+(improve: 7.515e-02)
+valid loss:	3.699e-01
+start build new Tree
+build new node depth=0_N=5000 gain=450.3636
+build new node depth=1_N=2587 gain=98.2260
+build new node depth=1_N=2413 gain=44.1158
+build new node depth=2_N=621 gain=68.2898
+build new node depth=3_N=313 gain=35.5692
+build new node depth=2_N=2211 gain=23.2479
+build new node depth=2_N=1792 gain=19.3159
+build new node depth=2_N=376 gain=18.2647
+build new node depth=3_N=74 gain=17.6426
+build new node depth=4_N=80 gain=10.2961
+build new node depth=3_N=1726 gain=9.4787
+build new node depth=4_N=89 gain=9.8939
+build new node depth=3_N=2137 gain=9.0756
+build new node depth=4_N=64 gain=13.7470
+build new node depth=4_N=2073 gain=9.2146
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:3	loss:3.01e-01
+(improve: 6.054e-02)
+valid loss:	3.122e-01
+start build new Tree
+build new node depth=0_N=5000 gain=333.0793
+build new node depth=1_N=2587 gain=75.9395
+build new node depth=1_N=2413 gain=36.4580
+build new node depth=2_N=822 gain=39.1976
+build new node depth=3_N=435 gain=36.6961
+build new node depth=2_N=2226 gain=20.5800
+build new node depth=4_N=334 gain=18.2323
+build new node depth=2_N=361 gain=14.1700
+build new node depth=3_N=147 gain=11.4550
+build new node depth=4_N=109 gain=12.6107
+build new node depth=2_N=1591 gain=11.4102
+build new node depth=3_N=247 gain=10.6411
+build new node depth=3_N=387 gain=9.9184
+build new node depth=3_N=2079 gain=7.7404
+build new node depth=3_N=114 gain=7.7346
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:4	loss:2.54e-01
+(improve: 4.674e-02)
+valid loss:	2.675e-01
+start build new Tree
+build new node depth=0_N=5000 gain=248.1152
+build new node depth=1_N=2587 gain=59.1854
+build new node depth=1_N=2413 gain=28.8269
+build new node depth=2_N=621 gain=42.0690
+build new node depth=3_N=313 gain=21.1486
+build new node depth=2_N=2174 gain=16.7921
+build new node depth=2_N=1792 gain=15.5838
+build new node depth=2_N=413 gain=14.4753
+build new node depth=3_N=336 gain=15.3607
+build new node depth=3_N=68 gain=12.6409
+build new node depth=3_N=95 gain=10.4686
+build new node depth=3_N=1724 gain=9.6802
+build new node depth=4_N=119 gain=9.5770
+build new node depth=4_N=239 gain=7.9594
+build new node depth=3_N=77 gain=6.1793
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:5	loss:2.17e-01
+(improve: 3.750e-02)
+valid loss:	2.307e-01
+start build new Tree
+build new node depth=0_N=5000 gain=186.9010
+build new node depth=1_N=2587 gain=46.2820
+build new node depth=1_N=2413 gain=25.2922
+build new node depth=2_N=822 gain=28.2487
+build new node depth=3_N=270 gain=18.8889
+build new node depth=2_N=2174 gain=14.3958
+build new node depth=2_N=413 gain=12.3830
+build new node depth=3_N=105 gain=10.9846
+build new node depth=2_N=1591 gain=10.1385
+build new node depth=3_N=552 gain=10.1295
+build new node depth=4_N=119 gain=10.7880
+build new node depth=3_N=141 gain=9.4022
+build new node depth=3_N=2033 gain=7.7006
+build new node depth=4_N=207 gain=7.5776
+build new node depth=3_N=308 gain=7.0138
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:6	loss:1.87e-01
+(improve: 2.940e-02)
+valid loss:	2.033e-01
+start build new Tree
+build new node depth=0_N=5000 gain=140.4096
+build new node depth=1_N=2587 gain=36.5528
+build new node depth=1_N=2413 gain=21.5088
+build new node depth=2_N=2150 gain=15.2575
+build new node depth=3_N=535 gain=19.3262
+build new node depth=4_N=255 gain=14.8427
+build new node depth=2_N=2169 gain=13.6859
+build new node depth=2_N=263 gain=11.2978
+build new node depth=2_N=418 gain=9.6761
+build new node depth=3_N=2074 gain=7.4444
+build new node depth=3_N=150 gain=7.1033
+build new node depth=3_N=1615 gain=7.0930
+build new node depth=3_N=95 gain=7.0483
+build new node depth=3_N=166 gain=6.3552
+build new node depth=4_N=51 gain=6.2329
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:7	loss:1.64e-01
+(improve: 2.344e-02)
+valid loss:	1.814e-01
+start build new Tree
+build new node depth=0_N=5000 gain=106.0983
+build new node depth=1_N=2587 gain=29.6713
+build new node depth=1_N=2413 gain=18.1744
+build new node depth=2_N=496 gain=11.4838
+build new node depth=2_N=2169 gain=11.0539
+build new node depth=2_N=1917 gain=10.1194
+build new node depth=3_N=505 gain=9.7453
+build new node depth=4_N=319 gain=20.4113
+build new node depth=3_N=250 gain=8.7725
+build new node depth=2_N=418 gain=8.5121
+build new node depth=3_N=335 gain=10.1181
+build new node depth=4_N=95 gain=8.9308
+build new node depth=3_N=246 gain=7.0065
+build new node depth=4_N=244 gain=6.7844
+build new node depth=3_N=83 gain=6.4772
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:8	loss:1.44e-01
+(improve: 1.977e-02)
+valid loss:	1.631e-01
+start build new Tree
+build new node depth=0_N=5000 gain=81.6673
+build new node depth=1_N=2593 gain=22.8248
+build new node depth=1_N=2407 gain=18.7386
+build new node depth=2_N=1894 gain=15.4940
+build new node depth=2_N=2165 gain=12.9310
+build new node depth=2_N=513 gain=12.7064
+build new node depth=3_N=366 gain=16.6688
+build new node depth=2_N=428 gain=12.0107
+build new node depth=3_N=150 gain=9.0253
+build new node depth=3_N=244 gain=8.7964
+build new node depth=3_N=2015 gain=8.2628
+build new node depth=4_N=176 gain=7.4739
+build new node depth=3_N=1797 gain=7.3302
+build new node depth=4_N=134 gain=5.6509
+build new node depth=4_N=1745 gain=5.6472
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:9	loss:1.27e-01
+(improve: 1.775e-02)
+valid loss:	1.467e-01
+start build new Tree
+build new node depth=0_N=5000 gain=61.7666
+build new node depth=1_N=2593 gain=18.2086
+build new node depth=1_N=2407 gain=16.3407
+build new node depth=2_N=428 gain=10.4593
+build new node depth=2_N=2165 gain=10.4052
+build new node depth=2_N=481 gain=10.2763
+build new node depth=3_N=235 gain=10.4193
+build new node depth=2_N=1926 gain=9.5576
+build new node depth=3_N=191 gain=7.9964
+build new node depth=3_N=311 gain=7.8648
+build new node depth=3_N=1974 gain=7.1745
+build new node depth=3_N=246 gain=6.5369
+build new node depth=3_N=1615 gain=5.8933
+build new node depth=4_N=1598 gain=5.8812
+build new node depth=4_N=140 gain=5.8460
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:10	loss:1.12e-01
+(improve: 1.409e-02)
+valid loss:	1.346e-01
+start build new Tree
+build new node depth=0_N=5000 gain=46.8588
+build new node depth=1_N=2828 gain=20.1709
+build new node depth=2_N=2550 gain=14.9398
+build new node depth=1_N=2172 gain=9.9378
+build new node depth=3_N=2348 gain=8.6414
+build new node depth=4_N=2185 gain=7.1753
+build new node depth=2_N=1836 gain=6.7200
+build new node depth=3_N=385 gain=7.7876
+build new node depth=3_N=1451 gain=7.2114
+build new node depth=4_N=106 gain=6.9600
+build new node depth=2_N=336 gain=5.6747
+build new node depth=3_N=320 gain=5.8093
+build new node depth=4_N=95 gain=5.4835
+build new node depth=3_N=202 gain=5.4409
+build new node depth=4_N=146 gain=5.3618
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:11	loss:1.01e-01
+(improve: 1.188e-02)
+valid loss:	1.245e-01
+start build new Tree
+build new node depth=0_N=5000 gain=34.9024
+build new node depth=1_N=2828 gain=16.5530
+build new node depth=2_N=2255 gain=12.0047
+build new node depth=3_N=2109 gain=8.4112
+build new node depth=1_N=2172 gain=8.2865
+build new node depth=2_N=691 gain=6.7916
+build new node depth=2_N=573 gain=6.4466
+build new node depth=3_N=658 gain=6.2433
+build new node depth=4_N=249 gain=5.5758
+build new node depth=3_N=294 gain=5.5005
+build new node depth=4_N=2063 gain=5.4025
+build new node depth=4_N=160 gain=5.2685
+build new node depth=2_N=1481 gain=4.6634
+build new node depth=3_N=1204 gain=8.5224
+build new node depth=3_N=279 gain=4.4153
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:12	loss:9.06e-02
+(improve: 9.984e-03)
+valid loss:	1.167e-01
+start build new Tree
+build new node depth=0_N=5000 gain=26.0903
+build new node depth=1_N=2830 gain=15.8471
+build new node depth=2_N=1337 gain=14.8016
+build new node depth=3_N=807 gain=13.1329
+build new node depth=1_N=2170 gain=9.4994
+build new node depth=2_N=1556 gain=8.4199
+build new node depth=2_N=1493 gain=6.5250
+build new node depth=2_N=614 gain=6.2838
+build new node depth=3_N=530 gain=5.4794
+build new node depth=3_N=182 gain=5.3503
+build new node depth=4_N=714 gain=5.1475
+build new node depth=3_N=371 gain=4.6849
+build new node depth=3_N=1493 gain=4.4081
+build new node depth=4_N=484 gain=3.9100
+build new node depth=4_N=172 gain=3.4696
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:13	loss:8.10e-02
+(improve: 9.606e-03)
+valid loss:	1.074e-01
+start build new Tree
+build new node depth=0_N=5000 gain=21.3228
+build new node depth=1_N=2974 gain=14.6216
+build new node depth=2_N=2466 gain=13.7835
+build new node depth=1_N=2026 gain=8.3420
+build new node depth=2_N=468 gain=8.2659
+build new node depth=3_N=305 gain=6.2644
+build new node depth=2_N=1558 gain=5.8623
+build new node depth=3_N=375 gain=5.8451
+build new node depth=3_N=2091 gain=5.5160
+build new node depth=4_N=150 gain=5.9295
+build new node depth=2_N=508 gain=5.0807
+build new node depth=3_N=181 gain=4.7005
+build new node depth=4_N=168 gain=4.3791
+build new node depth=4_N=251 gain=4.2396
+build new node depth=3_N=466 gain=3.5935
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:14	loss:7.25e-02
+(improve: 8.516e-03)
+valid loss:	9.956e-02
+start build new Tree
+build new node depth=0_N=5000 gain=16.3279
+build new node depth=1_N=2663 gain=10.5511
+build new node depth=2_N=1201 gain=9.1830
+build new node depth=3_N=725 gain=8.6988
+build new node depth=1_N=2337 gain=8.0033
+build new node depth=2_N=1751 gain=8.1959
+build new node depth=4_N=640 gain=5.0749
+build new node depth=2_N=586 gain=4.8261
+build new node depth=3_N=424 gain=4.2925
+build new node depth=2_N=1462 gain=4.0452
+build new node depth=3_N=476 gain=4.0220
+build new node depth=3_N=1430 gain=3.9360
+build new node depth=4_N=1426 gain=3.9488
+build new node depth=3_N=162 gain=3.7450
+build new node depth=4_N=123 gain=4.7143
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:15	loss:6.53e-02
+(improve: 7.157e-03)
+valid loss:	9.342e-02
+start build new Tree
+build new node depth=0_N=5000 gain=14.2217
+build new node depth=1_N=3917 gain=9.7320
+build new node depth=2_N=2708 gain=9.7165
+build new node depth=3_N=2546 gain=9.3321
+build new node depth=2_N=1209 gain=7.5439
+build new node depth=1_N=1083 gain=7.2639
+build new node depth=4_N=435 gain=5.6044
+build new node depth=4_N=2111 gain=5.5041
+build new node depth=3_N=994 gain=5.1839
+build new node depth=4_N=224 gain=3.1216
+build new node depth=2_N=948 gain=2.9656
+build new node depth=4_N=770 gain=2.0775
+build new node depth=3_N=927 gain=1.9234
+build new node depth=2_N=135 gain=1.9160
+build new node depth=3_N=29 gain=1.9453
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:16	loss:5.89e-02
+(improve: 6.365e-03)
+valid loss:	8.687e-02
+start build new Tree
+build new node depth=0_N=5000 gain=11.8090
+build new node depth=1_N=3093 gain=8.1766
+build new node depth=2_N=2232 gain=6.3039
+build new node depth=1_N=1907 gain=5.7117
+build new node depth=2_N=308 gain=6.1847
+build new node depth=3_N=132 gain=7.1040
+build new node depth=2_N=1599 gain=5.0079
+build new node depth=2_N=861 gain=4.4191
+build new node depth=3_N=497 gain=4.5121
+build new node depth=4_N=131 gain=3.4270
+build new node depth=3_N=337 gain=3.3412
+build new node depth=3_N=1895 gain=3.1107
+build new node depth=4_N=16 gain=3.2886
+build new node depth=3_N=1476 gain=3.0397
+build new node depth=4_N=270 gain=3.0221
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:17	loss:5.34e-02
+(improve: 5.574e-03)
+valid loss:	8.328e-02
+start build new Tree
+build new node depth=0_N=5000 gain=9.4959
+build new node depth=1_N=2926 gain=6.5151
+build new node depth=2_N=2622 gain=5.2797
+build new node depth=3_N=2051 gain=4.1878
+build new node depth=1_N=2074 gain=4.1832
+build new node depth=2_N=1686 gain=4.4112
+build new node depth=2_N=388 gain=3.6521
+build new node depth=3_N=571 gain=3.3116
+build new node depth=4_N=1987 gain=2.9581
+build new node depth=2_N=304 gain=2.6966
+build new node depth=3_N=199 gain=2.5408
+build new node depth=4_N=419 gain=2.1234
+build new node depth=3_N=120 gain=1.8493
+build new node depth=3_N=1566 gain=1.8170
+build new node depth=4_N=152 gain=1.5934
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:18	loss:4.93e-02
+(improve: 4.091e-03)
+valid loss:	7.965e-02
+start build new Tree
+build new node depth=0_N=5000 gain=8.0823
+build new node depth=1_N=4024 gain=6.6785
+build new node depth=2_N=2009 gain=7.1093
+build new node depth=3_N=1314 gain=7.2219
+build new node depth=2_N=2015 gain=6.3216
+build new node depth=1_N=976 gain=3.6995
+build new node depth=3_N=270 gain=3.5942
+build new node depth=4_N=1223 gain=3.2620
+build new node depth=3_N=695 gain=3.1135
+build new node depth=4_N=422 gain=3.0631
+build new node depth=3_N=1745 gain=2.8788
+build new node depth=4_N=372 gain=2.8056
+build new node depth=4_N=258 gain=2.3619
+build new node depth=2_N=913 gain=2.2632
+build new node depth=4_N=273 gain=2.1531
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:19	loss:4.46e-02
+(improve: 4.672e-03)
+valid loss:	7.537e-02
+start build new Tree
+build new node depth=0_N=5000 gain=6.8919
+build new node depth=1_N=4441 gain=5.5971
+build new node depth=2_N=2999 gain=5.6313
+build new node depth=3_N=2801 gain=6.4406
+build new node depth=2_N=1442 gain=4.1999
+build new node depth=4_N=2164 gain=4.1643
+build new node depth=4_N=637 gain=4.0045
+build new node depth=3_N=1031 gain=3.6663
+build new node depth=4_N=216 gain=4.2554
+build new node depth=3_N=411 gain=2.3739
+build new node depth=1_N=559 gain=1.7197
+build new node depth=4_N=287 gain=1.6892
+build new node depth=3_N=198 gain=1.4879
+build new node depth=2_N=533 gain=1.1775
+build new node depth=4_N=815 gain=0.8631
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:20	loss:4.07e-02
+(improve: 3.914e-03)
+valid loss:	7.129e-02
+start build new Tree
+build new node depth=0_N=5000 gain=5.5449
+build new node depth=1_N=3980 gain=4.5042
+build new node depth=2_N=1581 gain=3.5932
+build new node depth=2_N=2399 gain=3.4183
+build new node depth=3_N=1378 gain=3.9088
+build new node depth=3_N=1021 gain=3.4972
+build new node depth=4_N=801 gain=2.9799
+build new node depth=4_N=148 gain=2.8016
+build new node depth=1_N=1020 gain=2.6873
+build new node depth=3_N=903 gain=2.1507
+build new node depth=3_N=678 gain=1.9918
+build new node depth=4_N=220 gain=1.8367
+build new node depth=4_N=844 gain=1.5739
+build new node depth=2_N=894 gain=1.5599
+build new node depth=3_N=125 gain=1.6967
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:21	loss:3.75e-02
+(improve: 3.162e-03)
+valid loss:	6.848e-02
+start build new Tree
+build new node depth=0_N=5000 gain=4.8959
+build new node depth=1_N=4362 gain=4.2020
+build new node depth=2_N=3467 gain=4.2805
+build new node depth=3_N=3053 gain=3.7802
+build new node depth=2_N=895 gain=3.4723
+build new node depth=4_N=1659 gain=2.3261
+build new node depth=4_N=1394 gain=2.2013
+build new node depth=1_N=638 gain=1.5786
+build new node depth=2_N=585 gain=1.2947
+build new node depth=3_N=115 gain=0.9474
+build new node depth=3_N=780 gain=0.9035
+build new node depth=3_N=582 gain=0.6901
+build new node depth=3_N=414 gain=0.6225
+build new node depth=4_N=23 gain=0.6963
+build new node depth=4_N=771 gain=0.6091
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:22	loss:3.52e-02
+(improve: 2.351e-03)
+valid loss:	6.628e-02
+start build new Tree
+build new node depth=0_N=5000 gain=4.4688
+build new node depth=1_N=4378 gain=4.1131
+build new node depth=2_N=2347 gain=7.8042
+build new node depth=3_N=1952 gain=4.6499
+build new node depth=2_N=2031 gain=3.9002
+build new node depth=4_N=1246 gain=2.5466
+build new node depth=4_N=706 gain=2.0278
+build new node depth=1_N=622 gain=1.6614
+build new node depth=3_N=565 gain=1.5302
+build new node depth=4_N=498 gain=1.5542
+build new node depth=3_N=1466 gain=1.3858
+build new node depth=4_N=334 gain=2.1503
+build new node depth=4_N=1132 gain=0.8500
+build new node depth=4_N=67 gain=0.7081
+build new node depth=2_N=66 gain=0.5991
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:23	loss:3.23e-02
+(improve: 2.889e-03)
+valid loss:	6.324e-02
+start build new Tree
+build new node depth=0_N=5000 gain=3.8492
+build new node depth=1_N=3967 gain=3.1872
+build new node depth=2_N=2631 gain=5.0324
+build new node depth=3_N=1509 gain=4.8441
+build new node depth=3_N=1122 gain=3.2784
+build new node depth=2_N=1336 gain=2.1550
+build new node depth=1_N=1033 gain=2.0822
+build new node depth=4_N=1429 gain=1.9751
+build new node depth=4_N=1023 gain=1.8640
+build new node depth=4_N=99 gain=1.8243
+build new node depth=3_N=1295 gain=1.8235
+build new node depth=4_N=1102 gain=2.0502
+build new node depth=4_N=193 gain=1.9378
+build new node depth=2_N=350 gain=1.6708
+build new node depth=3_N=309 gain=1.5071
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:24	loss:2.95e-02
+(improve: 2.824e-03)
+valid loss:	6.072e-02
+start build new Tree
+build new node depth=0_N=5000 gain=3.1106
+build new node depth=1_N=4586 gain=3.0194
+build new node depth=2_N=4076 gain=2.6920
+build new node depth=3_N=2134 gain=4.0168
+build new node depth=4_N=1733 gain=4.9096
+build new node depth=3_N=1942 gain=3.4570
+build new node depth=4_N=401 gain=2.3697
+build new node depth=4_N=648 gain=2.2442
+build new node depth=4_N=1294 gain=1.1560
+build new node depth=1_N=414 gain=0.9905
+build new node depth=2_N=510 gain=0.9059
+build new node depth=3_N=47 gain=0.8119
+build new node depth=3_N=463 gain=0.5085
+build new node depth=4_N=459 gain=0.6039
+build new node depth=4_N=16 gain=0.2173
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:25	loss:2.72e-02
+(improve: 2.241e-03)
+valid loss:	5.856e-02
+start build new Tree
+build new node depth=0_N=5000 gain=2.7202
+build new node depth=1_N=2690 gain=2.5518
+build new node depth=2_N=1508 gain=2.1466
+build new node depth=3_N=1425 gain=2.3865
+build new node depth=4_N=996 gain=2.1545
+build new node depth=1_N=2310 gain=1.7857
+build new node depth=2_N=1070 gain=2.0322
+build new node depth=3_N=1017 gain=1.5262
+build new node depth=4_N=878 gain=1.5085
+build new node depth=2_N=1182 gain=1.3045
+build new node depth=3_N=142 gain=1.5847
+build new node depth=2_N=1240 gain=1.2056
+build new node depth=3_N=83 gain=1.2018
+build new node depth=3_N=1130 gain=1.1053
+build new node depth=3_N=1040 gain=0.9881
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:26	loss:2.53e-02
+(improve: 1.893e-03)
+valid loss:	5.715e-02
+start build new Tree
+build new node depth=0_N=5000 gain=2.3367
+build new node depth=1_N=4378 gain=2.2700
+build new node depth=2_N=2192 gain=1.9699
+build new node depth=3_N=2029 gain=2.1599
+build new node depth=3_N=163 gain=1.9808
+build new node depth=2_N=2186 gain=1.8275
+build new node depth=3_N=1695 gain=2.4328
+build new node depth=4_N=1084 gain=1.9829
+build new node depth=4_N=611 gain=1.9107
+build new node depth=4_N=771 gain=1.6731
+build new node depth=4_N=1258 gain=1.5674
+build new node depth=3_N=491 gain=1.1636
+build new node depth=1_N=622 gain=1.1042
+build new node depth=4_N=148 gain=0.9798
+build new node depth=4_N=343 gain=0.6491
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:27	loss:2.35e-02
+(improve: 1.879e-03)
+valid loss:	5.557e-02
+start build new Tree
+build new node depth=0_N=5000 gain=2.0767
+build new node depth=1_N=1343 gain=2.7266
+build new node depth=2_N=1288 gain=3.0190
+build new node depth=1_N=3657 gain=2.2933
+build new node depth=2_N=2067 gain=4.0981
+build new node depth=3_N=1681 gain=2.9905
+build new node depth=4_N=1584 gain=3.8655
+build new node depth=2_N=1590 gain=1.8358
+build new node depth=4_N=97 gain=1.3051
+build new node depth=3_N=253 gain=0.9965
+build new node depth=4_N=128 gain=1.0240
+build new node depth=3_N=174 gain=0.9588
+build new node depth=4_N=125 gain=0.8657
+build new node depth=3_N=1114 gain=0.7688
+build new node depth=4_N=1111 gain=0.6456
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:28	loss:2.13e-02
+(improve: 2.131e-03)
+valid loss:	5.342e-02
+start build new Tree
+build new node depth=0_N=5000 gain=1.8123
+build new node depth=1_N=3523 gain=1.8914
+build new node depth=2_N=3240 gain=1.7115
+build new node depth=3_N=3022 gain=1.9535
+build new node depth=4_N=2802 gain=1.5893
+build new node depth=1_N=1477 gain=1.5822
+build new node depth=3_N=218 gain=1.1935
+build new node depth=4_N=144 gain=1.0321
+build new node depth=2_N=1406 gain=0.9018
+build new node depth=2_N=283 gain=0.8803
+build new node depth=3_N=1300 gain=0.7382
+build new node depth=4_N=757 gain=0.8986
+build new node depth=4_N=74 gain=0.5596
+build new node depth=3_N=106 gain=0.5266
+build new node depth=2_N=71 gain=0.4643
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:29	loss:2.00e-02
+(improve: 1.282e-03)
+valid loss:	5.240e-02
+start build new Tree
+build new node depth=0_N=5000 gain=1.7398
+build new node depth=1_N=4471 gain=1.7563
+build new node depth=2_N=3208 gain=1.4366
+build new node depth=3_N=1811 gain=2.4500
+build new node depth=4_N=1418 gain=3.1199
+build new node depth=3_N=1397 gain=1.7893
+build new node depth=4_N=211 gain=1.7468
+build new node depth=4_N=1186 gain=1.6323
+build new node depth=4_N=393 gain=1.3171
+build new node depth=1_N=529 gain=0.9220
+build new node depth=2_N=1263 gain=0.8780
+build new node depth=3_N=1080 gain=1.0368
+build new node depth=3_N=183 gain=0.7817
+build new node depth=4_N=1020 gain=0.7048
+build new node depth=4_N=60 gain=0.5455
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:30	loss:1.85e-02
+(improve: 1.579e-03)
+valid loss:	5.127e-02
+start build new Tree
+build new node depth=0_N=5000 gain=1.4619
+build new node depth=1_N=4593 gain=1.3188
+build new node depth=2_N=4230 gain=1.4890
+build new node depth=3_N=3290 gain=1.5933
+build new node depth=4_N=2475 gain=1.3890
+build new node depth=4_N=815 gain=1.3468
+build new node depth=3_N=940 gain=0.7706
+build new node depth=2_N=363 gain=0.6357
+build new node depth=4_N=95 gain=0.5749
+build new node depth=4_N=845 gain=0.4981
+build new node depth=1_N=407 gain=0.4964
+build new node depth=3_N=24 gain=0.4715
+build new node depth=3_N=339 gain=0.2158
+build new node depth=2_N=390 gain=0.1932
+build new node depth=3_N=386 gain=0.1943
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:31	loss:1.75e-02
+(improve: 9.147e-04)
+valid loss:	5.035e-02
+start build new Tree
+build new node depth=0_N=5000 gain=1.2160
+build new node depth=1_N=3503 gain=2.0487
+build new node depth=2_N=3297 gain=3.0426
+build new node depth=3_N=1034 gain=1.8327
+build new node depth=3_N=2263 gain=1.5412
+build new node depth=4_N=2097 gain=1.4677
+build new node depth=4_N=831 gain=1.2921
+build new node depth=1_N=1497 gain=1.1991
+build new node depth=2_N=1299 gain=1.3716
+build new node depth=3_N=626 gain=1.8548
+build new node depth=4_N=511 gain=1.3453
+build new node depth=2_N=198 gain=1.2530
+build new node depth=4_N=166 gain=1.0449
+build new node depth=4_N=203 gain=1.0129
+build new node depth=2_N=206 gain=0.8772
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:32	loss:1.59e-02
+(improve: 1.619e-03)
+valid loss:	4.870e-02
+start build new Tree
+build new node depth=0_N=5000 gain=1.1159
+build new node depth=1_N=3199 gain=1.1818
+build new node depth=2_N=2079 gain=1.6565
+build new node depth=3_N=906 gain=1.5104
+build new node depth=2_N=1120 gain=1.4178
+build new node depth=1_N=1801 gain=1.0339
+build new node depth=3_N=730 gain=0.9521
+build new node depth=4_N=201 gain=0.7897
+build new node depth=4_N=562 gain=0.7582
+build new node depth=2_N=676 gain=0.7334
+build new node depth=3_N=459 gain=1.0447
+build new node depth=4_N=111 gain=0.6642
+build new node depth=3_N=390 gain=0.6553
+build new node depth=4_N=338 gain=0.7561
+build new node depth=2_N=1125 gain=0.6002
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:33	loss:1.49e-02
+(improve: 1.074e-03)
+valid loss:	4.786e-02
+start build new Tree
+build new node depth=0_N=5000 gain=1.0499
+build new node depth=1_N=4710 gain=1.0392
+build new node depth=2_N=2564 gain=2.1751
+build new node depth=3_N=2143 gain=1.7409
+build new node depth=2_N=2146 gain=1.3388
+build new node depth=4_N=1741 gain=1.2489
+build new node depth=3_N=1596 gain=0.9108
+build new node depth=4_N=273 gain=0.8827
+build new node depth=4_N=402 gain=0.8323
+build new node depth=4_N=1323 gain=0.7239
+build new node depth=3_N=550 gain=0.6169
+build new node depth=4_N=438 gain=0.7148
+build new node depth=3_N=421 gain=0.3679
+build new node depth=4_N=112 gain=0.3146
+build new node depth=4_N=415 gain=0.2131
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:34	loss:1.38e-02
+(improve: 1.026e-03)
+valid loss:	4.700e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.9180
+build new node depth=1_N=4503 gain=0.8635
+build new node depth=2_N=2200 gain=0.9526
+build new node depth=3_N=2046 gain=1.0766
+build new node depth=2_N=2303 gain=0.8682
+build new node depth=4_N=814 gain=0.8349
+build new node depth=3_N=154 gain=0.7697
+build new node depth=3_N=2204 gain=0.6855
+build new node depth=4_N=1212 gain=1.2010
+build new node depth=4_N=992 gain=0.7975
+build new node depth=4_N=1232 gain=0.6365
+build new node depth=1_N=497 gain=0.3421
+build new node depth=3_N=99 gain=0.2993
+build new node depth=2_N=31 gain=0.1685
+build new node depth=4_N=30 gain=0.1299
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:35	loss:1.31e-02
+(improve: 7.620e-04)
+valid loss:	4.658e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.8355
+build new node depth=1_N=3503 gain=1.5044
+build new node depth=2_N=3263 gain=2.0065
+build new node depth=3_N=2201 gain=1.6599
+build new node depth=3_N=1062 gain=1.1218
+build new node depth=4_N=973 gain=1.1140
+build new node depth=2_N=240 gain=0.8537
+build new node depth=3_N=217 gain=0.7818
+build new node depth=1_N=1497 gain=0.7744
+build new node depth=2_N=1176 gain=1.0606
+build new node depth=2_N=321 gain=0.9544
+build new node depth=3_N=472 gain=0.7010
+build new node depth=4_N=390 gain=0.9808
+build new node depth=4_N=257 gain=0.6832
+build new node depth=3_N=704 gain=0.5366
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:36	loss:1.19e-02
+(improve: 1.126e-03)
+valid loss:	4.511e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.8031
+build new node depth=1_N=3901 gain=0.8084
+build new node depth=2_N=3798 gain=0.8599
+build new node depth=3_N=1569 gain=1.0488
+build new node depth=4_N=1098 gain=1.1208
+build new node depth=3_N=2229 gain=0.8006
+build new node depth=4_N=1626 gain=0.7816
+build new node depth=4_N=603 gain=0.7209
+build new node depth=1_N=1099 gain=0.6315
+build new node depth=4_N=471 gain=0.6246
+build new node depth=2_N=951 gain=0.5421
+build new node depth=2_N=103 gain=0.5343
+build new node depth=3_N=912 gain=0.4835
+build new node depth=4_N=153 gain=0.6375
+build new node depth=2_N=148 gain=0.4019
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:37	loss:1.12e-02
+(improve: 7.805e-04)
+valid loss:	4.442e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.7471
+build new node depth=1_N=4567 gain=0.7169
+build new node depth=2_N=2846 gain=0.6965
+build new node depth=3_N=933 gain=1.2486
+build new node depth=3_N=1913 gain=1.1451
+build new node depth=4_N=1486 gain=1.0534
+build new node depth=4_N=427 gain=1.0090
+build new node depth=2_N=1721 gain=0.6699
+build new node depth=3_N=1250 gain=0.7601
+build new node depth=4_N=933 gain=0.8059
+build new node depth=4_N=317 gain=0.6365
+build new node depth=3_N=471 gain=0.5114
+build new node depth=4_N=150 gain=0.4600
+build new node depth=4_N=408 gain=0.4593
+build new node depth=4_N=63 gain=0.3774
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:38	loss:1.03e-02
+(improve: 8.167e-04)
+valid loss:	4.389e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.7150
+build new node depth=1_N=4740 gain=0.6349
+build new node depth=2_N=4165 gain=0.6627
+build new node depth=3_N=3841 gain=0.8103
+build new node depth=4_N=1924 gain=1.3662
+build new node depth=4_N=1917 gain=0.9810
+build new node depth=2_N=575 gain=0.3729
+build new node depth=3_N=167 gain=0.4366
+build new node depth=1_N=260 gain=0.3153
+build new node depth=3_N=324 gain=0.2891
+build new node depth=4_N=128 gain=0.2518
+build new node depth=4_N=109 gain=0.2153
+build new node depth=2_N=257 gain=0.1661
+build new node depth=4_N=39 gain=0.1352
+build new node depth=3_N=408 gain=0.1141
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:39	loss:9.80e-03
+(improve: 5.398e-04)
+valid loss:	4.321e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.6056
+build new node depth=1_N=4680 gain=0.5940
+build new node depth=2_N=4592 gain=0.5887
+build new node depth=3_N=2117 gain=0.5771
+build new node depth=3_N=2475 gain=0.5358
+build new node depth=4_N=1391 gain=0.7142
+build new node depth=4_N=1084 gain=0.5768
+build new node depth=4_N=1435 gain=0.5029
+build new node depth=4_N=682 gain=0.3305
+build new node depth=2_N=88 gain=0.2062
+build new node depth=1_N=320 gain=0.1207
+best gain 8.032e-03 below gamma 1.000e-02. stop build node.
+==============================
+end tree iteration
+iterate:40	loss:9.42e-03
+(improve: 3.868e-04)
+valid loss:	4.265e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.5521
+build new node depth=1_N=4710 gain=0.5733
+build new node depth=2_N=4482 gain=0.5894
+build new node depth=3_N=2227 gain=0.8297
+build new node depth=3_N=2255 gain=0.5667
+build new node depth=4_N=1815 gain=0.5216
+build new node depth=4_N=2039 gain=0.4518
+build new node depth=4_N=216 gain=0.3231
+build new node depth=2_N=228 gain=0.3013
+build new node depth=4_N=412 gain=0.2857
+build new node depth=3_N=187 gain=0.2750
+build new node depth=4_N=136 gain=0.1240
+build new node depth=1_N=290 gain=0.1098
+build new node depth=4_N=51 gain=0.0960
+build new node depth=2_N=286 gain=0.0295
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:41	loss:9.01e-03
+(improve: 4.072e-04)
+valid loss:	4.224e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.5104
+build new node depth=1_N=4474 gain=0.5419
+build new node depth=2_N=3888 gain=0.5272
+build new node depth=3_N=3562 gain=0.4933
+build new node depth=4_N=2821 gain=0.6638
+build new node depth=3_N=326 gain=0.4072
+build new node depth=4_N=741 gain=0.3849
+build new node depth=1_N=526 gain=0.2906
+build new node depth=2_N=586 gain=0.2774
+build new node depth=3_N=82 gain=0.3064
+build new node depth=3_N=504 gain=0.1816
+build new node depth=4_N=50 gain=0.1642
+build new node depth=4_N=469 gain=0.1386
+build new node depth=2_N=508 gain=0.1338
+build new node depth=3_N=304 gain=0.1149
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:42	loss:8.64e-03
+(improve: 3.718e-04)
+valid loss:	4.176e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.4671
+build new node depth=1_N=1489 gain=0.5450
+build new node depth=2_N=700 gain=0.5682
+build new node depth=3_N=522 gain=0.6098
+build new node depth=1_N=3511 gain=0.5357
+build new node depth=2_N=1254 gain=0.8611
+build new node depth=3_N=1101 gain=0.6036
+build new node depth=4_N=308 gain=0.5277
+build new node depth=4_N=217 gain=0.4968
+build new node depth=2_N=2257 gain=0.4730
+build new node depth=2_N=789 gain=0.4704
+build new node depth=4_N=793 gain=0.4437
+build new node depth=3_N=1861 gain=0.3979
+build new node depth=4_N=952 gain=0.4384
+build new node depth=3_N=396 gain=0.3884
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:43	loss:8.07e-03
+(improve: 5.655e-04)
+valid loss:	4.142e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.4159
+build new node depth=1_N=4659 gain=0.4426
+build new node depth=2_N=1159 gain=0.5763
+build new node depth=3_N=1031 gain=0.5066
+build new node depth=2_N=3500 gain=0.4439
+build new node depth=3_N=1672 gain=0.5655
+build new node depth=4_N=620 gain=0.6207
+build new node depth=4_N=1052 gain=0.5520
+build new node depth=3_N=1828 gain=0.4617
+build new node depth=4_N=1735 gain=0.5524
+build new node depth=4_N=337 gain=0.3360
+build new node depth=4_N=694 gain=0.2822
+build new node depth=4_N=93 gain=0.2459
+build new node depth=1_N=341 gain=0.1663
+build new node depth=3_N=128 gain=0.1317
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:44	loss:7.62e-03
+(improve: 4.552e-04)
+valid loss:	4.104e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.4165
+build new node depth=1_N=3503 gain=0.8173
+build new node depth=2_N=3297 gain=1.1096
+build new node depth=3_N=1034 gain=0.7315
+build new node depth=3_N=2263 gain=0.5972
+build new node depth=4_N=2097 gain=0.5662
+build new node depth=1_N=1497 gain=0.5091
+build new node depth=2_N=1112 gain=0.5928
+build new node depth=4_N=831 gain=0.4383
+build new node depth=4_N=166 gain=0.4371
+build new node depth=3_N=1055 gain=0.4288
+build new node depth=4_N=490 gain=0.5045
+build new node depth=2_N=385 gain=0.4272
+build new node depth=3_N=151 gain=0.4368
+build new node depth=2_N=206 gain=0.3417
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:45	loss:7.01e-03
+(improve: 6.042e-04)
+valid loss:	4.024e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.3517
+build new node depth=1_N=4376 gain=0.3545
+build new node depth=2_N=964 gain=0.5620
+build new node depth=3_N=727 gain=0.3709
+build new node depth=2_N=3412 gain=0.3650
+build new node depth=3_N=719 gain=0.3440
+build new node depth=3_N=2693 gain=0.3418
+build new node depth=4_N=2440 gain=0.4752
+build new node depth=4_N=253 gain=0.2540
+build new node depth=1_N=624 gain=0.2247
+build new node depth=4_N=652 gain=0.2179
+build new node depth=3_N=237 gain=0.1673
+build new node depth=4_N=67 gain=0.1642
+build new node depth=2_N=491 gain=0.1542
+build new node depth=2_N=133 gain=0.1517
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:46	loss:6.69e-03
+(improve: 3.256e-04)
+valid loss:	3.995e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.3342
+build new node depth=1_N=4559 gain=0.3398
+build new node depth=2_N=4331 gain=0.3808
+build new node depth=3_N=3437 gain=0.5731
+build new node depth=4_N=1614 gain=0.7891
+build new node depth=4_N=1823 gain=0.5764
+build new node depth=3_N=894 gain=0.5730
+build new node depth=4_N=365 gain=0.5068
+build new node depth=1_N=441 gain=0.2232
+build new node depth=2_N=228 gain=0.2141
+build new node depth=3_N=143 gain=0.1654
+build new node depth=4_N=529 gain=0.1487
+build new node depth=2_N=402 gain=0.1240
+build new node depth=3_N=85 gain=0.1077
+build new node depth=4_N=129 gain=0.0645
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:47	loss:6.32e-03
+(improve: 3.705e-04)
+valid loss:	3.915e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.3148
+build new node depth=1_N=1196 gain=0.4717
+build new node depth=2_N=906 gain=0.5608
+build new node depth=1_N=3804 gain=0.4538
+build new node depth=2_N=2162 gain=0.8496
+build new node depth=3_N=1996 gain=0.6679
+build new node depth=2_N=1642 gain=0.5271
+build new node depth=3_N=782 gain=0.5567
+build new node depth=3_N=860 gain=0.5196
+build new node depth=4_N=407 gain=0.4875
+build new node depth=4_N=450 gain=0.4754
+build new node depth=4_N=746 gain=0.4200
+build new node depth=2_N=290 gain=0.3600
+build new node depth=3_N=166 gain=0.3108
+build new node depth=3_N=794 gain=0.3107
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:48	loss:5.79e-03
+(improve: 5.271e-04)
+valid loss:	3.820e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.3007
+build new node depth=1_N=4658 gain=0.2868
+build new node depth=2_N=770 gain=0.4900
+build new node depth=2_N=3888 gain=0.4449
+build new node depth=3_N=3078 gain=0.5274
+build new node depth=4_N=2096 gain=0.5094
+build new node depth=4_N=982 gain=0.4047
+build new node depth=3_N=656 gain=0.3553
+build new node depth=4_N=547 gain=0.3912
+build new node depth=3_N=114 gain=0.2641
+build new node depth=3_N=810 gain=0.2495
+build new node depth=4_N=795 gain=0.1739
+build new node depth=4_N=110 gain=0.0645
+build new node depth=1_N=342 gain=0.0623
+build new node depth=2_N=333 gain=0.0307
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:49	loss:5.46e-03
+(improve: 3.295e-04)
+valid loss:	3.743e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.3217
+build new node depth=1_N=3901 gain=0.3227
+build new node depth=2_N=862 gain=0.4512
+build new node depth=3_N=788 gain=0.3940
+build new node depth=2_N=3039 gain=0.3275
+build new node depth=3_N=727 gain=0.3882
+build new node depth=3_N=2312 gain=0.3361
+build new node depth=4_N=960 gain=0.3852
+build new node depth=4_N=1352 gain=0.3582
+build new node depth=4_N=442 gain=0.3288
+build new node depth=3_N=74 gain=0.2648
+build new node depth=4_N=63 gain=0.2255
+build new node depth=1_N=1099 gain=0.2173
+build new node depth=2_N=1020 gain=0.2246
+build new node depth=3_N=126 gain=0.2613
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:50	loss:5.11e-03
+(improve: 3.478e-04)
+valid loss:	3.715e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.2834
+build new node depth=1_N=1489 gain=0.2990
+build new node depth=2_N=700 gain=0.3018
+build new node depth=1_N=3511 gain=0.2750
+build new node depth=2_N=2237 gain=0.3365
+build new node depth=2_N=1274 gain=0.3193
+build new node depth=3_N=727 gain=0.3145
+build new node depth=3_N=691 gain=0.3128
+build new node depth=4_N=527 gain=0.3128
+build new node depth=3_N=1546 gain=0.2764
+build new node depth=4_N=1351 gain=0.2099
+build new node depth=4_N=195 gain=0.2048
+build new node depth=2_N=789 gain=0.1980
+build new node depth=4_N=399 gain=0.1961
+build new node depth=3_N=782 gain=0.1922
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:51	loss:4.82e-03
+(improve: 2.914e-04)
+valid loss:	3.698e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.2175
+build new node depth=1_N=4154 gain=0.3515
+build new node depth=2_N=1232 gain=0.3685
+build new node depth=2_N=2922 gain=0.3484
+build new node depth=3_N=1740 gain=0.4600
+build new node depth=4_N=874 gain=0.3876
+build new node depth=3_N=748 gain=0.3476
+build new node depth=4_N=656 gain=0.3563
+build new node depth=1_N=846 gain=0.2402
+build new node depth=4_N=866 gain=0.2244
+build new node depth=2_N=536 gain=0.2152
+build new node depth=3_N=404 gain=0.1914
+build new node depth=3_N=1182 gain=0.1892
+build new node depth=4_N=1097 gain=0.2056
+build new node depth=3_N=484 gain=0.1682
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:52	loss:4.51e-03
+(improve: 3.088e-04)
+valid loss:	3.689e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.1960
+build new node depth=1_N=4811 gain=0.2100
+build new node depth=2_N=4303 gain=0.2083
+build new node depth=3_N=3938 gain=0.2399
+build new node depth=4_N=2491 gain=0.3030
+build new node depth=4_N=1447 gain=0.2388
+build new node depth=3_N=365 gain=0.1591
+build new node depth=4_N=119 gain=0.1240
+build new node depth=2_N=508 gain=0.1229
+build new node depth=3_N=151 gain=0.1111
+build new node depth=3_N=357 gain=0.0987
+build new node depth=1_N=189 gain=0.0865
+build new node depth=4_N=58 gain=0.0743
+build new node depth=4_N=133 gain=0.0723
+build new node depth=4_N=299 gain=0.0427
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:53	loss:4.35e-03
+(improve: 1.656e-04)
+valid loss:	3.664e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.2019
+build new node depth=1_N=3804 gain=0.2913
+build new node depth=2_N=2608 gain=0.5388
+build new node depth=3_N=2288 gain=0.4870
+build new node depth=2_N=1196 gain=0.3464
+build new node depth=3_N=1040 gain=0.3022
+build new node depth=4_N=399 gain=0.4405
+build new node depth=4_N=641 gain=0.3065
+build new node depth=1_N=1196 gain=0.2869
+build new node depth=2_N=680 gain=0.3337
+build new node depth=2_N=516 gain=0.2548
+build new node depth=4_N=483 gain=0.2455
+build new node depth=3_N=320 gain=0.2113
+build new node depth=4_N=131 gain=0.2300
+build new node depth=3_N=552 gain=0.2091
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:54	loss:4.01e-03
+(improve: 3.390e-04)
+valid loss:	3.599e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.1844
+build new node depth=1_N=1801 gain=0.2080
+build new node depth=1_N=3199 gain=0.2055
+build new node depth=2_N=1715 gain=0.3984
+build new node depth=2_N=1484 gain=0.2929
+build new node depth=3_N=489 gain=0.2608
+build new node depth=3_N=1302 gain=0.2595
+build new node depth=3_N=1226 gain=0.2400
+build new node depth=4_N=1033 gain=0.4010
+build new node depth=2_N=1088 gain=0.2034
+build new node depth=3_N=961 gain=0.2383
+build new node depth=2_N=713 gain=0.1877
+build new node depth=3_N=26 gain=0.1827
+build new node depth=3_N=127 gain=0.1708
+build new node depth=4_N=1145 gain=0.1668
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:55	loss:3.75e-03
+(improve: 2.606e-04)
+valid loss:	3.541e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.1770
+build new node depth=1_N=4667 gain=0.1738
+build new node depth=2_N=4037 gain=0.1826
+build new node depth=3_N=3620 gain=0.1742
+build new node depth=4_N=3323 gain=0.1864
+build new node depth=2_N=630 gain=0.1164
+build new node depth=3_N=442 gain=0.0853
+build new node depth=3_N=417 gain=0.0834
+build new node depth=4_N=123 gain=0.1332
+build new node depth=4_N=297 gain=0.0796
+build new node depth=4_N=121 gain=0.0689
+build new node depth=3_N=188 gain=0.0618
+build new node depth=4_N=321 gain=0.0587
+build new node depth=1_N=333 gain=0.0529
+build new node depth=4_N=294 gain=0.0448
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:56	loss:3.63e-03
+(improve: 1.217e-04)
+valid loss:	3.539e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.1760
+build new node depth=1_N=4863 gain=0.2098
+build new node depth=2_N=3395 gain=0.2475
+build new node depth=3_N=2798 gain=0.3372
+build new node depth=4_N=1350 gain=0.2584
+build new node depth=3_N=597 gain=0.1960
+build new node depth=4_N=316 gain=0.3105
+build new node depth=2_N=1468 gain=0.1832
+build new node depth=3_N=328 gain=0.2751
+build new node depth=3_N=1140 gain=0.2342
+build new node depth=4_N=275 gain=0.1894
+build new node depth=4_N=1448 gain=0.1570
+build new node depth=1_N=137 gain=0.1238
+build new node depth=2_N=100 gain=0.1240
+build new node depth=4_N=865 gain=0.1063
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:57	loss:3.40e-03
+(improve: 2.264e-04)
+valid loss:	3.503e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.1552
+build new node depth=1_N=4982 gain=0.1466
+build new node depth=2_N=2699 gain=0.4879
+build new node depth=3_N=2313 gain=0.3567
+build new node depth=4_N=759 gain=0.5250
+build new node depth=4_N=1554 gain=0.3559
+build new node depth=2_N=2283 gain=0.3447
+build new node depth=3_N=1644 gain=0.1803
+build new node depth=3_N=639 gain=0.1567
+build new node depth=4_N=429 gain=0.2083
+build new node depth=4_N=210 gain=0.1574
+build new node depth=4_N=498 gain=0.1365
+build new node depth=4_N=1146 gain=0.1350
+build new node depth=3_N=386 gain=0.0389
+build new node depth=4_N=382 gain=0.0262
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:58	loss:3.15e-03
+(improve: 2.468e-04)
+valid loss:	3.481e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.1517
+build new node depth=1_N=2519 gain=0.1678
+build new node depth=2_N=1943 gain=0.2126
+build new node depth=3_N=498 gain=0.2966
+build new node depth=3_N=1445 gain=0.1741
+build new node depth=4_N=1437 gain=0.1873
+build new node depth=1_N=2481 gain=0.1581
+build new node depth=2_N=1997 gain=0.1510
+build new node depth=3_N=1075 gain=0.2439
+build new node depth=4_N=684 gain=0.2009
+build new node depth=4_N=391 gain=0.1908
+build new node depth=3_N=922 gain=0.1704
+build new node depth=4_N=189 gain=0.1321
+build new node depth=4_N=328 gain=0.1142
+build new node depth=2_N=576 gain=0.1088
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:59	loss:2.96e-03
+(improve: 1.924e-04)
+valid loss:	3.475e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.1239
+build new node depth=1_N=4559 gain=0.1347
+build new node depth=2_N=4331 gain=0.1466
+build new node depth=3_N=2525 gain=0.2475
+build new node depth=4_N=1508 gain=0.1702
+build new node depth=3_N=1806 gain=0.1605
+build new node depth=4_N=866 gain=0.2952
+build new node depth=4_N=1017 gain=0.1294
+build new node depth=4_N=940 gain=0.1042
+build new node depth=1_N=441 gain=0.0817
+build new node depth=2_N=228 gain=0.0743
+build new node depth=3_N=175 gain=0.0670
+build new node depth=2_N=390 gain=0.0470
+build new node depth=2_N=51 gain=0.0274
+build new node depth=4_N=49 gain=0.0231
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:60	loss:2.83e-03
+(improve: 1.327e-04)
+valid loss:	3.449e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.1198
+build new node depth=1_N=2417 gain=0.1546
+build new node depth=2_N=2331 gain=0.1527
+build new node depth=1_N=2583 gain=0.1484
+build new node depth=2_N=2068 gain=0.1528
+build new node depth=3_N=625 gain=0.2015
+build new node depth=4_N=451 gain=0.1778
+build new node depth=2_N=515 gain=0.1478
+build new node depth=3_N=423 gain=0.1400
+build new node depth=3_N=1443 gain=0.1315
+build new node depth=4_N=1290 gain=0.1697
+build new node depth=3_N=632 gain=0.1300
+build new node depth=4_N=310 gain=0.2048
+build new node depth=3_N=1699 gain=0.1194
+build new node depth=4_N=1634 gain=0.2027
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:61	loss:2.66e-03
+(improve: 1.703e-04)
+valid loss:	3.410e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.1151
+build new node depth=1_N=4617 gain=0.1670
+build new node depth=2_N=3775 gain=0.1308
+build new node depth=3_N=2973 gain=0.1600
+build new node depth=4_N=2416 gain=0.1416
+build new node depth=3_N=802 gain=0.1175
+build new node depth=4_N=698 gain=0.1217
+build new node depth=2_N=842 gain=0.0879
+build new node depth=4_N=557 gain=0.0873
+build new node depth=1_N=383 gain=0.0766
+build new node depth=3_N=790 gain=0.0590
+build new node depth=2_N=28 gain=0.0496
+build new node depth=4_N=104 gain=0.0370
+build new node depth=4_N=777 gain=0.0358
+build new node depth=2_N=355 gain=0.0205
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:62	loss:2.55e-03
+(improve: 1.020e-04)
+valid loss:	3.380e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.1034
+build new node depth=1_N=1561 gain=0.1552
+build new node depth=2_N=693 gain=0.1662
+build new node depth=2_N=868 gain=0.1653
+build new node depth=1_N=3439 gain=0.1349
+build new node depth=2_N=903 gain=0.2124
+build new node depth=2_N=2536 gain=0.1971
+build new node depth=3_N=1137 gain=0.2300
+build new node depth=3_N=1399 gain=0.2210
+build new node depth=4_N=1151 gain=0.1683
+build new node depth=4_N=248 gain=0.1324
+build new node depth=3_N=346 gain=0.1260
+build new node depth=4_N=939 gain=0.1258
+build new node depth=3_N=166 gain=0.1117
+build new node depth=4_N=198 gain=0.1056
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:63	loss:2.38e-03
+(improve: 1.703e-04)
+valid loss:	3.369e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.1156
+build new node depth=1_N=2828 gain=0.3148
+build new node depth=1_N=2172 gain=0.2058
+build new node depth=2_N=642 gain=0.3263
+build new node depth=3_N=461 gain=0.2308
+build new node depth=2_N=1530 gain=0.2030
+build new node depth=2_N=799 gain=0.2016
+build new node depth=3_N=568 gain=0.2196
+build new node depth=2_N=2029 gain=0.1907
+build new node depth=3_N=397 gain=0.1845
+build new node depth=3_N=1555 gain=0.1773
+build new node depth=3_N=474 gain=0.1626
+build new node depth=4_N=209 gain=0.1063
+build new node depth=4_N=103 gain=0.1035
+build new node depth=4_N=371 gain=0.0994
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:64	loss:2.18e-03
+(improve: 2.057e-04)
+valid loss:	3.313e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0917
+build new node depth=1_N=1099 gain=0.1213
+build new node depth=1_N=3901 gain=0.1212
+build new node depth=2_N=2052 gain=0.2193
+build new node depth=2_N=1849 gain=0.2088
+build new node depth=3_N=486 gain=0.2296
+build new node depth=3_N=1502 gain=0.2004
+build new node depth=4_N=1017 gain=0.1999
+build new node depth=3_N=550 gain=0.1892
+build new node depth=3_N=1363 gain=0.1727
+build new node depth=2_N=951 gain=0.1032
+build new node depth=3_N=421 gain=0.1017
+build new node depth=4_N=304 gain=0.0970
+build new node depth=4_N=414 gain=0.0953
+build new node depth=4_N=485 gain=0.0930
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:65	loss:2.02e-03
+(improve: 1.624e-04)
+valid loss:	3.300e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0893
+build new node depth=1_N=3081 gain=0.1063
+build new node depth=2_N=2262 gain=0.1200
+build new node depth=3_N=635 gain=0.2768
+build new node depth=3_N=1627 gain=0.2249
+build new node depth=4_N=1315 gain=0.2109
+build new node depth=2_N=819 gain=0.1122
+build new node depth=1_N=1919 gain=0.1058
+build new node depth=3_N=710 gain=0.0958
+build new node depth=2_N=1598 gain=0.0940
+build new node depth=3_N=1552 gain=0.0970
+build new node depth=4_N=519 gain=0.1228
+build new node depth=4_N=1033 gain=0.0866
+build new node depth=2_N=321 gain=0.0755
+build new node depth=4_N=194 gain=0.0750
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:66	loss:1.88e-03
+(improve: 1.370e-04)
+valid loss:	3.270e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0819
+build new node depth=1_N=2427 gain=0.1251
+build new node depth=2_N=1693 gain=0.1180
+build new node depth=3_N=800 gain=0.1477
+build new node depth=2_N=734 gain=0.1073
+build new node depth=4_N=535 gain=0.1002
+build new node depth=3_N=893 gain=0.0887
+build new node depth=3_N=498 gain=0.0819
+build new node depth=1_N=2573 gain=0.0751
+build new node depth=4_N=814 gain=0.0699
+build new node depth=2_N=2287 gain=0.0657
+build new node depth=3_N=2008 gain=0.0776
+build new node depth=4_N=199 gain=0.1244
+build new node depth=4_N=1809 gain=0.0991
+build new node depth=4_N=226 gain=0.0566
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:67	loss:1.78e-03
+(improve: 1.028e-04)
+valid loss:	3.262e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0713
+build new node depth=1_N=2715 gain=0.2431
+build new node depth=1_N=2285 gain=0.1575
+build new node depth=2_N=2280 gain=0.1473
+build new node depth=3_N=1951 gain=0.1574
+build new node depth=4_N=1483 gain=0.1693
+build new node depth=4_N=468 gain=0.1311
+build new node depth=2_N=1644 gain=0.0909
+build new node depth=3_N=329 gain=0.0804
+build new node depth=3_N=498 gain=0.0793
+build new node depth=3_N=1146 gain=0.0675
+build new node depth=2_N=641 gain=0.0659
+build new node depth=3_N=488 gain=0.0768
+build new node depth=4_N=433 gain=0.0728
+build new node depth=4_N=343 gain=0.0654
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:68	loss:1.66e-03
+(improve: 1.214e-04)
+valid loss:	3.263e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0805
+build new node depth=1_N=4757 gain=0.0943
+build new node depth=2_N=2789 gain=0.0947
+build new node depth=1_N=243 gain=0.0927
+build new node depth=3_N=2631 gain=0.0907
+build new node depth=2_N=1968 gain=0.0881
+build new node depth=3_N=824 gain=0.1515
+build new node depth=3_N=1144 gain=0.0918
+build new node depth=4_N=241 gain=0.1839
+build new node depth=4_N=903 gain=0.0895
+build new node depth=4_N=2378 gain=0.0760
+build new node depth=2_N=71 gain=0.0728
+build new node depth=4_N=222 gain=0.0594
+build new node depth=2_N=172 gain=0.0523
+build new node depth=4_N=602 gain=0.0405
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:69	loss:1.56e-03
+(improve: 9.855e-05)
+valid loss:	3.242e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0663
+build new node depth=1_N=4982 gain=0.0800
+build new node depth=2_N=3383 gain=0.0804
+build new node depth=3_N=2757 gain=0.1379
+build new node depth=4_N=1500 gain=0.1470
+build new node depth=3_N=626 gain=0.0994
+build new node depth=4_N=1257 gain=0.0974
+build new node depth=2_N=1599 gain=0.0714
+build new node depth=3_N=1344 gain=0.0951
+build new node depth=4_N=1270 gain=0.0793
+build new node depth=3_N=255 gain=0.0761
+build new node depth=4_N=77 gain=0.0930
+build new node depth=4_N=530 gain=0.0571
+build new node depth=4_N=74 gain=0.0539
+build new node depth=4_N=178 gain=0.0427
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:70	loss:1.46e-03
+(improve: 9.254e-05)
+valid loss:	3.231e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0638
+build new node depth=1_N=2828 gain=0.1482
+build new node depth=2_N=2366 gain=0.1322
+build new node depth=2_N=462 gain=0.1139
+build new node depth=1_N=2172 gain=0.1042
+build new node depth=2_N=2088 gain=0.0964
+build new node depth=3_N=334 gain=0.0959
+build new node depth=3_N=2032 gain=0.0826
+build new node depth=4_N=1976 gain=0.1097
+build new node depth=3_N=958 gain=0.0794
+build new node depth=4_N=875 gain=0.0874
+build new node depth=3_N=1130 gain=0.0778
+build new node depth=3_N=51 gain=0.0619
+build new node depth=4_N=56 gain=0.0612
+build new node depth=4_N=181 gain=0.0519
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:71	loss:1.37e-03
+(improve: 9.899e-05)
+valid loss:	3.207e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0617
+build new node depth=1_N=1769 gain=0.1070
+build new node depth=2_N=1483 gain=0.1185
+build new node depth=1_N=3231 gain=0.1027
+build new node depth=2_N=3098 gain=0.1123
+build new node depth=3_N=680 gain=0.1426
+build new node depth=3_N=2418 gain=0.1092
+build new node depth=4_N=2240 gain=0.1076
+build new node depth=4_N=511 gain=0.0848
+build new node depth=2_N=286 gain=0.0725
+build new node depth=3_N=242 gain=0.0756
+build new node depth=3_N=419 gain=0.0698
+build new node depth=4_N=206 gain=0.0569
+build new node depth=4_N=169 gain=0.0525
+build new node depth=2_N=133 gain=0.0392
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:72	loss:1.27e-03
+(improve: 9.514e-05)
+valid loss:	3.143e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0555
+build new node depth=1_N=3901 gain=0.0575
+build new node depth=2_N=3538 gain=0.0641
+build new node depth=3_N=2711 gain=0.0722
+build new node depth=4_N=1882 gain=0.0806
+build new node depth=4_N=829 gain=0.0718
+build new node depth=3_N=827 gain=0.0561
+build new node depth=1_N=1099 gain=0.0560
+build new node depth=2_N=367 gain=0.0484
+build new node depth=2_N=732 gain=0.0451
+build new node depth=3_N=325 gain=0.0447
+build new node depth=3_N=466 gain=0.0446
+build new node depth=3_N=266 gain=0.0421
+build new node depth=2_N=363 gain=0.0414
+build new node depth=3_N=80 gain=0.0353
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:73	loss:1.21e-03
+(improve: 5.915e-05)
+valid loss:	3.150e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0533
+build new node depth=1_N=2049 gain=0.0757
+build new node depth=2_N=1274 gain=0.0873
+build new node depth=2_N=775 gain=0.0650
+build new node depth=3_N=416 gain=0.0596
+build new node depth=1_N=2951 gain=0.0571
+build new node depth=2_N=1131 gain=0.0757
+build new node depth=2_N=1820 gain=0.0718
+build new node depth=3_N=1665 gain=0.0699
+build new node depth=4_N=1638 gain=0.0762
+build new node depth=3_N=1099 gain=0.0557
+build new node depth=4_N=385 gain=0.0776
+build new node depth=4_N=714 gain=0.0733
+build new node depth=3_N=451 gain=0.0551
+build new node depth=4_N=404 gain=0.0507
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:74	loss:1.14e-03
+(improve: 7.275e-05)
+valid loss:	3.154e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0532
+build new node depth=1_N=4809 gain=0.0528
+build new node depth=2_N=2322 gain=0.0659
+build new node depth=3_N=562 gain=0.0609
+build new node depth=4_N=381 gain=0.0549
+build new node depth=3_N=1760 gain=0.0527
+build new node depth=4_N=1484 gain=0.0624
+build new node depth=2_N=2487 gain=0.0443
+build new node depth=3_N=2383 gain=0.0481
+build new node depth=4_N=665 gain=0.0815
+build new node depth=4_N=1718 gain=0.0790
+build new node depth=4_N=276 gain=0.0380
+build new node depth=1_N=191 gain=0.0200
+build new node depth=4_N=181 gain=0.0151
+best gain 7.575e-03 below gamma 1.000e-02. stop build node.
+==============================
+end tree iteration
+iterate:75	loss:1.09e-03
+(improve: 5.284e-05)
+valid loss:	3.175e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0472
+build new node depth=1_N=1286 gain=0.1173
+build new node depth=2_N=1077 gain=0.0899
+build new node depth=1_N=3714 gain=0.0774
+build new node depth=2_N=998 gain=0.1066
+build new node depth=2_N=2716 gain=0.0981
+build new node depth=3_N=2594 gain=0.0872
+build new node depth=4_N=1686 gain=0.0827
+build new node depth=2_N=209 gain=0.0733
+build new node depth=3_N=318 gain=0.0661
+build new node depth=4_N=908 gain=0.0618
+build new node depth=3_N=301 gain=0.0450
+build new node depth=3_N=680 gain=0.0374
+build new node depth=4_N=291 gain=0.0365
+build new node depth=3_N=122 gain=0.0323
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:76	loss:1.01e-03
+(improve: 7.675e-05)
+valid loss:	3.133e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0448
+build new node depth=1_N=4811 gain=0.0506
+build new node depth=2_N=2853 gain=0.0550
+build new node depth=3_N=2634 gain=0.0563
+build new node depth=4_N=1623 gain=0.0778
+build new node depth=4_N=1011 gain=0.0519
+build new node depth=2_N=1958 gain=0.0447
+build new node depth=3_N=1214 gain=0.0570
+build new node depth=4_N=1010 gain=0.0447
+build new node depth=3_N=744 gain=0.0267
+build new node depth=4_N=204 gain=0.0250
+build new node depth=3_N=219 gain=0.0230
+build new node depth=4_N=547 gain=0.0199
+build new node depth=4_N=197 gain=0.0193
+build new node depth=1_N=189 gain=0.0144
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:77	loss:9.64e-04
+(improve: 4.436e-05)
+valid loss:	3.122e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0417
+build new node depth=1_N=4695 gain=0.0425
+build new node depth=2_N=4327 gain=0.0427
+build new node depth=3_N=4179 gain=0.0558
+build new node depth=4_N=2926 gain=0.0400
+build new node depth=4_N=1253 gain=0.0339
+build new node depth=2_N=368 gain=0.0247
+build new node depth=3_N=187 gain=0.0273
+build new node depth=1_N=305 gain=0.0187
+build new node depth=3_N=148 gain=0.0140
+build new node depth=2_N=30 gain=0.0115
+build new node depth=2_N=275 gain=0.0107
+best gain 4.011e-03 below gamma 1.000e-02. stop build node.
+==============================
+end tree iteration
+iterate:78	loss:9.38e-04
+(improve: 2.652e-05)
+valid loss:	3.114e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0411
+build new node depth=1_N=1503 gain=0.0784
+build new node depth=1_N=3497 gain=0.0703
+build new node depth=2_N=2622 gain=0.0927
+build new node depth=2_N=875 gain=0.0859
+build new node depth=3_N=2398 gain=0.0785
+build new node depth=3_N=499 gain=0.0738
+build new node depth=4_N=961 gain=0.0722
+build new node depth=2_N=508 gain=0.0626
+build new node depth=2_N=995 gain=0.0586
+build new node depth=3_N=224 gain=0.0568
+build new node depth=4_N=383 gain=0.0524
+build new node depth=3_N=562 gain=0.0515
+build new node depth=3_N=376 gain=0.0468
+build new node depth=3_N=433 gain=0.0450
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:79	loss:8.67e-04
+(improve: 7.011e-05)
+valid loss:	3.086e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0356
+build new node depth=1_N=2715 gain=0.1101
+build new node depth=2_N=2280 gain=0.0647
+build new node depth=1_N=2285 gain=0.0587
+build new node depth=3_N=1816 gain=0.0558
+build new node depth=4_N=1403 gain=0.0647
+build new node depth=4_N=413 gain=0.0638
+build new node depth=2_N=1644 gain=0.0533
+build new node depth=3_N=464 gain=0.0479
+build new node depth=3_N=1327 gain=0.0439
+build new node depth=4_N=126 gain=0.0430
+build new node depth=2_N=641 gain=0.0336
+build new node depth=3_N=317 gain=0.0320
+build new node depth=4_N=96 gain=0.0326
+build new node depth=3_N=572 gain=0.0276
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:80	loss:8.12e-04
+(improve: 5.568e-05)
+valid loss:	3.073e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0324
+build new node depth=1_N=3991 gain=0.0555
+build new node depth=2_N=2606 gain=0.0544
+build new node depth=2_N=1385 gain=0.0488
+build new node depth=1_N=1009 gain=0.0485
+build new node depth=3_N=1991 gain=0.0474
+build new node depth=4_N=798 gain=0.0790
+build new node depth=4_N=1193 gain=0.0505
+build new node depth=2_N=841 gain=0.0414
+build new node depth=3_N=615 gain=0.0359
+build new node depth=4_N=206 gain=0.0386
+build new node depth=2_N=168 gain=0.0332
+build new node depth=3_N=1171 gain=0.0311
+build new node depth=4_N=155 gain=0.0271
+build new node depth=3_N=214 gain=0.0248
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:81	loss:7.65e-04
+(improve: 4.708e-05)
+valid loss:	3.044e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0324
+build new node depth=1_N=4811 gain=0.0347
+build new node depth=2_N=3478 gain=0.0409
+build new node depth=3_N=3178 gain=0.0368
+build new node depth=4_N=535 gain=0.0676
+build new node depth=4_N=2643 gain=0.0390
+build new node depth=2_N=1333 gain=0.0235
+build new node depth=3_N=1039 gain=0.0287
+build new node depth=4_N=438 gain=0.0291
+build new node depth=3_N=294 gain=0.0203
+build new node depth=4_N=601 gain=0.0200
+build new node depth=3_N=300 gain=0.0185
+build new node depth=4_N=280 gain=0.0181
+best gain 9.253e-03 below gamma 1.000e-02. stop build node.
+==============================
+end tree iteration
+iterate:82	loss:7.35e-04
+(improve: 2.980e-05)
+valid loss:	3.029e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0322
+build new node depth=1_N=2481 gain=0.0321
+build new node depth=2_N=1863 gain=0.0438
+build new node depth=3_N=1180 gain=0.0514
+build new node depth=3_N=683 gain=0.0380
+build new node depth=4_N=757 gain=0.0368
+build new node depth=2_N=618 gain=0.0342
+build new node depth=1_N=2519 gain=0.0309
+build new node depth=2_N=1765 gain=0.0356
+build new node depth=3_N=1293 gain=0.0509
+build new node depth=4_N=1170 gain=0.0635
+build new node depth=3_N=472 gain=0.0475
+build new node depth=4_N=325 gain=0.0467
+build new node depth=2_N=754 gain=0.0288
+build new node depth=3_N=392 gain=0.0352
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:83	loss:6.91e-04
+(improve: 4.406e-05)
+valid loss:	3.024e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0296
+build new node depth=1_N=4962 gain=0.0360
+build new node depth=2_N=3369 gain=0.0356
+build new node depth=3_N=2446 gain=0.0453
+build new node depth=4_N=638 gain=0.0491
+build new node depth=3_N=923 gain=0.0445
+build new node depth=4_N=1808 gain=0.0353
+build new node depth=2_N=1593 gain=0.0346
+build new node depth=3_N=961 gain=0.0342
+build new node depth=3_N=632 gain=0.0333
+build new node depth=4_N=250 gain=0.0375
+build new node depth=4_N=382 gain=0.0340
+build new node depth=4_N=120 gain=0.0275
+build new node depth=4_N=841 gain=0.0269
+build new node depth=4_N=106 gain=0.0240
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:84	loss:6.52e-04
+(improve: 3.832e-05)
+valid loss:	3.007e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0263
+build new node depth=1_N=3081 gain=0.0316
+build new node depth=2_N=1588 gain=0.0382
+build new node depth=3_N=1263 gain=0.0379
+build new node depth=4_N=308 gain=0.0431
+build new node depth=2_N=1493 gain=0.0303
+build new node depth=3_N=514 gain=0.0459
+build new node depth=3_N=979 gain=0.0340
+build new node depth=1_N=1919 gain=0.0270
+build new node depth=2_N=1004 gain=0.0350
+build new node depth=2_N=915 gain=0.0285
+build new node depth=4_N=789 gain=0.0267
+build new node depth=4_N=955 gain=0.0234
+build new node depth=3_N=669 gain=0.0228
+build new node depth=4_N=354 gain=0.0242
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:85	loss:6.18e-04
+(improve: 3.447e-05)
+valid loss:	3.007e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0244
+build new node depth=1_N=2828 gain=0.0687
+build new node depth=2_N=2048 gain=0.0483
+build new node depth=2_N=780 gain=0.0425
+build new node depth=3_N=983 gain=0.0405
+build new node depth=1_N=2172 gain=0.0401
+build new node depth=3_N=608 gain=0.0379
+build new node depth=4_N=469 gain=0.0375
+build new node depth=4_N=861 gain=0.0366
+build new node depth=2_N=2088 gain=0.0316
+build new node depth=3_N=486 gain=0.0491
+build new node depth=3_N=1602 gain=0.0356
+build new node depth=4_N=549 gain=0.0628
+build new node depth=4_N=1053 gain=0.0269
+build new node depth=4_N=122 gain=0.0259
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:86	loss:5.74e-04
+(improve: 4.419e-05)
+valid loss:	2.984e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0250
+build new node depth=1_N=4586 gain=0.0249
+build new node depth=2_N=4250 gain=0.0251
+build new node depth=3_N=841 gain=0.0459
+build new node depth=3_N=3409 gain=0.0381
+build new node depth=4_N=1507 gain=0.0437
+build new node depth=4_N=1902 gain=0.0326
+build new node depth=4_N=555 gain=0.0215
+build new node depth=1_N=414 gain=0.0172
+best gain 7.619e-03 below gamma 1.000e-02. stop build node.
+==============================
+end tree iteration
+iterate:87	loss:5.54e-04
+(improve: 1.992e-05)
+valid loss:	2.973e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0221
+build new node depth=1_N=4559 gain=0.0232
+build new node depth=2_N=2094 gain=0.0412
+build new node depth=3_N=1064 gain=0.0472
+build new node depth=2_N=2465 gain=0.0273
+build new node depth=3_N=1308 gain=0.0366
+build new node depth=3_N=1157 gain=0.0257
+build new node depth=4_N=267 gain=0.0317
+build new node depth=4_N=727 gain=0.0257
+build new node depth=3_N=1030 gain=0.0241
+build new node depth=4_N=581 gain=0.0240
+build new node depth=4_N=728 gain=0.0229
+build new node depth=4_N=923 gain=0.0189
+build new node depth=4_N=107 gain=0.0187
+build new node depth=4_N=890 gain=0.0170
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:88	loss:5.24e-04
+(improve: 2.951e-05)
+valid loss:	2.973e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0201
+build new node depth=1_N=2828 gain=0.0498
+build new node depth=2_N=1944 gain=0.0387
+build new node depth=3_N=1761 gain=0.0370
+build new node depth=4_N=1668 gain=0.0373
+build new node depth=2_N=884 gain=0.0327
+build new node depth=3_N=659 gain=0.0415
+build new node depth=1_N=2172 gain=0.0280
+build new node depth=2_N=1171 gain=0.0667
+build new node depth=2_N=1001 gain=0.0447
+build new node depth=3_N=883 gain=0.0332
+build new node depth=3_N=288 gain=0.0283
+build new node depth=3_N=183 gain=0.0275
+build new node depth=3_N=225 gain=0.0261
+build new node depth=4_N=215 gain=0.0235
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:89	loss:4.86e-04
+(improve: 3.886e-05)
+valid loss:	2.970e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0189
+build new node depth=1_N=4687 gain=0.0219
+build new node depth=2_N=4597 gain=0.0226
+build new node depth=3_N=3441 gain=0.0353
+build new node depth=4_N=829 gain=0.0435
+build new node depth=4_N=2612 gain=0.0331
+build new node depth=3_N=1156 gain=0.0329
+build new node depth=4_N=1030 gain=0.0338
+build new node depth=4_N=126 gain=0.0195
+best gain 7.071e-03 below gamma 1.000e-02. stop build node.
+==============================
+end tree iteration
+iterate:90	loss:4.66e-04
+(improve: 1.902e-05)
+valid loss:	2.964e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0190
+build new node depth=1_N=4567 gain=0.0235
+build new node depth=2_N=4197 gain=0.0301
+build new node depth=3_N=2273 gain=0.0354
+build new node depth=4_N=2015 gain=0.0334
+build new node depth=3_N=1924 gain=0.0260
+build new node depth=4_N=1605 gain=0.0229
+build new node depth=4_N=319 gain=0.0200
+build new node depth=2_N=370 gain=0.0126
+best gain 9.575e-03 below gamma 1.000e-02. stop build node.
+==============================
+end tree iteration
+iterate:91	loss:4.50e-04
+(improve: 1.618e-05)
+valid loss:	2.959e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0179
+build new node depth=1_N=4962 gain=0.0230
+build new node depth=2_N=1079 gain=0.0305
+build new node depth=2_N=3883 gain=0.0290
+build new node depth=3_N=2210 gain=0.0301
+build new node depth=4_N=1152 gain=0.0336
+build new node depth=4_N=1058 gain=0.0294
+build new node depth=3_N=1673 gain=0.0285
+build new node depth=4_N=1045 gain=0.0356
+build new node depth=3_N=291 gain=0.0231
+build new node depth=1_N=38 gain=0.0164
+build new node depth=3_N=788 gain=0.0158
+build new node depth=4_N=147 gain=0.0125
+build new node depth=4_N=628 gain=0.0121
+build new node depth=4_N=709 gain=0.0100
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:92	loss:4.25e-04
+(improve: 2.530e-05)
+valid loss:	2.965e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0167
+build new node depth=1_N=4740 gain=0.0190
+build new node depth=2_N=4165 gain=0.0206
+build new node depth=3_N=1566 gain=0.0411
+build new node depth=4_N=1412 gain=0.0443
+build new node depth=3_N=2599 gain=0.0291
+build new node depth=4_N=1793 gain=0.0304
+build new node depth=4_N=806 gain=0.0214
+build new node depth=4_N=154 gain=0.0176
+build new node depth=1_N=260 gain=0.0107
+best gain 9.846e-03 below gamma 1.000e-02. stop build node.
+==============================
+end tree iteration
+iterate:93	loss:4.07e-04
+(improve: 1.822e-05)
+valid loss:	2.961e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0161
+build new node depth=1_N=1573 gain=0.0224
+build new node depth=2_N=1531 gain=0.0242
+build new node depth=1_N=3427 gain=0.0194
+build new node depth=2_N=1237 gain=0.0250
+build new node depth=3_N=549 gain=0.0185
+build new node depth=4_N=314 gain=0.0223
+build new node depth=2_N=2190 gain=0.0172
+build new node depth=3_N=2009 gain=0.0169
+build new node depth=3_N=982 gain=0.0160
+build new node depth=4_N=1840 gain=0.0148
+build new node depth=3_N=923 gain=0.0145
+build new node depth=4_N=172 gain=0.0139
+build new node depth=4_N=810 gain=0.0133
+build new node depth=3_N=314 gain=0.0130
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:94	loss:3.87e-04
+(improve: 1.948e-05)
+valid loss:	2.959e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0149
+build new node depth=1_N=4617 gain=0.0178
+build new node depth=2_N=3775 gain=0.0191
+build new node depth=3_N=961 gain=0.0231
+build new node depth=3_N=2814 gain=0.0217
+build new node depth=4_N=1444 gain=0.0325
+build new node depth=4_N=1370 gain=0.0238
+build new node depth=4_N=641 gain=0.0162
+build new node depth=4_N=320 gain=0.0155
+build new node depth=2_N=842 gain=0.0120
+best gain 7.741e-03 below gamma 1.000e-02. stop build node.
+==============================
+end tree iteration
+iterate:95	loss:3.73e-04
+(improve: 1.431e-05)
+valid loss:	2.957e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0147
+build new node depth=1_N=649 gain=0.0297
+build new node depth=1_N=4351 gain=0.0222
+build new node depth=2_N=3146 gain=0.0262
+build new node depth=3_N=2348 gain=0.0211
+build new node depth=4_N=1406 gain=0.0220
+build new node depth=2_N=1205 gain=0.0209
+build new node depth=3_N=558 gain=0.0231
+build new node depth=4_N=942 gain=0.0148
+build new node depth=3_N=798 gain=0.0136
+build new node depth=4_N=500 gain=0.0152
+build new node depth=4_N=381 gain=0.0123
+build new node depth=2_N=496 gain=0.0116
+build new node depth=2_N=153 gain=0.0110
+best gain 7.442e-03 below gamma 1.000e-02. stop build node.
+==============================
+end tree iteration
+iterate:96	loss:3.54e-04
+(improve: 1.882e-05)
+valid loss:	2.947e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0137
+build new node depth=1_N=4768 gain=0.0193
+build new node depth=2_N=2564 gain=0.0276
+build new node depth=3_N=2183 gain=0.0323
+build new node depth=4_N=1095 gain=0.0216
+build new node depth=2_N=2204 gain=0.0182
+build new node depth=3_N=1608 gain=0.0195
+build new node depth=3_N=596 gain=0.0171
+build new node depth=4_N=1088 gain=0.0139
+build new node depth=1_N=232 gain=0.0138
+build new node depth=4_N=482 gain=0.0131
+build new node depth=4_N=1126 gain=0.0122
+build new node depth=2_N=216 gain=0.0120
+build new node depth=4_N=546 gain=0.0118
+best gain 5.551e-03 below gamma 1.000e-02. stop build node.
+==============================
+end tree iteration
+iterate:97	loss:3.36e-04
+(improve: 1.793e-05)
+valid loss:	2.952e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0131
+build new node depth=1_N=2481 gain=0.0147
+build new node depth=2_N=1819 gain=0.0145
+build new node depth=3_N=1442 gain=0.0161
+build new node depth=4_N=457 gain=0.0167
+build new node depth=1_N=2519 gain=0.0138
+build new node depth=2_N=1934 gain=0.0167
+build new node depth=3_N=481 gain=0.0194
+build new node depth=3_N=1453 gain=0.0178
+build new node depth=4_N=1308 gain=0.0182
+build new node depth=4_N=145 gain=0.0132
+build new node depth=3_N=377 gain=0.0122
+build new node depth=4_N=403 gain=0.0120
+build new node depth=2_N=662 gain=0.0118
+build new node depth=3_N=587 gain=0.0130
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:98	loss:3.20e-04
+(improve: 1.629e-05)
+valid loss:	2.956e-02
+start build new Tree
+build new node depth=0_N=5000 gain=0.0131
+build new node depth=1_N=2593 gain=0.0306
+build new node depth=2_N=2392 gain=0.0351
+build new node depth=3_N=1911 gain=0.0245
+build new node depth=3_N=481 gain=0.0229
+build new node depth=4_N=301 gain=0.0197
+build new node depth=4_N=180 gain=0.0196
+build new node depth=1_N=2407 gain=0.0170
+build new node depth=2_N=772 gain=0.0245
+build new node depth=3_N=366 gain=0.0389
+build new node depth=2_N=1635 gain=0.0245
+build new node depth=3_N=1348 gain=0.0154
+build new node depth=4_N=202 gain=0.0148
+build new node depth=3_N=287 gain=0.0145
+build new node depth=3_N=406 gain=0.0145
+reach to 15 nodes. stop build node.
+==============================
+end tree iteration
+iterate:99	loss:2.96e-04
+(improve: 2.401e-05)
+valid loss:	2.941e-02
+validation accuracy: 0.9898505465090341
