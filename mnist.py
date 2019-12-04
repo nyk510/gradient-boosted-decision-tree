@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from sklearn.datasets import fetch_mldata
+from sklearn.datasets import fetch_openml
 from sklearn.metrics import accuracy_score
 
 import gbdtree as gb
@@ -10,28 +10,36 @@ from gbdtree.utils import get_logger
 
 logger = get_logger(__name__)
 
-if __name__ == '__main__':
-    mnist = fetch_mldata('MNIST original')
+
+def load_mnist():
+    X, y = fetch_openml('mnist_784', version=1, return_X_y=True)
+    y = np.asarray(y, dtype=np.int)
     logger.info('This is MNIST Original dataset')
     logger.debug('finish fetch datasets')
 
     # target of image number.
     # note: it is difficult problem to decide 3 and 8.
-    target = 3, 8,
+    target = 3, 8
     logger.info('target: {0},{1}'.format(*target))
 
-    idx = (mnist.target == target[0]) | (mnist.target == target[1])
+    idx = (y == target[0]) | (y == target[1])
     logger.debug(idx.shape)
-    x = mnist.data[idx] / 255.
-    t = mnist.target[idx]
-    t = np.where(t == target[0], 0., 1., )
+    x = X[idx] / 255.
+    y = y[idx]
+    y = np.where(y == target[0], 0., 1.)
+    return x, y
+
+
+if __name__ == '__main__':
+    x, y = load_mnist()
+    logger.info(len(x))
 
     # split train and test dataset
     # I shoud have use sklearn.cross_validation.train_test_split...
     np.random.seed(71)
-    perm = np.random.permutation(len(t))
-    x_train, t_train = x[perm[:2000]], t[perm[:2000]]
-    x_test, t_test = x[perm[2000:]], t[perm[2000:]]
+    perm = np.random.permutation(len(y))
+    x_train, t_train = x[perm[:2000]], y[perm[:2000]]
+    x_test, t_test = x[perm[2000:]], y[perm[2000:]]
 
     logger.info('training datasize: {0}'.format(t_train.shape[0]))
     logger.info('test datasize: {0}'.format(t_test.shape[0]))
@@ -41,9 +49,10 @@ if __name__ == '__main__':
     regobj = fn.CrossEntropy()
     loss = fn.logistic_loss
 
-    clf = gb.GradientBoostedDT(regobj, loss, num_iter=30, eta=.4)
-    clf.fit(x_train, t_train, validation_data=(x_test, t_test))
-
+    clf = gb.GradientBoostedDT(regobj, loss, num_iter=40, eta=.4, max_leaves=15, max_depth=5, gamma=.1)
+    clf.fit(x_train, t_train, validation_data=(x_test, t_test), verbose=1)
+    f_importance = clf.feature_importance()
+    pd.Series(f_importance).reset_index().to_csv('feature_importance.csv', index=False)
     plt.title('seqence of training and test loss')
     plt.plot(clf.training_loss, 'o-', label='training loss')
     plt.plot(clf.validation_loss, 'o-', label='test loss')

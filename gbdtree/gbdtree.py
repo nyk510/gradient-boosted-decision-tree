@@ -1,9 +1,17 @@
+from collections import defaultdict
+from typing import Union, List
+
 import numpy as np
 
 from .functions import CrossEntropy, Objective, logistic_loss
 from .utils import get_logger
 
-logger = get_logger(__name__, "INFO")
+logger = get_logger(__name__, "DEBUG")
+
+
+def calculate_objective(grad, hess, lam):
+    obj_val = - grad.sum() ** 2. / (lam + hess.sum()) / 2.
+    return obj_val
 
 
 class Node(object):
@@ -13,34 +21,29 @@ class Node(object):
 
     totalNodeNum = 0
 
-    def __init__(self, x, t, grad, hess, lam=1e-4, objective_function="cross_entropy"):
+    def __init__(self, x, t, grad, hess, lam=1e-4, depth=0):
         """
-        :param x:
-        :param t:
-        :param grad:
-        :param hess:
-        :param lam:
-        :param objective_function: 目的関数
+
+        Args:
+            x:
+            t:
+            grad:
+            hess:
+            lam:
+            objective_function:
+            depth: この木の深さ
         """
         if len(x.shape) == 1:
             x = x.reshape(-1, 1)
 
-        Node.totalNodeNum += 1
-        self.id = Node.totalNodeNum
         self.x = x
         self.t = t
         self.grad = grad
         self.hess = hess
         self.lam = lam
+        self.depth = depth
 
-        if objective_function == "cross_entropy":
-            self.objective_function = CrossEntropy()
-        elif isinstance(objective_function, Objective):
-            self.objective_function = objective_function
-        else:
-            raise ValueError("objective_function must be `Objective` instance")
-
-        self.feature = None
+        self.split_feature = None
         self.threshold = None
         self.right = None
         self.left = None
@@ -54,9 +57,13 @@ class Node(object):
 
         self.loss = self.calculate_children_objective()
 
-        self.best_gain = 0.
+        self.best_gain = - np.inf
+        self.leaf_has_best_gain = None
         self.best_threshold = None
         self.best_feature_idx = None
+
+    def __str__(self):
+        return f'depth={self.depth}_N={self.num_data}'
 
     def predict(self, x):
         """
@@ -65,103 +72,92 @@ class Node(object):
         """
         # 子供ノードがある場合それに予測をさせる
         if self.has_children:
-            return np.where(x[:, self.feature] < self.threshold,
+            return np.where(x[:, self.split_feature] < self.threshold,
                             self.left.predict(x),
                             self.right.predict(x))
         else:
             return self.y
 
-    def _calculate_objective_value(self, grad, hess):
-        """
-        勾配、ヘシアン情報から、二次近似された objective function の値を計算
-        :param np.ndarray grad
-            目的関数の勾配の配列. shape = (n_samples, )
-        :param np.ndarray hess
-            目的関数のヘシアンの配列. shape = (n_samples, )
-        :rtype float
-        """
-
-        obj_val = - grad.sum() ** 2. / (self.lam + hess.sum()) / 2.
-        return obj_val
-
-    def calculate_index_obj(self, idx):
+    def calculate_index_obj(self, idx) -> float:
         """
         自分の持っているデータの中の一部を使って `objective function` の値を計算
-        :param np.ndarray idx: 求めたいデータの index の配列. shape = (n_samples, )
+        :param idx: 求めたいデータの index の配列. shape = (n_samples, )
         :return objective value
         :rtype float
         """
-        return self._calculate_objective_value(self.grad[idx], self.hess[idx])
+        return calculate_objective(self.grad[idx], self.hess[idx], self.lam)
 
-    def build(self, best_gain):
-        """
-        best_gain と同じ値を持つノードの分割を実行する.
+    def build(self):
+        self.split_feature = f_idx = self.best_feature_idx
+        self.threshold = threshold = self.best_threshold
+        x = self.x
+        t = self.t
 
-        子ノードが存在する場合は、子ノードどちらかに `best_gain` を持つものが存在するので
-        + `best_gain` をもつものがあるかどうかチェック
-        + 子ノードに対し再起的に `build"` の呼び出し
-        """
+        left_idx = x[:, f_idx] < threshold
+        right_idx = x[:, f_idx] >= threshold
 
-        if self.has_children:
-            if self.left.best_gain > self.right.best_gain:
-                self.left.build(best_gain)
-            else:
-                self.right.build(best_gain)
+        logger.debug('left-count:{0}\tright-count:{1}\tfeature_index:{2}'.format(
+            sum(left_idx), sum(right_idx), f_idx))
 
-        else:
-            self.feature = f_idx = self.best_feature_idx
-            self.threshold = threshold = self.best_threshold
-            x = self.x
-            t = self.t
+        l_x, l_t, l_g, l_h = x[left_idx], t[left_idx], self.grad[left_idx], self.hess[left_idx]
+        r_x, r_t, r_g, r_h = x[right_idx], t[right_idx], self.grad[right_idx], self.hess[right_idx]
 
-            left_idx = x[:, f_idx] < threshold
-            right_idx = x[:, f_idx] >= threshold
+        self.left = Node(x=l_x, t=l_t, grad=l_g, hess=l_h, lam=self.lam, depth=self.depth + 1)
+        self.right = Node(x=r_x, t=r_g, grad=r_g, hess=r_h, lam=self.lam, depth=self.depth + 1)
+        self.has_children = True
+        self.already_calculated_gain = False
 
-            logger.debug('left-count:{0}\tright-count:{1}\tfeature_index:{2}'.format(
-                sum(left_idx), sum(right_idx), f_idx))
-
-            l_x, l_t, l_g, l_h = x[left_idx], t[left_idx], self.grad[left_idx], self.hess[left_idx]
-            r_x, r_t, r_g, r_h = x[right_idx], t[right_idx], self.grad[right_idx], self.hess[right_idx]
-
-            self.left = Node(x=l_x, t=l_t, grad=l_g, hess=l_h)
-            self.right = Node(x=r_x, t=r_g, grad=r_g, hess=r_h)
-            self.has_children = True
-            self.already_calculated_gain = False
-            return
-
-    def calculate_best_gain(self):
+    def calculate_best_split(self, max_depth=5) -> (float, Union[None, 'Node']):
         """
         自分以下のノードが分割されたときの最も良い `gain` の値を計算しそれを返す
-        末端のノードの際にはそれに加えて以下を保存する
 
+        max_depth 以上の node などそれ以上分割が出来ない node の時 None, None の tuple を返す
+
+
+        末端のノードの際にはそれに加えて以下を保存する
         + どの `index` で分割を行うか - `best_feature_idx`
         + 閾値を幾つで分割するか - `best_threshold`
+
+        Returns:
+            best_gain, and Node (which has the best gain).
         """
+
+        if self.depth == max_depth:
+            return - np.inf, None
 
         # 親ノードのとき子ノードに計算を再起的に呼び出し
         if self.has_children:
-            l = self.left.calculate_best_gain()
-            r = self.right.calculate_best_gain()
-            self.best_gain = max(l, r)
-            return self.best_gain
+            l, node_l = self.left.calculate_best_split()
+            r, node_r = self.right.calculate_best_split()
+
+            if l is None and r is None:
+                return - np.inf, None
+
+            best_gain = max(l, r)
+            if l > r:
+                self.leaf_has_best_gain = node_l
+            else:
+                self.leaf_has_best_gain = node_r
+            return best_gain, self.leaf_has_best_gain
 
         # 以下はすべて末端ノード
         # 計算済みであればそれを返す
         if self.already_calculated_gain:
-            return self.best_gain
+            return self.best_gain, self
 
         # 以下は計算していない末端ノードに対する計算になる
         # 自分に属するデータが１つしかないときこれ以上分割できないので終了
+        # [TODO] 最小の split 数は変更できるようにしたい.
+        # instance 引数に取るか関数の引数に取るかは要検討
         if self.num_data <= 1:
-            return self.best_gain
+            return - np.inf, self
 
         # すべての特徴量で、分割の最適化を行って最も良い分割を探索
+        logger.debug('start search best separate point')
         for f_idx in range(self.num_feature):
-
             # ユニークなデータ点とその中間点を取得
             # 中間点は分類するときの基準値 threshold を決定するために使う
             # 入力変数がカテゴリ値のときは考えていない
-            logger.debug(f_idx)
             data_f = np.unique(self.x[:, f_idx])
             sep_points = (data_f[1:] + data_f[:-1]) / 2.
 
@@ -173,15 +169,38 @@ class Node(object):
                 gain = self.loss - loss_left - loss_right
 
                 # 既に計算されている最も大きなゲインより大きい場合には更新する
-                if self.best_gain < gain:
+                if gain > self.best_gain:
                     self.best_gain = gain
                     self.best_threshold = threshold
                     self.best_feature_idx = f_idx
 
-        # 一度計算したら再度分割されるまでは同じなので, already_calculated_gain = true とする
+            logger.debug(f'Split Index: {f_idx}\tSep Points: {len(sep_points)}\tCurrent Gain: {self.best_gain:.3e}')
+
+        logger.debug('new gain: {:.3e}@{}'.format(self.best_gain, str(self)))
+        # 一度計算したら再度分割されるまで best gain の値は同じになるため
+        # すでに計算済みであることが分かるように already_calculated_gain = true とする
         self.already_calculated_gain = True
 
-        return self.best_gain
+        return self.best_gain, self
+
+    def feature_importance(self, type='gain') -> Union[dict, None]:
+        if not self.has_children:
+            return None
+
+        data = defaultdict(int)
+        if type == 'gain':
+            x = self.best_gain
+        else:
+            x = 1
+        data[self.split_feature] += x
+        for node in [self.right, self.left]:
+            d_i = node.feature_importance()
+            if d_i is None:
+                continue
+            for k, v in d_i.items():
+                data[k] += v
+
+        return data
 
     def calculate_children_objective(self):
         """
@@ -193,7 +212,7 @@ class Node(object):
             return self.left.calculate_children_objective() + self.right.calculate_children_objective()
 
         # 末端ノードの時真面目に計算
-        loss = self._calculate_objective_value(grad=self.grad, hess=self.hess)
+        loss = calculate_objective(grad=self.grad, hess=self.hess, lam=self.lam)
         return loss
 
     def _describe(self):
@@ -212,8 +231,9 @@ class Node(object):
         """
         retval = {
             "data": {
-                "id": self.id,
-                "num_children": self.num_data
+                "num_data": self.num_data,
+                'depth': self.depth,
+                'y': self.y
             }
         }
         if self.has_children:
@@ -230,26 +250,13 @@ class Node(object):
         :rtype list[dict] list[dict]
         """
         if self.has_children is False:
-            return [self._describe()], None
+            return self._describe()
 
-        nodes = [self._describe()]
-        edges = []
-        for node in [self.right, self.left]:
-            child_nodes, child_edges = node.show_network()
-
-            nodes.extend(child_nodes)
-            if child_edges is not None:
-                edges.extend(child_edges)
-
-            edges.append(
-                {
-                    "data": {
-                        "source": self.id,
-                        "target": node.id
-                    }
-                }
-            )
-        return nodes, edges
+        retval = {}
+        retval['data'] = self._describe()
+        retval['data']['right'] = self.right.show_network()
+        retval['data']['left'] = self.left.show_network()
+        return retval
 
 
 class GradientBoostedDT(object):
@@ -258,20 +265,20 @@ class GradientBoostedDT(object):
     """
 
     def __init__(self, objective="cross_entropy", loss="logistic",
-                 max_depth=8, gamma=1., num_iter=20, eta=.1, lam=.01,
+                 max_leaves=8, gamma=1., num_iter=20, eta=.1, reg_lambda=.01, max_depth=5,
                  ):
         """
         :param str | Objective objective:
             回帰する目的関数 or それを表す文字列. (文字列は今は `cross_entropy` のみに対応)
             要するに call した時に (grad, hess) の tuple を返す必要がある.
         :param str | () => loss: ロス関数. `logistic` or callable object
-        :param int max_depth: 分割の最大値
+        :param int max_leaves: 分割の最大値
         :param float gamma: 
             木を一つ成長させることに対するペナルティ. 
             gain の値が gamma を超えない場合木の分割を stop する. 
         :param int num_iter: boostingを繰り返す回数
         :param float eta: boostingのステップサイズ
-        :param float lam: 目的関数の正則化パラメータ
+        :param float reg_lambda: 目的関数の正則化パラメータ
         """
         if objective == "cross_entropy":
             self.objective = CrossEntropy()
@@ -289,12 +296,13 @@ class GradientBoostedDT(object):
             raise ValueError("arg `loss` is only supported `logistic`. ")
 
         self.activate = self.objective.activate
-        self.trees = []
+        self.trees = []  # type: List[Node]
+        self.max_leaves = max_leaves
         self.max_depth = max_depth
         self.gamma = gamma
         self.num_iter = num_iter
         self.eta = eta
-        self.lam = lam
+        self.reg_lambda = reg_lambda
         self.training_loss = None
         self.validation_loss = None
         self.f = None
@@ -304,57 +312,69 @@ class GradientBoostedDT(object):
         :param np.ndarray x: 特徴量の numpy array. shape = (n_samples, n_features)
         :param np.ndarray t: 目的変数の numpy array. shape = (n_samples, )
         :param [np.ndarray, np.ndarray] | None validation_data:
-            (x, t) で構成された validation data.
+            (x, y) で構成された validation data.
             None 以外が与えら得た時各 iteration ごとにこのデータを用いて validation loss を計算する.
         :param int verbose:
         :return:
         """
-        if verbose > 0:
-            logger.setLevel("INFO")
-        elif verbose > 1:
+        if verbose >= 2:
             logger.setLevel("DEBUG")
+        elif verbose >= 1:
+            logger.setLevel("INFO")
 
         if len(x.shape) == 1:
             x = x.reshape(-1, 1)
+
+        assert len(x) == len(t)
         self.f = np.zeros_like(t)
         self.training_loss = []
         if validation_data is not None:
             self.validation_loss = []
 
         for i in range(self.num_iter):
+            logger.info('start build new Tree')
             # 直前の予測値と目的の値とで勾配とヘシアンを計算
             grad, hess = self.objective(self.f, t)
+            root_node = Node(x=x, t=t, grad=grad, hess=hess, lam=self.reg_lambda)
 
-            root_node = Node(x=x, t=t, grad=grad, hess=hess, lam=self.lam)
+            for depth in range(self.max_leaves):
+                # logger.debug('object_value:\y{0:.2f}'.format(root_node.calculate_children_objective()))
+                # logger.debug('iterate:\y{0},\tdepth:\y{1}'.format(i, depth))
+                best_gain, best_node = root_node.calculate_best_split(self.max_depth)
+                # logger.debug('Best Gain:\y{0:.2f}'.format(best_gain))
 
-            for depth in range(self.max_depth):
-                logger.debug('object_value:\t{0:.2f}'.format(root_node.calculate_children_objective()))
-                logger.debug('iterate:\t{0},\tdepth:\t{1}'.format(i, depth))
-
-                best_gain = root_node.calculate_best_gain()
-                logger.debug('Best Gain:\t{0:.2f}'.format(best_gain))
+                if best_node is None:
+                    break
 
                 if best_gain < self.gamma:
+                    logger.info(f'best gain {best_gain:.3e} below gamma {self.gamma:.3e}. stop build nodes.')
                     break
                 else:
-                    root_node.build(best_gain=best_gain)
+                    logger.info('build new node {} gain={:.4f}'.format(best_node, best_gain))
+                    best_node.build()
 
             self.trees.append(root_node)
             f_i = root_node.predict(x)
             self.f += self.eta * f_i
             train_loss = self._current_train_loss(t)
-            logger.info('iterate:{0}\tloss:{1:.2f}'.format(i, train_loss))
+
+            logger.info('=' * 30)
+            logger.info('end tree iteration')
+            logger.info('iterate:{0}\tloss:{1:.2e}'.format(i, train_loss))
+            if len(self.training_loss) > 0:
+                diff = self.training_loss[-1] - train_loss
+                logger.info(f'(improve: {diff:.3e})')
             self.training_loss.append(train_loss)
 
             if validation_data is not None:
                 valid_x, valid_t = validation_data
                 pred = self.predict(valid_x)
-                pred_loss = self.loss(pred, valid_t).sum()
+                pred_loss = self.loss(pred, valid_t).mean()
                 self.validation_loss.append(pred_loss)
-                logger.info('valid loss:\t{0:.2f}'.format(pred_loss))
+                logger.info('valid loss:\t{0:.3e}'.format(pred_loss))
         return self
 
-    def _current_train_loss(self, t):
+    def _current_train_loss(self, t) -> float:
         """
         学習途中でのロス関数の値を計算する
         :param np.ndarray t: target values
@@ -363,9 +383,9 @@ class GradientBoostedDT(object):
         """
         a = self.activate(self.f)
         loss = self.loss(a, t)
-        return loss.sum()
+        return loss.mean()
 
-    def predict(self, x, use_trees=None):
+    def predict(self, x, use_trees=None) -> np.ndarray:
         """
         :param np.ndarray x:
         :param None | int use_trees:
@@ -384,10 +404,25 @@ class GradientBoostedDT(object):
         pred = self.activate(a)
         return pred
 
-    def show_network(self):
-        for tree in self.trees:
-            nodes, edges = tree.show_network()
-            yield {
-                "nodes": nodes,
-                "edges": edges
-            }
+    def show_network(self) -> dict:
+        data = {}
+
+        tree_data = []
+        for i, tree in enumerate(self.trees):
+            d_i = tree.show_network()
+            tree_data.append({
+                'index': i,
+                'data': d_i
+            })
+        data['trees'] = tree_data
+        return data
+
+    def feature_importance(self, type='gain') -> dict:
+        data = defaultdict(float)
+        for t in self.trees:
+            d_i = t.feature_importance(type)
+            if d_i is None:
+                continue
+            for k, v in d_i.items():
+                data[k] += v
+        return data
