@@ -33,13 +33,6 @@ scipy
 
 ### Quick Start
 
-```bash
-python3 -m venv .venv
-source ./.venv/bin/activate
-
-pip install -U pip && pip install -r requirements.txt
-```
-
 ### Run with Docker
 
 事前にホストマシン上に docker 及び docker-compose がインストールされていることが条件です。
@@ -60,6 +53,18 @@ docker exec -it gbdt-app bash
 # sample.py を実行
 python sample.py
 ```
+
+## Run on local
+
+venv を使うのがいいかなと思います。
+
+```bash
+python3 -m venv .venv
+source ./.venv/bin/activate
+
+pip install -U pip && pip install -r requirements.txt
+```
+
 
 ## 使い方
 
@@ -157,3 +162,8 @@ MNIST の手書きデータを用いた分類問題をときます。
 ```
 
 分類精度97.5%を達成(でもめっちゃ時間かかる...)
+
+* feature_importance
+* 学習時の logging
+
+が `/examples/mnist` に出力されます.

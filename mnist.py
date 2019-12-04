@@ -58,7 +58,7 @@ if __name__ == '__main__':
     regobj = fn.CrossEntropy()
     loss = fn.logistic_loss
 
-    clf = gb.GradientBoostedDT(regobj, loss, num_iter=5, eta=.4, max_leaves=15, max_depth=5, gamma=.1)
+    clf = gb.GradientBoostedDT(regobj, loss, num_iter=40, eta=.4, max_leaves=15, max_depth=5, gamma=.1)
     clf.fit(x_train, t_train, validation_data=(x_test, t_test), verbose=1)
     f_importance = clf.feature_importance()
     pd.Series(f_importance).reset_index().to_csv(os.path.join(OUTPUT_DIR, 'feature_importance.csv'), index=False)
