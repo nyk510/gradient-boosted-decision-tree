@@ -7,6 +7,7 @@ __author__ = "nyk510"
 
 from logging import getLogger, StreamHandler, Formatter
 
+
 def get_logger(name, level="DEBUG"):
     logger = getLogger(name)
 
