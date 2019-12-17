@@ -56,7 +56,7 @@ class Node(object):
     Gradient Boosting で作成する木構造のノード object
     """
 
-    def __init__(self, x, t, grad, hess, lam=1e-4, depth=0):
+    def __init__(self, x, t, grad, hess, use_columns, lam=1e-4, depth=0):
         """
         Args:
             x: この Node の特徴量.
@@ -87,6 +87,7 @@ class Node(object):
         self.already_calculated_gain = False
         self.num_feature = x.shape[1]
         self.num_data = x.shape[0]
+        self.use_columns = use_columns
 
         # predict values clustered in this node.
         self.y = - grad.sum() / (lam + hess.sum())
@@ -139,8 +140,10 @@ class Node(object):
         l_x, l_t, l_g, l_h = x[left_idx], t[left_idx], self.grad[left_idx], self.hess[left_idx]
         r_x, r_t, r_g, r_h = x[right_idx], t[right_idx], self.grad[right_idx], self.hess[right_idx]
 
-        self.left = Node(x=l_x, t=l_t, grad=l_g, hess=l_h, lam=self.lam, depth=self.depth + 1)
-        self.right = Node(x=r_x, t=r_g, grad=r_g, hess=r_h, lam=self.lam, depth=self.depth + 1)
+        self.left = Node(x=l_x, t=l_t, grad=l_g, hess=l_h, lam=self.lam, depth=self.depth + 1,
+                         use_columns=self.use_columns)
+        self.right = Node(x=r_x, t=r_g, grad=r_g, hess=r_h, lam=self.lam, depth=self.depth + 1,
+                          use_columns=self.use_columns)
         self.has_children = True
         self.already_calculated_gain = False
         return self.left, self.right
@@ -204,7 +207,6 @@ class Node(object):
         # すべての特徴量で、分割の最適化を行って最も良い分割を探索
         self.best_gain, self.best_threshold, self.best_feature_idx = \
             calculate_best_split_and_gain(self.x, self.grad, self.hess, self.lam, self.loss)
-
         logger.debug('new gain: {:.3e}@{}'.format(self.best_gain, str(self)))
 
         return self.best_gain, self
@@ -290,21 +292,42 @@ class GradientBoostedDT(object):
     Gradient Boosted Decision Tree による予測モデル
     """
 
-    def __init__(self, objective="cross_entropy", loss="logistic",
-                 max_leaves=8, gamma=1., num_iter=20, eta=.1, reg_lambda=.01, max_depth=5,
-                 ):
+    def __init__(self, objective="cross_entropy", loss="logistic", num_iter=20,
+                 max_leaves=8, max_depth=5, gamma=1., eta=.1, reg_lambda=.01,
+                 colsample_bytree=1., subsample=1., subsample_freq=3):
         """
-        :param str | Objective objective:
-            回帰する目的関数 or それを表す文字列. (文字列は今は `cross_entropy` のみに対応)
-            要するに call した時に (grad, hess) の tuple を返す必要がある.
-        :param str | () => loss: ロス関数. `logistic` or callable object
-        :param int max_leaves: 分割の最大値
-        :param float gamma: 
-            木を一つ成長させることに対するペナルティ. 
-            gain の値が gamma を超えない場合木の分割を stop する. 
-        :param int num_iter: boostingを繰り返す回数
-        :param float eta: boostingのステップサイズ
-        :param float reg_lambda: 目的関数の正則化パラメータ
+        Args:
+            objective(str | Objective):
+                目的関数名 or Objective Class (class の定義は functions にあります)
+                文字列の場合以下のみに対応しています
+                * `"cross_entropy"`
+
+                Objective を与えるときは, 以下を満たす object を与えてください
+                * `call` した際に
+                * y_true, y_pred を引数にとり
+                * gradient, hessian を返す
+            loss:
+                training_loss や validation loss を計算する loss 関数
+            num_iter:
+                Boosting の回数. n_estimator と同義.
+            max_leaves(:
+                Boosting 一つでできる木の, 最大の葉ノードの数
+            max_depth(int):
+                Boosting 一つでできる木の, 最大深さ.
+            gamma:
+                木を一つ成長させることに対するペナルティ.
+                gain の値が gamma を超えない場合木の分割を stop する.
+            eta:
+                learning_rate と同義. 一つの木の予測をどれだけ使うか.
+            reg_lambda:
+                L2正則化パラメータ.
+            colsample_bytree:
+                一つの木を作る際に使う特徴量の数の割合.
+            subsample:
+                木を作る際にデータをサンプリングする際の割合.
+                データ数が N とすると int(N * subsample_bytree) 個のデータを使用して木を成長させる
+            subsample_freq:
+                subsample を行う周期.
         """
         if objective == "cross_entropy":
             self.objective = CrossEntropy()
@@ -329,13 +352,16 @@ class GradientBoostedDT(object):
         self.num_iter = num_iter
         self.eta = eta
         self.reg_lambda = reg_lambda
+        self.subsample = subsample
+        self.subsample_freq = subsample_freq
+        self.colsample_bytree = colsample_bytree
         self.training_loss = None
         self.validation_loss = None
 
         # f には予測値を保存していく
         self.f = None
 
-    def fit(self, x, t, validation_data=None, verbose=1):
+    def fit(self, x, t, validation_data=None, verbose=1, random_seed=1):
         """
         :param np.ndarray x: 特徴量の numpy array. shape = (n_samples, n_features)
         :param np.ndarray t: 目的変数の numpy array. shape = (n_samples, )
@@ -357,17 +383,35 @@ class GradientBoostedDT(object):
 
         assert len(x) == len(t)
 
+        state = np.random.RandomState(seed=random_seed)
+        n_features = x.shape[1]
+        n_data = x.shape[0]
+        n_select_columns = int(n_features * self.colsample_bytree)
+        n_select_data = int(n_data * self.subsample)
+
         # `f` を zero vector で初期化
         self.f = np.zeros_like(t, dtype=np.float)
         self.training_loss = []
         if validation_data is not None:
             self.validation_loss = []
 
+        use_idx = range(0, n_data)
         for i in range(self.num_iter):
             logger.info('start build new Tree')
+
+            # 1.  `subsample_freq` ごとにデータを choice
+            if i % self.subsample_freq == 0:
+                logger.debug('update use data')
+                use_idx = state.choice(range(0, n_data), size=n_select_data, replace=False)
+
+            # 2. 使うデータを choice
+            use_columns = state.choice(range(0, n_features), size=n_select_columns, replace=False)
+            logger.debug('use column index: {}'.format(','.join([str(i) for i in use_columns])))
             # 直前の予測値と目的の値とで勾配とヘシアンを計算
-            grad, hess = self.objective(self.f, t)
-            root_node = Node(x=x, t=t, grad=grad, hess=hess, lam=self.reg_lambda)
+            X_train = x[use_idx]
+            t_train = t[use_idx]
+            grad, hess = self.objective(self.f[use_idx], t_train)
+            root_node = Node(x=X_train, t=t_train, grad=grad, hess=hess, lam=self.reg_lambda, use_columns=use_columns)
 
             # max_leaves に達するまで以下を繰り返す
             for leave in range(self.max_leaves):
@@ -390,6 +434,8 @@ class GradientBoostedDT(object):
                 logger.info(f'reach to {self.max_leaves} nodes. stop build node.')
 
             self.trees.append(root_node)
+
+            # この予測はデータ全体で行う
             f_i = root_node.predict(x)
             self.f += self.eta * f_i
             train_loss = self._current_train_loss(t)
