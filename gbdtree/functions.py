@@ -1,6 +1,7 @@
 """
 よく使う便利関数の定義
 """
+from abc import ABC
 
 import numpy as np
 
@@ -19,7 +20,7 @@ def least_square(y, t):
     return loss
 
 
-class Objective(object):
+class Objective(ABC):
     """
     目的関数の abstract class
 
