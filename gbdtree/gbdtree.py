@@ -290,20 +290,11 @@ class Node(object):
 class GradientBoostedDT(object):
     """
     Gradient Boosted Decision Tree による予測モデル
-        :param str | Objective objective:
-            回帰する目的関数 or それを表す文字列. (文字列は今は `cross_entropy` のみに対応)
-            要するに call した時に (grad, hess) の tuple を返す必要がある.
-        :param str | () => loss: ロス関数. `logistic` or callable object
-        :param int max_leaves: 分割の最大値
-        :param float gamma:
-        :param int num_iter: boostingを繰り返す回数
-        :param float eta: boostingのステップサイズ
-        :param float reg_lambda: 目的関数の正則化パラメータ
     """
 
     def __init__(self, objective="cross_entropy", loss="logistic", num_iter=20,
                  max_leaves=8, max_depth=5, gamma=1., eta=.1, reg_lambda=.01,
-                 feature_fraction=1., subsample_bytree=1., subsample_freq=3):
+                 colsample_bytree=1., subsample=1., subsample_freq=3):
         """
         Args:
             objective(str | Objective):
@@ -330,9 +321,9 @@ class GradientBoostedDT(object):
                 learning_rate と同義. 一つの木の予測をどれだけ使うか.
             reg_lambda:
                 L2正則化パラメータ.
-            feature_fraction:
+            colsample_bytree:
                 一つの木を作る際に使う特徴量の数の割合.
-            subsample_bytree:
+            subsample:
                 木を作る際にデータをサンプリングする際の割合.
                 データ数が N とすると int(N * subsample_bytree) 個のデータを使用して木を成長させる
             subsample_freq:
@@ -361,9 +352,9 @@ class GradientBoostedDT(object):
         self.num_iter = num_iter
         self.eta = eta
         self.reg_lambda = reg_lambda
-        self.subsample_bytree = subsample_bytree
+        self.subsample = subsample
         self.subsample_freq = subsample_freq
-        self.feature_fraction = feature_fraction
+        self.colsample_bytree = colsample_bytree
         self.training_loss = None
         self.validation_loss = None
 
@@ -395,8 +386,8 @@ class GradientBoostedDT(object):
         state = np.random.RandomState(seed=random_seed)
         n_features = x.shape[1]
         n_data = x.shape[0]
-        n_select_columns = int(n_features * self.feature_fraction)
-        n_select_data = int(n_data * self.subsample_bytree)
+        n_select_columns = int(n_features * self.colsample_bytree)
+        n_select_data = int(n_data * self.subsample)
 
         # `f` を zero vector で初期化
         self.f = np.zeros_like(t, dtype=np.float)
