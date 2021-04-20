@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import Union, List
+from typing import Union, List, Tuple, Callable
 
 import numpy as np
 from numba import jit
@@ -115,14 +115,14 @@ class Node(object):
         else:
             return self.y
 
-    def build(self):
+    def build(self) -> ('Node', 'Node'):
         """
         この node で分割を実行
 
         NOTE: build を実行する前に `calculate_best_split` を実行して最適な分割特徴量と分割点を計算している必要があります。
 
         Returns:
-
+            tuple of nodes
         """
         if not self.already_calculated_gain:
             raise ValueError('分割前にかならず最適な分割点を探してる必要があります.')
@@ -140,10 +140,11 @@ class Node(object):
         l_x, l_t, l_g, l_h = x[left_idx], t[left_idx], self.grad[left_idx], self.hess[left_idx]
         r_x, r_t, r_g, r_h = x[right_idx], t[right_idx], self.grad[right_idx], self.hess[right_idx]
 
-        self.left = Node(x=l_x, t=l_t, grad=l_g, hess=l_h, lam=self.lam, depth=self.depth + 1,
-                         use_columns=self.use_columns)
-        self.right = Node(x=r_x, t=r_g, grad=r_g, hess=r_h, lam=self.lam, depth=self.depth + 1,
-                          use_columns=self.use_columns)
+        same_params = dict(lam=self.lam, depth=self.depth + 1, use_columns=self.use_columns)
+
+        self.left = Node(x=l_x, t=l_t, grad=l_g, hess=l_h, **same_params)
+        self.right = Node(x=r_x, t=r_t, grad=r_g, hess=r_h, **same_params)
+
         self.has_children = True
         self.already_calculated_gain = False
         return self.left, self.right
@@ -292,7 +293,8 @@ class GradientBoostedDT(object):
     Gradient Boosted Decision Tree による予測モデル
     """
 
-    def __init__(self, objective="cross_entropy", loss="logistic", num_iter=20,
+    def __init__(self, objective: Union[str, Objective] = "cross_entropy",
+                 loss: Union[str, Callable] = "logistic", num_iter=20,
                  max_leaves=8, max_depth=5, gamma=1., eta=.1, reg_lambda=.01,
                  colsample_bytree=1., subsample=1., subsample_freq=3):
         """
@@ -307,7 +309,11 @@ class GradientBoostedDT(object):
                 * y_true, y_pred を引数にとり
                 * gradient, hessian を返す
             loss:
-                training_loss や validation loss を計算する loss 関数
+                training_loss や validation loss を計算する loss 関数.
+                callable object の場合
+                    * 第一引数に ground truth / 第二引数に predict の値を取り
+                    * 返り値として score を float で返す関数
+                である必要があります
             num_iter:
                 Boosting の回数. n_estimator と同義.
             max_leaves(:
@@ -361,7 +367,10 @@ class GradientBoostedDT(object):
         # f には予測値を保存していく
         self.f = None
 
-    def fit(self, x, t, validation_data=None, verbose=1, random_seed=1):
+    def fit(self,
+            x: np.ndarray,
+            t: np.ndarray,
+            validation_data: Tuple[np.ndarray, np.ndarray] = None, verbose=1, random_seed=1):
         """
         :param np.ndarray x: 特徴量の numpy array. shape = (n_samples, n_features)
         :param np.ndarray t: 目的変数の numpy array. shape = (n_samples, )
@@ -382,7 +391,6 @@ class GradientBoostedDT(object):
             x = x.reshape(-1, 1)
 
         assert len(x) == len(t)
-
         state = np.random.RandomState(seed=random_seed)
         n_features = x.shape[1]
         n_data = x.shape[0]
